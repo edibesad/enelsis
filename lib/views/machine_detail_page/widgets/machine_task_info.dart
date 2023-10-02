@@ -28,7 +28,7 @@ class MachineTaskInfo extends StatelessWidget {
             ),
             Card(
               child: ListTile(
-                leading: const Icon(Icons.task),
+                leading: const Icon(Icons.description),
                 title: const Text("Açıklama"),
                 subtitle: Text(activeTask.description ?? "-"),
               ),
@@ -49,6 +49,25 @@ class MachineTaskInfo extends StatelessWidget {
                     "${activeTask.createdAt!.day}/${activeTask.createdAt!.month}/${activeTask.createdAt!.year} ${activeTask.createdAt!.hour}:${activeTask.createdAt!.minute}"),
               ),
             ),
+            (activeTask.createdAt!.difference(DateTime.now())).inHours.abs() > 2
+                ? Card(
+                    child: ListTile(
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => const MachineTaskDialog(),
+                        );
+                      },
+                      leading: const Icon(
+                        Icons.warning,
+                        color: Colors.red,
+                      ),
+                      title: Text(
+                          "Makineye atanılan son işlemin ardından ${activeTask.createdAt!.difference(DateTime.now()).inHours.abs()} saat geçti"),
+                      subtitle: const Text("Yeni işlem eklemek için tıklayın"),
+                    ),
+                  )
+                : const SizedBox()
           ],
         ),
       ],
