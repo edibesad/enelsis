@@ -22,6 +22,7 @@ class MachineTaskModel {
   DateTime? createdAt;
   bool? status;
   TaskTypeModel? taskTypeModel;
+  String? description;
 
   MachineTaskModel(
       {this.id,
@@ -30,7 +31,8 @@ class MachineTaskModel {
       this.createdBy,
       this.status,
       this.createdAt,
-      this.taskTypeModel});
+      this.taskTypeModel,
+      this.description});
 
   factory MachineTaskModel.fromJson(Map<String, dynamic> json) =>
       MachineTaskModel(
@@ -44,7 +46,8 @@ class MachineTaskModel {
               ? null
               : UserModel.fromJson(json["created_by"]),
           status: json["status"],
-          createdAt: DateTime.parse(json["created_at"]));
+          createdAt: DateTime.parse(json["created_at"]),
+          description: json["description"]);
 
   Map<String, dynamic> toJson() => {
         "id": id,
@@ -53,6 +56,7 @@ class MachineTaskModel {
         "machine": machine?.toJson(),
         "created_by": createdBy?.toJson(),
         "status": status,
-        "created_at": createdAt
+        "created_at": createdAt,
+        "description": description
       };
 }

@@ -39,6 +39,7 @@ class MachineInfo extends StatelessWidget {
         ),
         Card(
           child: ListTile(
+            leading: const Icon(Icons.precision_manufacturing),
             title: const Text("Makine Tipi"),
             subtitle: Text(machineModel.type!.name!),
           ),

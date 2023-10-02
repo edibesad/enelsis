@@ -17,33 +17,34 @@ class MachineDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(machineModel.name!),
-        ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(12.sp),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                MachineInfo(
-                  machineModel: machineModel,
-                  activeTask: activeTask,
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                MachineTaskInfo(
-                  machineModel: machineModel,
-                  activeTask: activeTask,
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                MachineTaskHistory(machineModel)
-              ],
-            ),
+      appBar: AppBar(
+        title: Text(machineModel.name!),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(12.sp),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              MachineInfo(
+                machineModel: machineModel,
+                activeTask: activeTask,
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              MachineTaskInfo(
+                machineModel: machineModel,
+                activeTask: activeTask,
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              MachineTaskHistory(machineModel)
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

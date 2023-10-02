@@ -11,7 +11,7 @@ class MachineTaskDialog extends StatelessWidget {
       content: Form(
           child: TextFormField(
         controller: controller,
-        decoration: const InputDecoration(hintText: "Görev ismi"),
+        decoration: const InputDecoration(labelText: "Görev ismi"),
       )),
       actions: [
         ElevatedButton(
