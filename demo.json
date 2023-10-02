@@ -1,0 +1,502 @@
+[
+    {
+        "id": 1,
+        "machine": {
+            "id": 11,
+            "name": "Makine X",
+            "type": "Tip X",
+            "department": {
+                "id": 1,
+                "name": "İK Departmanı"
+            }
+        },
+        "name": "Task 1",
+        "created_by": {
+            "id": 1,
+            "name": "Ahmet",
+            "surname": "Yılmaz",
+            "username": "ahmet_123"
+        },
+        "created_at": "2023-09-29T08:00:00Z",
+        "status": null,
+        "task_type": {
+            "id": 3,
+            "name": "Makine Eklendi"
+        }
+    },
+    {
+        "id": 2,
+        "machine": {
+            "id": 12,
+            "name": "Makine Y",
+            "type": "Tip Y",
+            "department": {
+                "id": 2,
+                "name": "Finans Departmanı"
+            }
+        },
+        "name": "Task 1",
+        "created_by": {
+            "id": 2,
+            "name": "Ayşe",
+            "surname": "Demir",
+            "username": "ayse_456"
+        },
+        "created_at": "2023-09-29T08:30:00Z",
+        "status": null,
+        "task_type": {
+            "id": 3,
+            "name": "Makine Eklendi"
+        }
+    },
+    {
+        "id": 3,
+        "machine": {
+            "id": 13,
+            "name": "Makine Z",
+            "type": "Tip Z",
+            "department": {
+                "id": 3,
+                "name": "Bilgi Teknolojileri Departmanı"
+            }
+        },
+        "name": "Task 1",
+        "created_by": {
+            "id": 3,
+            "name": "Mehmet",
+            "surname": "Kaya",
+            "username": "mehmet_789"
+        },
+        "created_at": "2023-09-29T09:00:00Z",
+        "status": null,
+        "task_type": {
+            "id": 3,
+            "name": "Makine Eklendi"
+        }
+    },
+    {
+        "id": 4,
+        "machine": {
+            "id": 14,
+            "name": "Makine W",
+            "type": "Tip W",
+            "department": {
+                "id": 4,
+                "name": "Pazarlama Departmanı"
+            }
+        },
+        "name": "Task 2",
+        "created_by": {
+            "id": 4,
+            "name": "Fatma",
+            "surname": "Acar",
+            "username": "fatma_1234"
+        },
+        "created_at": "2023-09-29T09:30:00Z",
+        "status": null,
+        "task_type": {
+            "id": 3,
+            "name": "Makine Eklendi"
+        }
+    },
+    {
+        "id": 5,
+        "machine": {
+            "id": 15,
+            "name": "Makine V",
+            "type": "Tip V",
+            "department": {
+                "id": 5,
+                "name": "Satış Departmanı"
+            }
+        },
+        "name": "Task 2",
+        "created_by": {
+            "id": 5,
+            "name": "Ali",
+            "surname": "Turan",
+            "username": "ali_5678"
+        },
+        "created_at": "2023-09-29T10:00:00Z",
+        "status": null,
+        "task_type": {
+            "id": 3,
+            "name": "Makine Eklendi"
+        }
+    },
+    {
+        "id": 6,
+        "machine": {
+            "id": 16,
+            "name": "Makine U",
+            "type": "Tip U",
+            "department": {
+                "id": 1,
+                "name": "İK Departmanı"
+            }
+        },
+        "name": "Task 3",
+        "created_by": {
+            "id": 6,
+            "name": "Zeynep",
+            "surname": "Yıldız",
+            "username": "zeynep_12"
+        },
+        "created_at": "2023-09-29T10:30:00Z",
+        "status": null,
+        "task_type": {
+            "id": 3,
+            "name": "Makine Eklendi"
+        }
+    },
+    {
+        "id": 7,
+        "machine": {
+            "id": 17,
+            "name": "Makine T",
+            "type": "Tip T",
+            "department": {
+                "id": 2,
+                "name": "Finans Departmanı"
+            }
+        },
+        "name": "Task 3",
+        "created_by": {
+            "id": 7,
+            "name": "Can",
+            "surname": "Öztürk",
+            "username": "can_34"
+        },
+        "created_at": "2023-09-29T11:00:00Z",
+        "status": null,
+        "task_type": {
+            "id": 3,
+            "name": "Makine Eklendi"
+        }
+    },
+    {
+        "id": 9,
+        "machine": {
+            "id": 19,
+            "name": "Makine R",
+            "type": "Tip R",
+            "department": {
+                "id": 4,
+                "name": "Pazarlama Departmanı"
+            }
+        },
+        "name": "Task 5",
+        "created_by": {
+            "id": 9,
+            "name": "Deniz",
+            "surname": "Yılmaz",
+            "username": "deniz_78"
+        },
+        "created_at": "2023-09-29T12:00:00Z",
+        "status": true,
+        "task_type": {
+            "id": 1,
+            "name": "Başladı"
+        }
+    },
+    {
+        "id": 10,
+        "machine": {
+            "id": 20,
+            "name": "Makine Q",
+            "type": "Tip Q",
+            "department": {
+                "id": 5,
+                "name": "Satış Departmanı"
+            }
+        },
+        "name": "Task 6",
+        "created_by": {
+            "id": 10,
+            "name": "Elif",
+            "surname": "Yılmaz",
+            "username": "elif_90"
+        },
+        "created_at": "2023-09-29T12:30:00Z",
+        "status": null,
+        "task_type": {
+            "id": 3,
+            "name": "Makine Eklendi"
+        }
+    },
+    {
+        "id": 11,
+        "machine": {
+            "id": 11,
+            "name": "Makine X",
+            "type": "Tip X",
+            "department": {
+                "id": 1,
+                "name": "İK Departmanı"
+            }
+        },
+        "name": "Task 7",
+        "created_by": {
+            "id": 11,
+            "name": "Eren",
+            "surname": "Yılmaz",
+            "username": "eren_123"
+        },
+        "created_at": "2023-09-29T13:00:00Z",
+        "status": true,
+        "task_type": {
+            "id": 1,
+            "name": "Başladı"
+        }
+    },
+    {
+        "id": 12,
+        "machine": {
+            "id": 12,
+            "name": "Makine Y",
+            "type": "Tip Y",
+            "department": {
+                "id": 2,
+                "name": "Finans Departmanı"
+            }
+        },
+        "name": "Task 8",
+        "created_by": {
+            "id": 12,
+            "name": "Ferhat",
+            "surname": "Yılmaz",
+            "username": "ferhat_456"
+        },
+        "created_at": "2023-09-29T13:30:00Z",
+        "status": true,
+        "task_type": {
+            "id": 1,
+            "name": "Başladı"
+        }
+    },
+    {
+        "id": 13,
+        "machine": {
+            "id": 13,
+            "name": "Makine Z",
+            "type": "Tip Z",
+            "department": {
+                "id": 3,
+                "name": "Bilgi Teknolojileri Departmanı"
+            }
+        },
+        "name": "Task 9",
+        "created_by": {
+            "id": 13,
+            "name": "Gizem",
+            "surname": "Yılmaz",
+            "username": "gizem_789"
+        },
+        "created_at": "2023-09-29T14:00:00Z",
+        "status": true,
+        "task_type": {
+            "id": 1,
+            "name": "Başladı"
+        }
+    },
+    {
+        "id": 14,
+        "machine": {
+            "id": 14,
+            "name": "Makine W",
+            "type": "Tip W",
+            "department": {
+                "id": 4,
+                "name": "Pazarlama Departmanı"
+            }
+        },
+        "name": "Task 10",
+        "created_by": {
+            "id": 14,
+            "name": "Canan",
+            "surname": "Yılmaz",
+            "username": "canan_1234"
+        },
+        "created_at": "2023-09-29T14:30:00Z",
+        "status": true,
+        "task_type": {
+            "id": 1,
+            "name": "Başladı"
+        }
+    },
+    {
+        "id": 15,
+        "machine": {
+            "id": 15,
+            "name": "Makine V",
+            "type": "Tip V",
+            "department": {
+                "id": 5,
+                "name": "Satış Departmanı"
+            }
+        },
+        "name": "Task 11",
+        "created_by": {
+            "id": 15,
+            "name": "Hakan",
+            "surname": "Yılmaz",
+            "username": "hakan_5678"
+        },
+        "created_at": "2023-09-29T15:00:00Z",
+        "status": true,
+        "task_type": {
+            "id": 1,
+            "name": "Başladı"
+        }
+    },
+    {
+        "id": 16,
+        "machine": {
+            "id": 16,
+            "name": "Makine U",
+            "type": "Tip U",
+            "department": {
+                "id": 1,
+                "name": "İK Departmanı"
+            }
+        },
+        "name": "Task 12",
+        "created_by": {
+            "id": 16,
+            "name": "İrem",
+            "surname": "Yıldız",
+            "username": "irem_12"
+        },
+        "created_at": "2023-09-29T15:30:00Z",
+        "status": true,
+        "task_type": {
+            "id": 1,
+            "name": "Başladı"
+        }
+    },
+    {
+        "id": 21,
+        "machine": {
+            "id": 17,
+            "name": "Makine T",
+            "type": "Tip T",
+            "department": {
+                "id": 2,
+                "name": "Finans Departmanı"
+            }
+        },
+        "name": "Task 13",
+        "created_by": {
+            "id": 17,
+            "name": "İsmail",
+            "surname": "Öztürk",
+            "username": "ismail_34"
+        },
+        "created_at": "2023-09-29T16:00:00Z",
+        "status": false,
+        "task_type": {
+            "id": 1,
+            "name": "Başladı"
+        }
+    },
+    {
+        "id": 17,
+        "machine": {
+            "id": 17,
+            "name": "Makine T",
+            "type": "Tip T",
+            "department": {
+                "id": 2,
+                "name": "Finans Departmanı"
+            }
+        },
+        "name": "Task 13",
+        "created_by": {
+            "id": 17,
+            "name": "İsmail",
+            "surname": "Öztürk",
+            "username": "ismail_34"
+        },
+        "created_at": "2023-09-29T16:00:00Z",
+        "status": false,
+        "task_type": {
+            "id": 2,
+            "name": "Bitti"
+        }
+    },
+    {
+        "id": 18,
+        "machine": {
+            "id": 18,
+            "name": "Makine S",
+            "type": "Tip S",
+            "department": {
+                "id": 3,
+                "name": "Bilgi Teknolojileri Departmanı"
+            }
+        },
+        "name": "Task 14",
+        "created_by": {
+            "id": 18,
+            "name": "Kemal",
+            "surname": "Yılmaz",
+            "username": "kemal_56"
+        },
+        "created_at": "2023-09-29T16:30:00Z",
+        "status": null,
+        "task_type": {
+            "id": 3,
+            "name": "Makine Eklendi"
+        }
+    },
+    {
+        "id": 19,
+        "machine": {
+            "id": 19,
+            "name": "Makine R",
+            "type": "Tip R",
+            "department": {
+                "id": 4,
+                "name": "Pazarlama Departmanı"
+            }
+        },
+        "name": "Task 15",
+        "created_by": {
+            "id": 19,
+            "name": "Merve",
+            "surname": "Yılmaz",
+            "username": "merve_78"
+        },
+        "created_at": "2023-09-29T17:00:00Z",
+        "status": true,
+        "task_type": {
+            "id": 1,
+            "name": "Başladı"
+        }
+    },
+    {
+        "id": 20,
+        "machine": {
+            "id": 20,
+            "name": "Makine Q",
+            "type": "Tip Q",
+            "department": {
+                "id": 5,
+                "name": "Satış Departmanı"
+            }
+        },
+        "name": "Task 16",
+        "created_by": {
+            "id": 20,
+            "name": "Mert",
+            "surname": "Yılmaz",
+            "username": "mert_90"
+        },
+        "created_at": "2023-09-29T17:30:00Z",
+        "status": null,
+        "task_type": {
+            "id": 3,
+            "name": "Makine Eklendi"
+        }
+    }
+]
