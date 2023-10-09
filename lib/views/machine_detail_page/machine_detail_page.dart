@@ -19,7 +19,7 @@ class MachineDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(machineModel.name!),
+        title: Text(machineModel.name),
         actions: [
           IconButton(
               onPressed: () {

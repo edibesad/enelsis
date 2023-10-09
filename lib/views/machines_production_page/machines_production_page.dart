@@ -3,12 +3,12 @@ import 'package:enelsis/controller/task_controller.dart';
 import 'package:enelsis/models/machine_model.dart';
 import 'package:enelsis/models/machine_task_model.dart';
 import 'package:enelsis/utils/widgets/shimmer_list_tile.dart';
-import 'package:enelsis/views/machines_page/widgets/machine_card.dart';
+import 'package:enelsis/views/machines_production_page/widgets/machine_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MachinesPage extends StatelessWidget {
-  const MachinesPage({super.key});
+class MachinesProductionPage extends StatelessWidget {
+  const MachinesProductionPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +17,10 @@ class MachinesPage extends StatelessWidget {
 
     return SafeArea(
       child: FutureBuilder<List<MachineModel>>(
-        future: machinesController.getMachines(),
+        future: machinesController.getMachinesByTypes([1, 2]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: 15,
-              itemBuilder: (context, index) => const ShimmerListTile(),
-            );
+            return const Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasError) {
             return Center(
@@ -34,7 +30,7 @@ class MachinesPage extends StatelessWidget {
           return ListView.builder(
             itemCount: snapshot.data!.length,
             itemBuilder: (context, index) => FutureBuilder<MachineTaskModel>(
-              future: taskController.getActiveTask(snapshot.data![index].id!),
+              future: taskController.getActiveTask(snapshot.data![index].id),
               builder: (context, snapshot2) {
                 if (snapshot2.connectionState == ConnectionState.waiting) {
                   return const ShimmerListTile();

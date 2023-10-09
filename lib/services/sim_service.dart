@@ -18,6 +18,22 @@ class SimService extends AbstractService {
   }
 
   @override
+  Future<String> fetchMachinesByType(int id) async {
+    var json = await Future.delayed(duration).then((value) => machines);
+    var data = (jsonDecode(json) as List)
+        .where((element) => element["type"]["id"] == id);
+    return jsonEncode(data.toList());
+  }
+
+  @override
+  Future<String> fetchMachinesByTypes(List<int> ids) async {
+    var json = await Future.delayed(duration).then((value) => machines);
+    var data = (jsonDecode(json) as List)
+        .where((element) => ids.contains(element["type"]["id"]));
+    return jsonEncode(data.toList());
+  }
+
+  @override
   Future<String> fetchTasks() {
     return Future.delayed(duration).then((value) => tasks);
   }
@@ -25,6 +41,11 @@ class SimService extends AbstractService {
   @override
   Future<String> fetchUsers() {
     return Future.delayed(duration).then((value) => users);
+  }
+
+  @override
+  Future<String> fetchProducts() {
+    return Future.delayed(duration).then((value) => products);
   }
 
   @override
@@ -44,5 +65,16 @@ class SimService extends AbstractService {
     // print(data);
 
     return jsonEncode(data.last);
+  }
+
+  @override
+  Future<String> fetchItemByInput(int board, int order, int productId) async {
+    var json = await Future.delayed(duration).then((value) => productItems);
+    return jsonEncode((jsonDecode(json) as List)
+        .where((element) =>
+            element["product"]["id"] == productId &&
+            element["machine_input"]["order"] == order &&
+            element["machine_input"]["board"] == board)
+        .firstOrNull["item"]);
   }
 }

@@ -90,7 +90,7 @@ class _TasksTableState extends State<TasksTable> {
                                 : "${e.createdBy!.name!} ${e.createdBy!.surname!}"),
                           ),
                           DataCell(
-                              Text(e.machine == null ? "-" : e.machine!.name!)),
+                              Text(e.machine == null ? "-" : e.machine!.name)),
                           DataCell(Text(
                               "${e.createdAt!.day}/${e.createdAt!.month}/${e.createdAt!.year} ${e.createdAt!.hour}:${e.createdAt!.minute}")),
                           DataCell(Text(e.taskTypeModel!.name!))
@@ -120,7 +120,7 @@ class _TasksTableState extends State<TasksTable> {
     }
     if (columnIndex == 2) {
       widget.tasks.sort((task1, task2) =>
-          compareString(ascending, task1.machine!.name!, task2.machine!.name!));
+          compareString(ascending, task1.machine!.name, task2.machine!.name));
     }
     if (columnIndex == 3) {
       widget.tasks.sort((task1, task2) =>

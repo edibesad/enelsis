@@ -7,7 +7,7 @@ class CustomWidgets {
     return Container(
       width: 350.w,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(const Radius.circular(50)),
+        borderRadius: const BorderRadius.all(Radius.circular(50)),
         color: Color(Colors.black.withOpacity(.15).value),
       ),
       child: Padding(

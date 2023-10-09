@@ -25,8 +25,8 @@ class ManageMachinePage extends StatelessWidget {
             itemBuilder: (context, index) => Card(
               child: ListTile(
                 leading: const Icon(Icons.precision_manufacturing),
-                title: Text(snapshot.data![index].name!),
-                subtitle: Text(snapshot.data![index].department!.name!),
+                title: Text(snapshot.data![index].name),
+                subtitle: Text(snapshot.data![index].department.name!),
                 trailing: IconButton(
                   onPressed: () {
                     Get.toNamed("/edit_machine",

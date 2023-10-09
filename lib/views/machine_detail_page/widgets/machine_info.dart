@@ -17,12 +17,12 @@ class MachineInfo extends StatelessWidget {
     return Column(
       children: [
         Text("Makine Bilgileri",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32.sp)),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.sp)),
         Card(
           child: ListTile(
             leading: const Icon(Icons.title),
             title: const Text("Makine ismi"),
-            subtitle: Text(machineModel.name!),
+            subtitle: Text(machineModel.name),
           ),
         ),
         Card(
@@ -41,7 +41,7 @@ class MachineInfo extends StatelessWidget {
           child: ListTile(
             leading: const Icon(Icons.precision_manufacturing),
             title: const Text("Makine Tipi"),
-            subtitle: Text(machineModel.type!.name!),
+            subtitle: Text(machineModel.type.name!),
           ),
         ),
       ],

@@ -12,7 +12,7 @@ class MachineTaskHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: controller.getTasksByMachine(machineModel.id!),
+      future: controller.getTasksByMachine(machineModel.id),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(
@@ -40,7 +40,7 @@ class MachineTaskHistory extends StatelessWidget {
           children: [
             Text(
               "Makine Geçmişi",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32.sp),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.sp),
             ),
             TasksTable(snapshot.data!, false),
           ],

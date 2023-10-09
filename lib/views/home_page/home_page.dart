@@ -1,5 +1,6 @@
 import 'package:enelsis/controller/login_controller.dart';
-import 'package:enelsis/views/machines_page/machines_page.dart';
+import 'package:enelsis/views/machines_production_page/machines_production_page.dart';
+import 'package:enelsis/views/machines_electonic_page/machines_electronic_page.dart';
 import 'package:enelsis/views/tasks_page/tasks_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,8 +23,18 @@ class _HomePageState extends State<HomePage> {
     loginController = Get.put(LoginController());
   }
 
-  List<Widget> pages = const [MachinesPage(), TasksPage(), ProfilePage()];
-  List<String> titles = const ["Makineler", "Görevler", "Profil"];
+  List<Widget> pages = [
+    const MachinesProductionPage(),
+    MachinesElectronicPage(),
+    const TasksPage(),
+    const ProfilePage()
+  ];
+  List<String> titles = const [
+    "Makineler",
+    "Makineler 2",
+    "Görevler",
+    "Profil"
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,6 +43,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: pages[activeIndex],
       bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
           currentIndex: activeIndex,
           onTap: (value) {
             setState(() {
@@ -43,6 +55,8 @@ class _HomePageState extends State<HomePage> {
               label: "Makineler",
               icon: Icon(Icons.precision_manufacturing),
             ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings), label: "Makineler 2"),
             BottomNavigationBarItem(icon: Icon(Icons.task), label: "Görevler"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.account_circle), label: "Profil"),

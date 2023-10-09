@@ -135,96 +135,177 @@ String departments = """[
 ]
 """;
 String machines = """[
-  {
-    "id": 11,
-    "name": "Makine X",
-    "type": {"id": 1, "name" : "Dik Cnc"},
-    "department": {
-      "id": 1,
-      "name": "İK Departmanı"
+    {
+        "id": 11,
+        "name": "Makine X",
+        "type": {
+            "id": 1,
+            "name": "Dik Cnc"
+        },
+        "department": {
+            "id": 1,
+            "name": "İK Departmanı"
+        }
+    },
+    {
+        "id": 12,
+        "name": "Makine Y",
+        "type": {
+            "id": 1,
+            "name": "Dik Cnc"
+        },
+        "department": {
+            "id": 2,
+            "name": "Finans Departmanı"
+        }
+    },
+    {
+        "id": 13,
+        "name": "Makine Z",
+        "type": {
+            "id": 1,
+            "name": "Dik Cnc"
+        },
+        "department": {
+            "id": 3,
+            "name": "Bilgi Teknolojileri Departmanı"
+        }
+    },
+    {
+        "id": 14,
+        "name": "Makine W",
+        "type": {
+            "id": 1,
+            "name": "Dik Cnc"
+        },
+        "department": {
+            "id": 4,
+            "name": "Pazarlama Departmanı"
+        }
+    },
+    {
+        "id": 15,
+        "name": "Makine V",
+        "type": {
+            "id": 2,
+            "name": "Yatay Cnc"
+        },
+        "department": {
+            "id": 5,
+            "name": "Satış Departmanı"
+        }
+    },
+    {
+        "id": 16,
+        "name": "Makine U",
+        "type": {
+            "id": 2,
+            "name": "Yatay Cnc"
+        },
+        "department": {
+            "id": 1,
+            "name": "İK Departmanı"
+        }
+    },
+    {
+        "id": 17,
+        "name": "Makine T",
+        "type": {
+            "id": 2,
+            "name": "Yatay Cnc"
+        },
+        "department": {
+            "id": 2,
+            "name": "Finans Departmanı"
+        }
+    },
+    {
+        "id": 18,
+        "name": "Makine S",
+        "type": {
+            "id": 2,
+            "name": "Yatay Cnc"
+        },
+        "department": {
+            "id": 3,
+            "name": "Bilgi Teknolojileri Departmanı"
+        }
+    },
+    {
+        "id": 19,
+        "name": "Makine R",
+        "type": {
+            "id": 2,
+            "name": "Yatay Cnc"
+        },
+        "department": {
+            "id": 4,
+            "name": "Pazarlama Departmanı"
+        }
+    },
+    {
+        "id": 20,
+        "name": "Makine Q",
+        "type": {
+            "id": 1,
+            "name": "Dik Cnc"
+        },
+        "department": {
+            "id": 5,
+            "name": "Satış Departmanı"
+        }
+    },
+    {
+        "id": 30,
+        "name": "Dizgi 1",
+        "info": {
+            "id": 1,
+            "number_of_boards": 2,
+            "input_per_board": 56
+        },
+        "type": {
+            "id": 3,
+            "name": "Dizgi Makinesi"
+        },
+        "department": {
+            "id": 5,
+            "name": "Elektronik"
+        }
+    },
+    {
+        "id": 31,
+        "name": "Dizgi 2",
+        "info": {
+            "id": 1,
+            "number_of_boards": 1,
+            "input_per_board": 30
+        },
+        "type": {
+            "id": 3,
+            "name": "Dizgi Makinesi"
+        },
+        "department": {
+            "id": 5,
+            "name": "Elektronik"
+        }
+    },
+    {
+        "id": 32,
+        "name": "Dizgi 3",
+        "info": {
+            "id": 1,
+            "number_of_boards": 3,
+            "input_per_board": 70
+        },
+        "type": {
+            "id": 3,
+            "name": "Dizgi Makinesi"
+        },
+        "department": {
+            "id": 5,
+            "name": "Elektronik"
+        }
     }
-  },
-  {
-    "id": 12,
-    "name": "Makine Y",
-    "type": {"id": 1, "name" : "Dik Cnc"},
-    "department": {
-      "id": 2,
-      "name": "Finans Departmanı"
-    }
-  },
-  {
-    "id": 13,
-    "name": "Makine Z",
-    "type": {"id": 1, "name" : "Dik Cnc"},
-    "department": {
-      "id": 3,
-      "name": "Bilgi Teknolojileri Departmanı"
-    }
-  },
-  {
-    "id": 14,
-    "name": "Makine W",
-    "type": {"id": 1, "name" : "Dik Cnc"},
-    "department": {
-      "id": 4,
-      "name": "Pazarlama Departmanı"
-    }
-  },
-  {
-    "id": 15,
-    "name": "Makine V",
-    "type": {"id": 2, "name" : "Yatay Cnc"},
-    "department": {
-      "id": 5,
-      "name": "Satış Departmanı"
-    }
-  },
-  {
-    "id": 16,
-    "name": "Makine U",
-    "type": {"id": 2, "name" : "Yatay Cnc"},
-    "department": {
-      "id": 1,
-      "name": "İK Departmanı"
-    }
-  },
-  {
-    "id": 17,
-    "name": "Makine T",
-    "type": {"id": 2, "name" : "Yatay Cnc"},
-    "department": {
-      "id": 2,
-      "name": "Finans Departmanı"
-    }
-  },
-  {
-    "id": 18,
-    "name": "Makine S",
-    "type": {"id": 2, "name" : "Yatay Cnc"},
-    "department": {
-      "id": 3,
-      "name": "Bilgi Teknolojileri Departmanı"
-    }
-  },
-  {
-    "id": 19,
-    "name": "Makine R",
-    "type": {"id": 2, "name" : "Yatay Cnc"},
-    "department": {
-      "id": 4,
-      "name": "Pazarlama Departmanı"
-    }
-  },
-  {
-    "id": 20,
-    "name": "Makine Q",
-    "type": {"id": 1, "name" : "Dik Cnc"},
-    "department": {
-      "id": 5,
-      "name": "Satış Departmanı"
-    }
-  }
 ]
 """;
 String tasks = """[
@@ -805,3 +886,106 @@ String tasks = """[
     }
 ]
 """;
+
+String products = """[
+    {
+        "id": 1,
+        "name": "Kart 1"
+    },
+    {
+        "id": 2,
+        "name": "Kart 1"
+    },
+    {
+        "id": 3,
+        "name": "Kart 3"
+    }
+]""";
+
+String productItems = """[
+    {
+        "product": {
+            "id": 1,
+            "name": "Kart 1"
+        },
+        "machine_input": {
+            "id": 1,
+            "order": 1,
+            "board": 1
+        },
+        "item": {
+            "id": 1,
+            "name": "10k direnç"
+        }
+    },
+    {
+        "product": {
+            "id": 1,
+            "name": "Kart 1"
+        },
+        "machine_input": {
+            "order": 2,
+            "board": 1
+        },
+        "item": {
+            "id": 2,
+            "name": "20k direnç"
+        }
+    },
+    {
+        "product": {
+            "id": 1,
+            "name": "Kart 1"
+        },
+        "machine_input": {
+            "order": 3,
+            "board": 1
+        },
+        "item": {
+            "id": 1,
+            "name": "10k direnç"
+        }
+    },
+    {
+        "product": {
+            "id": 1,
+            "name": "Kart 1"
+        },
+        "machine_input": {
+            "order": 1,
+            "board": 2
+        },
+        "item": {
+            "id": 3,
+            "name": "30k direnç"
+        }
+    },
+    {
+        "product": {
+            "id": 1,
+            "name": "Kart 1"
+        },
+        "machine_input": {
+            "order": 2,
+            "board": 2
+        },
+        "item": {
+            "id": 4,
+            "name": "40k direnç"
+        }
+    },
+    {
+        "product": {
+            "id": 1,
+            "name": "Kart 1"
+        },
+        "machine_input": {
+            "order": 3,
+            "board": 2
+        },
+        "item": {
+            "id": 5,
+            "name": "50k direnç"
+        }
+    }
+]""";

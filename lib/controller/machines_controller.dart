@@ -9,10 +9,24 @@ class MachinesController extends GetxController {
   AbstractService service = SimService();
 
   Future<List<MachineModel>> getMachines() async {
-    List<MachineModel> machines;
     String json = await service.fetchMachines();
 
-    machines = (jsonDecode(json) as List)
+    return (jsonDecode(json) as List)
+        .map((e) => MachineModel.fromJson(e))
+        .toList();
+  }
+
+  Future<List<MachineModel>> getMachinesByType(int id) async {
+    String json = await service.fetchMachinesByType(id);
+    var machines = (jsonDecode(json) as List)
+        .map((e) => MachineModel.fromJson(e))
+        .toList();
+    return machines;
+  }
+
+  Future<List<MachineModel>> getMachinesByTypes(List<int> ids) async {
+    String json = await service.fetchMachinesByTypes(ids);
+    var machines = (jsonDecode(json) as List)
         .map((e) => MachineModel.fromJson(e))
         .toList();
     return machines;

@@ -6,6 +6,7 @@ import 'dart:convert';
 
 import 'package:enelsis/models/department_model.dart';
 import 'package:enelsis/models/machin_type_model.dart';
+import 'package:enelsis/models/machine_info_model.dart';
 
 MachineModel machineModelFromJson(String str) =>
     MachineModel.fromJson(json.decode(str));
@@ -13,31 +14,33 @@ MachineModel machineModelFromJson(String str) =>
 String machineModelToJson(MachineModel data) => json.encode(data.toJson());
 
 class MachineModel {
-  int? id;
-  String? name;
-  MachineTypeModel? type;
-  DepartmentModel? department;
+  int id;
+  String name;
+  MachineTypeModel type;
+  DepartmentModel department;
+  MachineInfoModel? info;
 
-  MachineModel({
-    this.id,
-    this.name,
-    this.type,
-    this.department,
-  });
+  MachineModel(
+      {required this.id,
+      required this.name,
+      required this.type,
+      required this.department,
+      this.info});
 
   factory MachineModel.fromJson(Map<String, dynamic> json) => MachineModel(
         id: json["id"],
         name: json["name"],
-        type: json["type"] == null ? null : MachineTypeModel.fromJson(json),
-        department: json["department"] == null
+        type: MachineTypeModel.fromJson(json),
+        department: DepartmentModel.fromJson(json["department"]),
+        info: json["info"] == null
             ? null
-            : DepartmentModel.fromJson(json["department"]),
+            : MachineInfoModel.fromJson(json["info"]),
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
         "type": type,
-        "department": department?.toJson(),
+        "department": department.toJson(),
       };
 }

@@ -25,8 +25,8 @@ class _EditMachineScreenState extends State<EditMachineScreen> {
   void initState() {
     super.initState();
     machine = Get.arguments;
-    depId = machine.department!.id!;
-    nameTextEditingController.text = machine.name!;
+    depId = machine.department.id!;
+    nameTextEditingController.text = machine.name;
     departmentController.getDepartments().then((value) {
       setState(() {
         departments = value;

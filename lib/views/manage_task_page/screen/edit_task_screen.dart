@@ -29,7 +29,7 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
     super.initState();
     task = Get.arguments as MachineTaskModel;
     taksNameTextEditingController = TextEditingController(text: task.name);
-    machineId = task.machine!.id!;
+    machineId = task.machine!.id;
     userId = task.createdBy!.id!;
     getItemsFromService();
   }
@@ -64,7 +64,7 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
                           for (MachineModel element in machines)
                             DropdownMenuItem(
                               value: element.id,
-                              child: Text(element.name!),
+                              child: Text(element.name),
                             )
                         ],
                         onChanged: (value) {

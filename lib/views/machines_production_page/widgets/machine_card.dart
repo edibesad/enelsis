@@ -37,7 +37,7 @@ class _MachineCardState extends State<MachineCard> {
             (widget.activeTask.status == null || !widget.activeTask.status!)
                 ? null
                 : Text("Görev İsmi : ${widget.activeTask.name}"),
-        title: Text(widget.machineModel.name!),
+        title: Text(widget.machineModel.name),
         leading: Icon(
           Icons.circle,
           color: generateColorByStatus,
