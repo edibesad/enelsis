@@ -7,8 +7,9 @@ class AdminWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return GridView(
+      gridDelegate:
+          const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
       children: [
         AdminWidgetCard(
           icon: const Icon(
@@ -40,6 +41,12 @@ class AdminWidgets extends StatelessWidget {
             Get.toNamed("/manage_tasks", arguments: true);
           },
         ),
+        AdminWidgetCard(
+            icon: const Icon(Icons.developer_board),
+            title: "Ürünleri Yönet",
+            onTap: () {
+              Get.toNamed("/manage_products");
+            })
       ],
     );
   }

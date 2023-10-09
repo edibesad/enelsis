@@ -4,6 +4,7 @@ import 'package:enelsis/views/machines_electonic_page/screens/item_control_scree
 import 'package:enelsis/views/machines_electonic_page/screens/machine_electronic_detail.dart';
 import 'package:enelsis/views/manage_machine_page/manage_machine_page.dart';
 import 'package:enelsis/views/manage_machine_page/screen/edit_machine_screen.dart';
+import 'package:enelsis/views/manage_products/manage_products.dart';
 import 'package:enelsis/views/manage_task_page/manage_task_page.dart';
 import 'package:enelsis/views/manage_task_page/screen/edit_task_screen.dart';
 import 'package:enelsis/views/manage_users_page/manage_users_page.dart';
@@ -60,6 +61,10 @@ class AppRouter {
     GetPage(
       name: "/item_control",
       page: () => const ItemControlScreen(),
+    ),
+    GetPage(
+      name: "/manage_products",
+      page: () => const ManageProducts(),
     )
   ];
 }

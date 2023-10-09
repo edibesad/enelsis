@@ -14,7 +14,7 @@ class ProfilePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const AdminWidgets(),
+              const Expanded(child: AdminWidgets()),
               SizedBox(
                 height: 50.h,
               ),
