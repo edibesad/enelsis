@@ -17,6 +17,22 @@ class InputGridView extends StatelessWidget {
       itemBuilder: (context, index) => Card(
         child: GestureDetector(
           onTap: () {
+            if (pageController.chosenBoard.value == null ||
+                pageController.chosenProduct.value == null) {
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: const Text("Hata!"),
+                  content: const Text("Ürün ve giriş seçmeden devam edilemez"),
+                  actions: [
+                    ElevatedButton(
+                        onPressed: () => Get.back(), child: const Text("Tamam"))
+                  ],
+                ),
+              );
+              return;
+            }
+
             Get.toNamed("/item_control",
                 arguments: ProductInputModel(
                     input: InputModel(

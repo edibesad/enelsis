@@ -23,7 +23,14 @@ class _MachineElectronicDetailPageState
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    Get.delete<MachineElectronicPageController>();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    print(pageController.chosenBoard);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Dizgi"),
