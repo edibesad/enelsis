@@ -1,14 +1,11 @@
 import 'dart:convert';
 
-import 'package:enelsis/controller/item_controller.dart';
 import 'package:enelsis/models/item_model.dart';
 import 'package:enelsis/services/abstract_service.dart';
 import 'package:enelsis/services/sim_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  ItemController controller = ItemController();
-
   test("Data should came", () async {
     ItemModel data = (await getItemByInput(20, 20, 20));
 

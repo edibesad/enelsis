@@ -1,11 +1,8 @@
+import 'package:enelsis/controller/home_controller.dart';
 import 'package:enelsis/controller/login_controller.dart';
-import 'package:enelsis/views/machines_production_page/machines_production_page.dart';
-import 'package:enelsis/views/machines_electonic_page/machines_electronic_page.dart';
-import 'package:enelsis/views/tasks_page/tasks_page.dart';
+import 'package:enelsis/views/home_page/widgets/app_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../profile_page/profile_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -23,44 +20,15 @@ class _HomePageState extends State<HomePage> {
     loginController = Get.put(LoginController());
   }
 
-  List<Widget> pages = [
-    const MachinesProductionPage(),
-    MachinesElectronicPage(),
-    const TasksPage(),
-    const ProfilePage()
-  ];
-  List<String> titles = const [
-    "Makineler",
-    "Makineler 2",
-    "Görevler",
-    "Profil"
-  ];
   @override
   Widget build(BuildContext context) {
+    var homeController = Get.put(HomeController());
     return Scaffold(
       appBar: AppBar(
-        title: Text(titles[activeIndex]),
+        title: Obx(() => Text(homeController.pageTitle.value)),
       ),
-      body: pages[activeIndex],
-      bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          currentIndex: activeIndex,
-          onTap: (value) {
-            setState(() {
-              activeIndex = value;
-            });
-          },
-          items: const [
-            BottomNavigationBarItem(
-              label: "Makineler",
-              icon: Icon(Icons.precision_manufacturing),
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.settings), label: "Makineler 2"),
-            BottomNavigationBarItem(icon: Icon(Icons.task), label: "Görevler"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle), label: "Profil"),
-          ]),
+      body: Obx(() => homeController.homePage.value),
+      drawer: const AppDrawer(),
     );
   }
 }
