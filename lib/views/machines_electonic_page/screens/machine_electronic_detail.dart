@@ -30,7 +30,6 @@ class _MachineElectronicDetailPageState
 
   @override
   Widget build(BuildContext context) {
-    print(pageController.chosenBoard);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Dizgi"),

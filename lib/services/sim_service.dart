@@ -70,11 +70,13 @@ class SimService extends AbstractService {
   @override
   Future<String> fetchItemByInput(int board, int order, int productId) async {
     var json = await Future.delayed(duration).then((value) => productItems);
-    return jsonEncode((jsonDecode(json) as List)
+    Map<String, dynamic>? data = (jsonDecode(json) as List)
         .where((element) =>
             element["product"]["id"] == productId &&
             element["machine_input"]["order"] == order &&
             element["machine_input"]["board"] == board)
-        .firstOrNull["item"]);
+        .firstOrNull;
+
+    return data == null ? "" : jsonEncode(data["item"]);
   }
 }

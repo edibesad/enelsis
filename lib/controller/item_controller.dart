@@ -9,7 +9,11 @@ class ItemController extends GetxController {
   AbstractService service = SimService();
 
   Future<ItemModel> getItemByInput(int board, int order, int productId) async {
-    return ItemModel.fromJson(
-        jsonDecode((await service.fetchItemByInput(board, order, productId))));
+    AbstractService service = SimService();
+    var json = await service.fetchItemByInput(board, order, productId);
+    if (json.isEmpty) {
+      return ItemModel();
+    }
+    return ItemModel.fromJson(jsonDecode(json));
   }
 }

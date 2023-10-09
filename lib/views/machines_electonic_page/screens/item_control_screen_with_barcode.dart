@@ -52,8 +52,8 @@ class _ItemControlScreenState extends State<ItemControlScreen> {
                     }
                     return Card(
                       child: ListTile(
-                        title: const Text("Takılnası gereken ürün"),
-                        subtitle: Text(snapshot.data!.name),
+                        title: const Text("Takılması gereken ürün"),
+                        subtitle: Text(snapshot.data!.name ?? "Boş"),
                       ),
                     );
                   },
