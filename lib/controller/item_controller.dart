@@ -6,11 +6,10 @@ import 'package:enelsis/services/sim_service.dart';
 import 'package:get/get.dart';
 
 class ItemController extends GetxController {
-  AbstractService service = SimService();
+  final AbstractService _service = SimService();
 
   Future<ItemModel> getItemByInput(int board, int order, int productId) async {
-    AbstractService service = SimService();
-    var json = await service.fetchItemByInput(board, order, productId);
+    var json = await _service.fetchItemByInput(board, order, productId);
     if (json.isEmpty) {
       return ItemModel();
     }

@@ -6,9 +6,9 @@ import 'package:enelsis/services/sim_service.dart';
 import 'package:get/get.dart';
 
 class TaskController extends GetxController {
-  AbstractService service = SimService();
+  final AbstractService _service = SimService();
   Future<List<MachineTaskModel>> getAllTasks() async {
-    String json = await service.fetchTasks();
+    String json = await _service.fetchTasks();
 
     return (jsonDecode(json) as List)
         .map((e) => MachineTaskModel.fromJson(e))
@@ -16,7 +16,7 @@ class TaskController extends GetxController {
   }
 
   Future<List<MachineTaskModel>> getTasksByMachine(int id) async {
-    String json = await service.fetchTasksByMachineId(id);
+    String json = await _service.fetchTasksByMachineId(id);
 
     return (jsonDecode(json) as List)
         .map((e) => MachineTaskModel.fromJson(e))
@@ -24,7 +24,7 @@ class TaskController extends GetxController {
   }
 
   Future<MachineTaskModel> getActiveTask(int id) async {
-    String json = await service.fetchActiveTaskByMachineId(id);
+    String json = await _service.fetchActiveTaskByMachineId(id);
     return MachineTaskModel.fromJson(jsonDecode(json));
   }
 }

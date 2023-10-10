@@ -6,10 +6,10 @@ import 'package:enelsis/services/sim_service.dart';
 import 'package:get/get.dart';
 
 class ProductController extends GetxController {
-  AbstractService service = SimService();
+  final AbstractService _service = SimService();
 
   Future<List<ProductModel>> getAllProducts() async {
-    String json = await service.fetchProducts();
+    String json = await _service.fetchProducts();
 
     return (jsonDecode(json) as List)
         .map((e) => ProductModel.fromJson(e))

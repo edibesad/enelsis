@@ -6,10 +6,10 @@ import 'package:enelsis/services/sim_service.dart';
 import 'package:get/get.dart';
 
 class MachinesController extends GetxController {
-  AbstractService service = SimService();
+  final AbstractService _service = SimService();
 
   Future<List<MachineModel>> getMachines() async {
-    String json = await service.fetchMachines();
+    String json = await _service.fetchMachines();
 
     return (jsonDecode(json) as List)
         .map((e) => MachineModel.fromJson(e))
@@ -17,7 +17,7 @@ class MachinesController extends GetxController {
   }
 
   Future<List<MachineModel>> getMachinesByType(int id) async {
-    String json = await service.fetchMachinesByType(id);
+    String json = await _service.fetchMachinesByType(id);
     var machines = (jsonDecode(json) as List)
         .map((e) => MachineModel.fromJson(e))
         .toList();
@@ -25,7 +25,7 @@ class MachinesController extends GetxController {
   }
 
   Future<List<MachineModel>> getMachinesByTypes(List<int> ids) async {
-    String json = await service.fetchMachinesByTypes(ids);
+    String json = await _service.fetchMachinesByTypes(ids);
     var machines = (jsonDecode(json) as List)
         .map((e) => MachineModel.fromJson(e))
         .toList();

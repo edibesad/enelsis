@@ -6,10 +6,10 @@ import 'package:enelsis/services/sim_service.dart';
 import 'package:get/get.dart';
 
 class UserController extends GetxController {
-  AbstractService service = SimService();
+  final AbstractService _service = SimService();
 
   Future<List<UserModel>> getUsers() async {
-    String json = await service.fetchUsers();
+    String json = await _service.fetchUsers();
 
     return (jsonDecode(json) as List)
         .map((e) => UserModel.fromJson(e))
