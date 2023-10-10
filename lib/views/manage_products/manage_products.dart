@@ -1,3 +1,4 @@
+import 'package:enelsis/views/manage_products/widgets/products_future.dart';
 import 'package:flutter/material.dart';
 
 class ManageProducts extends StatelessWidget {
@@ -5,6 +6,11 @@ class ManageProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Ürünleri yönet"),
+      ),
+      body: const ProductsFuture(),
+    );
   }
 }

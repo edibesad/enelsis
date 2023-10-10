@@ -6,11 +6,11 @@ import 'package:enelsis/services/sim_service.dart';
 import 'package:get/get.dart';
 
 class DepartmentController extends GetxController {
-  AbstractService service = SimService();
+  final AbstractService _service = SimService();
 
   Future<List<DepartmentModel>> getDepartments() async {
     List<DepartmentModel> departments;
-    String json = await service.fetchDepartments();
+    String json = await _service.fetchDepartments();
 
     departments = (jsonDecode(json) as List)
         .map((e) => DepartmentModel.fromJson(e))

@@ -54,18 +54,20 @@ class _AppDrawerState extends State<AppDrawer> {
         title: const Text("Makineler"),
       )
     ];
-    return Drawer(
-      child: ListView(children: [
-        UserAccountsDrawerHeader(
-            onDetailsPressed: () {
-              Get.back();
-              homeController.homePage.value = const ProfilePage();
-              homeController.pageTitle.value = "Profil";
-            },
-            accountName: const Text("Edib Esad Galip"),
-            accountEmail: const Text("edibesad@gmail.com")),
-        ...drawerItems,
-      ]),
+    return SafeArea(
+      child: Drawer(
+        child: ListView(children: [
+          UserAccountsDrawerHeader(
+              onDetailsPressed: () {
+                Get.back();
+                homeController.homePage.value = const ProfilePage();
+                homeController.pageTitle.value = "Profil";
+              },
+              accountName: const Text("Edib Esad Galip"),
+              accountEmail: const Text("edibesad@gmail.com")),
+          ...drawerItems,
+        ]),
+      ),
     );
   }
 }
