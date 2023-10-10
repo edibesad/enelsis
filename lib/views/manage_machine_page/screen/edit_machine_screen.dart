@@ -44,8 +44,10 @@ class _EditMachineScreenState extends State<EditMachineScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CustomWidgets.generateTextField(
-                TextEditingController(), "İsim", (value) => null),
+            CustomTextField(
+                controller: TextEditingController(),
+                labelText: "İsim",
+                validator: (value) => null),
             SizedBox(
               height: 10.h,
             ),

@@ -47,8 +47,10 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CustomWidgets.generateTextField(
-                taksNameTextEditingController, "Görev adı", (value) => null),
+            CustomTextField(
+                controller: taksNameTextEditingController,
+                labelText: "Görev adı",
+                validator: (value) => null),
             SizedBox(
               height: 10.h,
             ),

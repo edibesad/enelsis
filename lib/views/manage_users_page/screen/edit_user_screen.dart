@@ -50,18 +50,24 @@ class _EditUserScreenState extends State<EditUserScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomWidgets.generateTextField(userNameTextEditingController,
-                    "Kullanıcı adı", (value) => null),
+                CustomTextField(
+                    controller: userNameTextEditingController,
+                    labelText: "Kullanıcı adı",
+                    validator: (value) => null),
                 SizedBox(
                   height: 10.h,
                 ),
-                CustomWidgets.generateTextField(
-                    nameTextEditingController, "İsim", (value) => null),
+                CustomTextField(
+                    controller: nameTextEditingController,
+                    labelText: "İsim",
+                    validator: (value) => null),
                 SizedBox(
                   height: 10.h,
                 ),
-                CustomWidgets.generateTextField(
-                    surnameTextEditingController, "Soyisim", (value) => null),
+                CustomTextField(
+                    controller: surnameTextEditingController,
+                    labelText: "Soyisim",
+                    validator: (value) => null),
                 SizedBox(
                   height: 20.h,
                 ),

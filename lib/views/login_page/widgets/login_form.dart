@@ -16,23 +16,27 @@ class LoginForm extends StatelessWidget {
         key: formKey,
         child: Column(
           children: [
-            CustomWidgets.generateTextField(usernameController, "Kullanıcı Adı",
-                (value) {
-              if (value == null || value.isEmpty) {
-                return "Bu alan boş olamaz";
-              }
-              return null;
-            }),
+            CustomTextField(
+                controller: usernameController,
+                labelText: "Kullanıcı Adı",
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Bu alan boş olamaz";
+                  }
+                  return null;
+                }),
             SizedBox(
               height: 10.h,
             ),
-            CustomWidgets.generateTextField(passwordController, "Şifre",
-                (value) {
-              if (value == null || value.isEmpty) {
-                return "Bu alan boş olamaz";
-              }
-              return null;
-            }),
+            CustomTextField(
+                controller: passwordController,
+                labelText: "Şifre",
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Bu alan boş olamaz";
+                  }
+                  return null;
+                }),
             SizedBox(
               height: 10.h,
             ),
