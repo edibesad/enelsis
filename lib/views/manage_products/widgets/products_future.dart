@@ -25,8 +25,12 @@ class ProductsFuture extends StatelessWidget {
           itemBuilder: (context, index) => Card(
             child: ListTile(
               title: Text(snapshot.data![index].name!),
-              trailing:
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.edit)),
+              trailing: IconButton(
+                  onPressed: () {
+                    Get.toNamed("/edit_product",
+                        arguments: snapshot.data![index]);
+                  },
+                  icon: const Icon(Icons.edit)),
             ),
           ),
         );

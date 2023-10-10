@@ -5,6 +5,7 @@ import 'package:enelsis/views/machines_electonic_page/screens/machine_electronic
 import 'package:enelsis/views/manage_machine_page/manage_machine_page.dart';
 import 'package:enelsis/views/manage_machine_page/screen/edit_machine_screen.dart';
 import 'package:enelsis/views/manage_products/manage_products.dart';
+import 'package:enelsis/views/manage_products/screens/edit_product_screen.dart';
 import 'package:enelsis/views/manage_task_page/manage_task_page.dart';
 import 'package:enelsis/views/manage_task_page/screen/edit_task_screen.dart';
 import 'package:enelsis/views/manage_users_page/manage_users_page.dart';
@@ -65,6 +66,10 @@ class AppRouter {
     GetPage(
       name: "/manage_products",
       page: () => const ManageProducts(),
+    ),
+    GetPage(
+      name: "/edit_product",
+      page: () => const EditProductScreen(),
     )
   ];
 }

@@ -8,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:omni_datetime_picker/omni_datetime_picker.dart';
 
-import '../../../utils/widgets/custom_widgets.dart';
+import '../../../utils/widgets/custom_textfield.dart';
 
 class EditTaskScreen extends StatefulWidget {
   const EditTaskScreen({super.key});

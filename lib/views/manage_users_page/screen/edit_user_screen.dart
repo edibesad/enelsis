@@ -1,7 +1,7 @@
 import 'package:enelsis/controller/department_controller.dart';
 import 'package:enelsis/models/department_model.dart';
 import 'package:enelsis/models/user_model.dart';
-import 'package:enelsis/utils/widgets/custom_widgets.dart';
+import 'package:enelsis/utils/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
