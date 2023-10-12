@@ -79,4 +79,25 @@ class SimService extends AbstractService {
 
     return data == null ? "" : jsonEncode(data["item"]);
   }
+
+  @override
+  Future<String> fetchItemByID(int id) async {
+    var json = await Future.delayed(duration).then((value) => items);
+    Map<String, dynamic>? data = (jsonDecode(json) as List)
+        .where((element) => element["id"] == id)
+        .firstOrNull;
+    return data == null ? "" : jsonEncode(data);
+  }
+
+  @override
+  Future<String> fetchItemByName(String query) async {
+    var json =
+        jsonDecode(await Future.delayed(Duration.zero).then((value) => items));
+    List data = (json as List)
+        .where((element) => (element["name"] as String)
+            .toLowerCase()
+            .contains(query.toLowerCase()))
+        .toList();
+    return jsonEncode(data);
+  }
 }

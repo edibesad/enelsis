@@ -70,6 +70,6 @@ class AppRouter {
     GetPage(
       name: "/edit_product",
       page: () => const EditProductScreen(),
-    )
+    ),
   ];
 }

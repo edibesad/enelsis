@@ -989,3 +989,62 @@ String productItems = """[
         }
     }
 ]""";
+
+String items = """
+[
+    {
+        "id": 1,
+        "name": "10k direnç",
+        "quantity": 10,
+        "unit": "Adet"
+    },
+    {
+        "id": 2,
+        "name": "20k direnç",
+        "quantity": 20,
+        "unit": "Adet"
+    },
+    {
+        "id": 3,
+        "name": "30k direnç",
+        "quantity": 30,
+        "unit": "Adet"
+    },
+    {
+        "id": 4,
+        "name": "40k direnç",
+        "quantity": 40,
+        "unit": "Adet"
+    },
+    {
+        "id": 5,
+        "name": "50k direnç",
+        "quantity": 50,
+        "unit": "Adet"
+    },
+    {
+        "id": 6,
+        "name": "60k direnç",
+        "quantity": 360,
+        "unit": "Adet"
+    },
+    {
+        "id": 7,
+        "name": "70k direnç",
+        "quantity": 300,
+        "unit": "Adet"
+    },
+    {
+        "id": 8,
+        "name": "Demir",
+        "quantity": 10,
+        "unit": "Ton"
+    },
+    {
+        "id": 9,
+        "name": "Su",
+        "quantity": 1000,
+        "unit": "Litre"
+    }
+]
+""";

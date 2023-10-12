@@ -15,4 +15,19 @@ class ItemController extends GetxController {
     }
     return ItemModel.fromJson(jsonDecode(json));
   }
+
+  Future<ItemModel> getItemByID(int id) async {
+    String jsonString = await _service.fetchItemByID(id);
+    if (jsonString.isNotEmpty) {
+      return ItemModel.fromJson(jsonDecode(jsonString));
+    }
+
+    return ItemModel();
+  }
+
+  Future<List<ItemModel>> getItemByName(String query) async {
+    List data = jsonDecode(await _service.fetchItemByName(query));
+
+    return data.map((e) => ItemModel.fromJson(e)).toList();
+  }
 }

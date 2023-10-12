@@ -31,6 +31,65 @@ class _ItemControlScreenState extends State<ItemControlScreen> {
       body: Column(
         children: [
           SizedBox(
+            height: 10.h,
+          ),
+          SizedBox(
+            width: 300.w,
+            height: 400.h,
+            child: image == null
+                ? MobileScanner(
+                    controller: mobileScannerController,
+                    onDetect: (barcodes) {
+                      mobileScannerController.stop;
+                      setState(() {
+                        image = barcodes.image;
+                        mobileScannerController = MobileScannerController(
+                          returnImage: true,
+                        );
+                        for (var element in barcodes.barcodes) {
+                          value = int.tryParse(element.rawValue!);
+                        }
+                        mobileScannerController.stop();
+                      });
+                    },
+                  )
+                : Image.memory(
+                    image!,
+                    fit: BoxFit.fill,
+                  ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                  onPressed: () {
+                    mobileScannerController.stop();
+                    setState(() {
+                      image = null;
+                      value = null;
+                    });
+                    mobileScannerController.start();
+                  },
+                  icon: const Icon(Icons.refresh)),
+              SizedBox(
+                width: 20.w,
+              ),
+              IconButton(
+                  onPressed: () {
+                    mobileScannerController.switchCamera();
+                  },
+                  icon: const Icon(Icons.cameraswitch)),
+              SizedBox(
+                width: 20.w,
+              ),
+              IconButton(
+                  onPressed: () {
+                    mobileScannerController.toggleTorch();
+                  },
+                  icon: const Icon(Icons.flashlight_on))
+            ],
+          ),
+          SizedBox(
             height: ScreenUtil().screenHeight * .35,
             child: Column(
               children: [
@@ -48,7 +107,7 @@ class _ItemControlScreenState extends State<ItemControlScreen> {
                       return const ShimmerListTile();
                     }
                     if (snapshot.hasError) {
-                      return Text("Hata${snapshot.error}");
+                      return Text("Hata :${snapshot.error}");
                     }
                     return Card(
                       child: ListTile(
@@ -77,62 +136,9 @@ class _ItemControlScreenState extends State<ItemControlScreen> {
               ],
             ),
           ),
-          Card(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                    onPressed: () {
-                      mobileScannerController.stop();
-                      setState(() {
-                        image = null;
-                        value = null;
-                      });
-                      mobileScannerController.start();
-                    },
-                    icon: const Icon(Icons.refresh)),
-                SizedBox(
-                  width: 20.w,
-                ),
-                IconButton(
-                    onPressed: () {
-                      mobileScannerController.switchCamera();
-                    },
-                    icon: const Icon(Icons.cameraswitch)),
-                SizedBox(
-                  width: 20.w,
-                ),
-                IconButton(
-                    onPressed: () {
-                      mobileScannerController.toggleTorch();
-                    },
-                    icon: const Icon(Icons.flashlight_on))
-              ],
-            ),
-          ),
           SizedBox(
             height: 20.h,
           ),
-          Expanded(
-            child: image == null
-                ? MobileScanner(
-                    controller: mobileScannerController,
-                    onDetect: (barcodes) {
-                      mobileScannerController.stop;
-                      setState(() {
-                        image = barcodes.image;
-                        mobileScannerController = MobileScannerController(
-                          returnImage: true,
-                        );
-                        for (var element in barcodes.barcodes) {
-                          value = int.tryParse(element.rawValue!);
-                        }
-                        mobileScannerController.stop();
-                      });
-                    },
-                  )
-                : Image.memory(image!),
-          )
         ],
       ),
     );

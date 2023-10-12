@@ -4,12 +4,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
       {super.key,
-      required this.controller,
-      required this.labelText,
-      required this.validator});
-  final TextEditingController controller;
-  final String labelText;
-  final FormFieldValidator validator;
+      this.controller,
+      this.labelText,
+      this.validator,
+      this.prefixIcon,
+      this.onChanged});
+  final TextEditingController? controller;
+  final String? labelText;
+  final FormFieldValidator? validator;
+  final Widget? prefixIcon;
+  final ValueChanged<String>? onChanged;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,9 +27,11 @@ class CustomTextField extends StatelessWidget {
           horizontal: 20.w,
         ),
         child: TextFormField(
+          onChanged: onChanged,
           validator: validator,
           controller: controller,
           decoration: InputDecoration(
+              prefixIcon: prefixIcon,
               enabledBorder: const UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.transparent),
               ),

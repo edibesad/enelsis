@@ -2,6 +2,8 @@ import 'package:enelsis/controller/home_controller.dart';
 import 'package:enelsis/views/machines_electonic_page/machines_electronic_page.dart';
 import 'package:enelsis/views/machines_production_page/machines_production_page.dart';
 import 'package:enelsis/views/profile_page/profile_page.dart';
+import 'package:enelsis/views/stocks_page/stocks_history/stocks_history.dart';
+import 'package:enelsis/views/stocks_page/stocks_query/stocks_query.dart';
 import 'package:enelsis/views/tasks_page/tasks_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -52,22 +54,42 @@ class _AppDrawerState extends State<AppDrawer> {
         },
         leading: const Icon(Icons.precision_manufacturing),
         title: const Text("Makineler"),
+      ),
+      const Divider(),
+      const ListTile(
+        subtitle: Text("Stok"),
+      ),
+      ListTile(
+        leading: const Icon(Icons.search),
+        title: const Text("Stok Sorgula"),
+        onTap: () {
+          Get.back();
+          homeController.homePage.value = const StocksQuery();
+          homeController.pageTitle.value = "Stok Sorgula";
+        },
+      ),
+      ListTile(
+        leading: const Icon(Icons.history),
+        title: const Text("Stok geçmişi"),
+        onTap: () {
+          Get.back();
+          homeController.homePage.value = const StocksHistory();
+          homeController.pageTitle.value = "Stok Geçmişi";
+        },
       )
     ];
-    return SafeArea(
-      child: Drawer(
-        child: ListView(children: [
-          UserAccountsDrawerHeader(
-              onDetailsPressed: () {
-                Get.back();
-                homeController.homePage.value = const ProfilePage();
-                homeController.pageTitle.value = "Profil";
-              },
-              accountName: const Text("Edib Esad Galip"),
-              accountEmail: const Text("edibesad@gmail.com")),
-          ...drawerItems,
-        ]),
-      ),
+    return Drawer(
+      child: ListView(children: [
+        UserAccountsDrawerHeader(
+            onDetailsPressed: () {
+              Get.back();
+              homeController.homePage.value = const ProfilePage();
+              homeController.pageTitle.value = "Profil";
+            },
+            accountName: const Text("Edib Esad Galip"),
+            accountEmail: const Text("edibesad@gmail.com")),
+        ...drawerItems,
+      ]),
     );
   }
 }
