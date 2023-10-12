@@ -10,6 +10,7 @@ import 'package:enelsis/views/manage_task_page/manage_task_page.dart';
 import 'package:enelsis/views/manage_task_page/screen/edit_task_screen.dart';
 import 'package:enelsis/views/manage_users_page/manage_users_page.dart';
 import 'package:enelsis/views/manage_users_page/screen/edit_user_screen.dart';
+import 'package:enelsis/views/stocks_page/stocks_history/stocks_history.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -71,5 +72,9 @@ class AppRouter {
       name: "/edit_product",
       page: () => const EditProductScreen(),
     ),
+    GetPage(
+      name: "/stock_history",
+      page: () => const StocksHistory(),
+    )
   ];
 }

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:enelsis/models/item_history_model.dart';
 import 'package:enelsis/models/item_model.dart';
 import 'package:enelsis/services/abstract_service.dart';
 import 'package:enelsis/services/sim_service.dart';
@@ -29,5 +30,11 @@ class ItemController extends GetxController {
     List data = jsonDecode(await _service.fetchItemByName(query));
 
     return data.map((e) => ItemModel.fromJson(e)).toList();
+  }
+
+  Future<List<ItemHistoryModel>> getItemHistory() async {
+    List data = jsonDecode(await _service.fetchItemHistory());
+
+    return data.map((e) => ItemHistoryModel.fromJson(e)).toList();
   }
 }

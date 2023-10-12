@@ -18,4 +18,5 @@ abstract class AbstractService {
   Future<String> fetchItemByInput(int board, int order, int productId);
   Future<String> fetchItemByID(int id);
   Future<String> fetchItemByName(String query);
+  Future<String> fetchItemHistory();
 }

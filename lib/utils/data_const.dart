@@ -1048,3 +1048,126 @@ String items = """
     }
 ]
 """;
+
+String itemHistory = """[
+    {
+        "id": 1,
+        "created_by": {
+            "id": 1,
+            "name": "Ahmet",
+            "username": "ahmet_123",
+            "surname": "Yılmaz",
+            "password": "ahmetpass",
+            "department": {
+                "id": 1,
+                "name": "İK Departmanı"
+            }
+        },
+        "item": {
+            "id": 1,
+            "name": "10k direnç",
+            "quantity": 1000,
+            "unit": "adet"
+        },
+        "created_at": "2023-10-10T10:30:00Z",
+        "quantity": 20,
+        "description": "Satın alma",
+        "is_spent": false
+    },
+    {
+        "id": 2,
+        "created_by": {
+            "id": 2,
+            "name": "Mehmet",
+            "username": "mehmet_456",
+            "surname": "Kara",
+            "password": "mehmetpass",
+            "department": {
+                "id": 2,
+                "name": "Yazılım Departmanı"
+            }
+        },
+        "item": {
+            "id": 2,
+            "name": "100nF kondansatör",
+            "quantity": 5000,
+            "unit": "adet"
+        },
+        "created_at": "2023-10-11T11:00:00Z",
+        "quantity": 100,
+        "description": "Üretim",
+        "is_spent": true
+    },
+    {
+        "id": 3,
+        "created_by": {
+            "id": 3,
+            "name": "Ayşe",
+            "username": "ayse_789",
+            "surname": "Demir",
+            "password": "aysepass",
+            "department": {
+                "id": 3,
+                "name": "Pazarlama Departmanı"
+            }
+        },
+        "item": {
+            "id": 3,
+            "name": "Kalem",
+            "quantity": 10000,
+            "unit": "adet"
+        },
+        "created_at": "2023-10-12T12:00:00Z",
+        "quantity": 500,
+        "description": "Ofis",
+        "is_spent": false
+    },
+    {
+        "id": 4,
+        "created_by": {
+            "id": 4,
+            "name": "Fatma",
+            "username": "fatma_01",
+            "surname": "Turan",
+            "password": "fatmapass",
+            "department": {
+                "id": 4,
+                "name": "Muhasebe Departmanı"
+            }
+        },
+        "item": {
+            "id": 4,
+            "name": "A4 Kağıt",
+            "quantity": 100000,
+            "unit": "paket"
+        },
+        "created_at": "2023-10-13T13:00:00Z",
+        "quantity": 100,
+        "description": "Ofis",
+        "is_spent": false
+    },
+    {
+        "id": 4,
+        "created_by": {
+            "id": 4,
+            "name": "Fatma",
+            "username": "fatma_01",
+            "surname": "Turan",
+            "password": "fatmapass",
+            "department": {
+                "id": 4,
+                "name": "Muhasebe Departmanı"
+            }
+        },
+        "item": {
+            "id": 4,
+            "name": "A4 Kağıt",
+            "quantity": 100000,
+            "unit": "paket"
+        },
+        "created_at": "2023-10-13T13:01:00Z",
+        "quantity": 100,
+        "description": "Ofis",
+        "is_spent": false
+    }
+]""";

@@ -1,56 +1,98 @@
 [
     {
         "id": 1,
-        "name": "10k direnç",
-        "quantity": 10,
-        "unit": "Adet"
+        "created_by": {
+            "id": 1,
+            "name": "Ahmet",
+            "username": "ahmet_123",
+            "surname": "Yılmaz",
+            "password": "ahmetpass",
+            "department": {
+                "id": 1,
+                "name": "İK Departmanı"
+            }
+        },
+        "item": {
+            "id": 1,
+            "name": "10k direnç",
+            "quantity": 1000,
+            "unit": "adet"
+        },
+        "created_at": "2023-10-10T10:30:00Z",
+        "quantity": 20,
+        "description": "Satın alma",
+        "is_spent": false
     },
     {
         "id": 2,
-        "name": "20k direnç",
-        "quantity": 20,
-        "unit": "Adet"
+        "created_by": {
+            "id": 2,
+            "name": "Mehmet",
+            "username": "mehmet_456",
+            "surname": "Kara",
+            "password": "mehmetpass",
+            "department": {
+                "id": 2,
+                "name": "Yazılım Departmanı"
+            }
+        },
+        "item": {
+            "id": 2,
+            "name": "100nF kondansatör",
+            "quantity": 5000,
+            "unit": "adet"
+        },
+        "created_at": "2023-10-11T11:00:00Z",
+        "quantity": 100,
+        "description": "Üretim",
+        "is_spent": true
     },
     {
         "id": 3,
-        "name": "30k direnç",
-        "quantity": 30,
-        "unit": "Adet"
+        "created_by": {
+            "id": 3,
+            "name": "Ayşe",
+            "username": "ayse_789",
+            "surname": "Demir",
+            "password": "aysepass",
+            "department": {
+                "id": 3,
+                "name": "Pazarlama Departmanı"
+            }
+        },
+        "item": {
+            "id": 3,
+            "name": "Kalem",
+            "quantity": 10000,
+            "unit": "adet"
+        },
+        "created_at": "2023-10-12T12:00:00Z",
+        "quantity": 500,
+        "description": "Ofis",
+        "is_spent": false
     },
     {
         "id": 4,
-        "name": "40k direnç",
-        "quantity": 40,
-        "unit": "Adet"
-    },
-    {
-        "id": 5,
-        "name": "50k direnç",
-        "quantity": 50,
-        "unit": "Adet"
-    },
-    {
-        "id": 6,
-        "name": "60k direnç",
-        "quantity": 360,
-        "unit": "Adet"
-    },
-    {
-        "id": 7,
-        "name": "70k direnç",
-        "quantity": 300,
-        "unit": "Adet"
-    },
-    {
-        "id": 8,
-        "name": "Demir",
-        "quantity": 10,
-        "unit": "Ton"
-    },
-    {
-        "id": 9,
-        "name": "Su",
-        "quantity": 1000,
-        "unit": "Litre"
+        "created_by": {
+            "id": 4,
+            "name": "Fatma",
+            "username": "fatma_01",
+            "surname": "Turan",
+            "password": "fatmapass",
+            "department": {
+                "id": 4,
+                "name": "Muhasebe Departmanı"
+            }
+        },
+        "item": {
+            "id": 4,
+            "name": "A4 Kağıt",
+            "quantity": 100000,
+            "unit": "paket"
+        },
+        "created_at": "2023-10-13T13:00:00Z",
+        "quantity": 100,
+        "description": "Ofis",
+        "is_spent": false
     }
 ]

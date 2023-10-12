@@ -100,4 +100,9 @@ class SimService extends AbstractService {
         .toList();
     return jsonEncode(data);
   }
+
+  @override
+  Future<String> fetchItemHistory() {
+    return Future.delayed(duration).then((value) => itemHistory);
+  }
 }

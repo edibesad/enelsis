@@ -10,4 +10,7 @@ class ItemModel {
       name: json["name"],
       quantity: json["quantity"],
       unit: json["unit"]);
+
+  Map<String, dynamic> toJson() =>
+      {"id": id, "name": name, "quantity": quantity, "unit": unit};
 }
