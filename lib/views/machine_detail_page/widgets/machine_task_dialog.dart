@@ -22,7 +22,7 @@ class _MachineTaskDialogState extends State<MachineTaskDialog> {
       title: const Text("Görev ekle"),
       content: Form(
           child: SizedBox(
-        height: 150.h,
+        height: 180.h,
         child: Column(
           children: [
             TextFormField(
