@@ -28,119 +28,120 @@ class _ItemControlScreenState extends State<ItemControlScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Ürün Kontrol Ekranı")),
-      body: Column(
-        children: [
-          SizedBox(
-            height: 10.h,
-          ),
-          SizedBox(
-            width: 300.w,
-            height: 400.h,
-            child: image == null
-                ? MobileScanner(
-                    controller: mobileScannerController,
-                    onDetect: (barcodes) {
-                      mobileScannerController.stop;
-                      setState(() {
-                        image = barcodes.image;
-                        mobileScannerController = MobileScannerController(
-                          returnImage: true,
-                        );
-                        for (var element in barcodes.barcodes) {
-                          value = int.tryParse(element.rawValue!);
-                        }
-                        mobileScannerController.stop();
-                      });
-                    },
-                  )
-                : Image.memory(
-                    image!,
-                    fit: BoxFit.fill,
-                  ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              IconButton(
-                  onPressed: () {
-                    mobileScannerController.stop();
-                    setState(() {
-                      image = null;
-                      value = null;
-                    });
-                    mobileScannerController.start();
-                  },
-                  icon: const Icon(Icons.refresh)),
-              SizedBox(
-                width: 20.w,
-              ),
-              IconButton(
-                  onPressed: () {
-                    mobileScannerController.switchCamera();
-                  },
-                  icon: const Icon(Icons.cameraswitch)),
-              SizedBox(
-                width: 20.w,
-              ),
-              IconButton(
-                  onPressed: () {
-                    mobileScannerController.toggleTorch();
-                  },
-                  icon: const Icon(Icons.flashlight_on))
-            ],
-          ),
-          SizedBox(
-            height: ScreenUtil().screenHeight * .35,
-            child: Column(
+      body: Builder(builder: (context) {
+        return Column(
+          children: [
+            SizedBox(
+              height: 10.h,
+            ),
+            SizedBox.square(
+              dimension: 300.r,
+              child: image == null
+                  ? MobileScanner(
+                      controller: mobileScannerController,
+                      onDetect: (barcodes) {
+                        mobileScannerController.stop;
+                        setState(() {
+                          image = barcodes.image;
+                          mobileScannerController = MobileScannerController(
+                            returnImage: true,
+                          );
+                          for (var element in barcodes.barcodes) {
+                            value = int.tryParse(element.rawValue!);
+                          }
+                          mobileScannerController.stop();
+                        });
+                      },
+                    )
+                  : Image.memory(
+                      image!,
+                      fit: BoxFit.fill,
+                    ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Card(
-                  child: ListTile(
-                    title: const Text("Giriş numarası"),
-                    subtitle: Text((input.input.order).toString()),
-                  ),
+                IconButton(
+                    onPressed: () {
+                      mobileScannerController.stop();
+                      setState(() {
+                        image = null;
+                        value = null;
+                      });
+                      mobileScannerController.start();
+                    },
+                    icon: const Icon(Icons.refresh)),
+                SizedBox(
+                  width: 20.w,
                 ),
-                FutureBuilder<ItemModel>(
-                  future: itemController.getItemByInput(
-                      input.input.board, input.input.order, input.product.id!),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const ShimmerListTile();
-                    }
-                    if (snapshot.hasError) {
-                      return Text("Hata :${snapshot.error}");
-                    }
-                    return Card(
-                      child: ListTile(
-                        title: const Text("Takılması gereken ürün"),
-                        subtitle: Text(snapshot.data!.name ?? "Boş"),
-                      ),
-                    );
-                  },
+                IconButton(
+                    onPressed: () {
+                      mobileScannerController.switchCamera();
+                    },
+                    icon: const Icon(Icons.cameraswitch)),
+                SizedBox(
+                  width: 20.w,
                 ),
-                Card(
-                  child: ListTile(
-                    title: const Text("Doğruluk durumu"),
-                    trailing: value == null
-                        ? const Icon(Icons.remove)
-                        : (value == 1
-                            ? const Icon(
-                                Icons.done,
-                                color: Colors.green,
-                              )
-                            : const Icon(
-                                Icons.close,
-                                color: Colors.red,
-                              )),
-                  ),
-                ),
+                IconButton(
+                    onPressed: () {
+                      mobileScannerController.toggleTorch();
+                    },
+                    icon: const Icon(Icons.flashlight_on))
               ],
             ),
-          ),
-          SizedBox(
-            height: 20.h,
-          ),
-        ],
-      ),
+            SizedBox(
+              height: ScreenUtil().screenHeight * .35,
+              child: Column(
+                children: [
+                  Card(
+                    child: ListTile(
+                      title: const Text("Giriş numarası"),
+                      subtitle: Text((input.input.order).toString()),
+                    ),
+                  ),
+                  FutureBuilder<ItemModel>(
+                    future: itemController.getItemByInput(input.input.board,
+                        input.input.order, input.product.id!),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const ShimmerListTile();
+                      }
+                      if (snapshot.hasError) {
+                        return Text("Hata :${snapshot.error}");
+                      }
+                      return Card(
+                        child: ListTile(
+                          title: const Text("Takılması gereken ürün"),
+                          subtitle: Text(snapshot.data!.name ?? "Boş"),
+                        ),
+                      );
+                    },
+                  ),
+                  Card(
+                    child: ListTile(
+                      title: const Text("Doğruluk durumu"),
+                      trailing: value == null
+                          ? const Icon(Icons.remove)
+                          : (value == 1
+                              ? const Icon(
+                                  Icons.done,
+                                  color: Colors.green,
+                                )
+                              : const Icon(
+                                  Icons.close,
+                                  color: Colors.red,
+                                )),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 20.h,
+            ),
+          ],
+        );
+      }),
     );
   }
 }

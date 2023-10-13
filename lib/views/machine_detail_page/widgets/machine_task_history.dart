@@ -36,14 +36,16 @@ class MachineTaskHistory extends StatelessWidget {
           );
         }
 
-        return Column(
-          children: [
-            Text(
-              "Makine Geçmişi",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.sp),
-            ),
-            TasksTable(snapshot.data!, false),
-          ],
+        return Card(
+          child: Column(
+            children: [
+              Text(
+                "Makine Geçmişi",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.r),
+              ),
+              TasksTable(snapshot.data!, false),
+            ],
+          ),
         );
       },
     );

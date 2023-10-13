@@ -35,7 +35,7 @@ class MachineDetail extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(12.sp),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               MachineInfo(
                 machineModel: machineModel,

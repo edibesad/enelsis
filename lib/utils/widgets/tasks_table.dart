@@ -1,5 +1,6 @@
 import 'package:enelsis/models/machine_task_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class TasksTable extends StatefulWidget {
@@ -29,6 +30,9 @@ class _TasksTableState extends State<TasksTable> {
           child: DataTable(
             sortAscending: isAscending,
             sortColumnIndex: sortColumnIndex,
+            columnSpacing: ScreenUtil().orientation == Orientation.portrait
+                ? 100.h
+                : 100.w,
             columns: [
               buildDataColumn("İsim"),
               buildDataColumn("Operatör"),

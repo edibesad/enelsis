@@ -17,7 +17,7 @@ class MachineInfo extends StatelessWidget {
     return Column(
       children: [
         Text("Makine Bilgileri",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.sp)),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.r)),
         Card(
           child: ListTile(
             leading: const Icon(Icons.title),

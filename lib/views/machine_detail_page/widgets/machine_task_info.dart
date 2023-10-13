@@ -15,7 +15,7 @@ class MachineTaskInfo extends StatelessWidget {
       children: [
         Text(
           "Makine Son İşlem",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.sp),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.r),
         ),
         Column(
           children: [

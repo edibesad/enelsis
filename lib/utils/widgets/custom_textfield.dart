@@ -24,7 +24,7 @@ class CustomTextField extends StatelessWidget {
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: 20.w,
+          horizontal: 20,
         ),
         child: TextFormField(
           onChanged: onChanged,

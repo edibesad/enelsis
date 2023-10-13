@@ -24,9 +24,8 @@ class _QueryWithQRState extends State<QueryWithQR> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(
-            width: 350.w,
-            height: 350.h,
+          SizedBox.square(
+            dimension: 500.r,
             child: Card(
               child: Column(
                 children: [

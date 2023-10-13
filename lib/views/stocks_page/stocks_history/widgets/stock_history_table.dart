@@ -1,5 +1,6 @@
 import 'package:enelsis/models/item_history_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class StockHistoryTable extends StatefulWidget {
   const StockHistoryTable(this.history, {super.key});
@@ -22,6 +23,8 @@ class _StockHistoryTableState extends State<StockHistoryTable> {
         child: DataTable(
             sortAscending: isAscending,
             sortColumnIndex: sortColumnIndex,
+            columnSpacing:
+                ScreenUtil().orientation == Orientation.portrait ? 100.h : 45.w,
             columns: [
               buildDataColumn("Malzeme ismi"),
               buildDataColumn("Ekleyen kişi"),
@@ -29,7 +32,7 @@ class _StockHistoryTableState extends State<StockHistoryTable> {
               buildDataColumn("Miktar"),
               buildDataColumn("Birim"),
               buildDataColumn("Açıklama"),
-              buildDataColumn("Kullanma mı?")
+              buildDataColumn("Kullanma")
             ],
             rows: widget.history
                 .map<DataRow>((e) => DataRow(cells: [
