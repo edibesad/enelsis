@@ -34,6 +34,13 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
     getItemsFromService();
   }
 
+  @override
+  void dispose() {
+    super.dispose();
+    Get.delete<MachinesController>();
+    Get.delete<UserController>();
+  }
+
   final MachinesController machinesController = Get.put(MachinesController());
   final UserController usersController = Get.put(UserController());
 
