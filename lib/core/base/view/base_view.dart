@@ -22,7 +22,7 @@ class _BaseViewState<T extends GetxController> extends State<BaseView<T>> {
   @override
   void initState() {
     super.initState();
-    this.viewModel = widget.viewModel;
+    this.viewModel = Get.put(widget.viewModel);
     if (widget.onModelReady != null) widget.onModelReady!(widget.viewModel);
   }
 
@@ -36,4 +36,6 @@ class _BaseViewState<T extends GetxController> extends State<BaseView<T>> {
   Widget build(BuildContext context) {
     return widget.onPageBuild(context, widget.viewModel);
   }
+
+  buildDrawer(viewModel) {}
 }

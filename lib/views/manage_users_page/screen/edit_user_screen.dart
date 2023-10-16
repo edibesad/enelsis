@@ -1,6 +1,6 @@
 import 'package:enelsis/controller/department_controller.dart';
 import 'package:enelsis/models/department_model.dart';
-import 'package:enelsis/models/user_model.dart';
+import 'package:enelsis/product/model/user_model.dart';
 import 'package:enelsis/core/components/text_fields/custom_form_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

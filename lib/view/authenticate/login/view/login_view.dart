@@ -1,5 +1,5 @@
 import 'package:enelsis/core/base/view/base_view.dart';
-import 'package:enelsis/view/autenticate/login/viewmodel/login_view_model.dart';
+import 'package:enelsis/view/authenticate/login/view_model/login_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/components/text_fields/custom_form_textfield.dart';
@@ -34,6 +34,7 @@ class LoginView extends StatelessWidget {
           SizedBox(
             height: 10.h,
           ),
+          buildFormButton(viewModel)
         ],
       ));
 

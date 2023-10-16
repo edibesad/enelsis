@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:enelsis/models/user_model.dart';
+import 'package:enelsis/product/model/user_model.dart';
 import 'package:enelsis/services/abstract_service.dart';
 import 'package:enelsis/services/sim_service.dart';
 import 'package:get/get.dart';

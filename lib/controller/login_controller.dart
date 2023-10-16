@@ -1,5 +1,5 @@
 import 'package:enelsis/models/department_model.dart';
-import 'package:enelsis/models/user_model.dart';
+import 'package:enelsis/product/model/user_model.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {

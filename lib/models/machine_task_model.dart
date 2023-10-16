@@ -6,7 +6,7 @@ import 'dart:convert';
 
 import 'package:enelsis/models/machine_model.dart';
 import 'package:enelsis/models/task_type_model.dart';
-import 'package:enelsis/models/user_model.dart';
+import 'package:enelsis/product/model/user_model.dart';
 
 MachineTaskModel machineTaskModelFromJson(String str) =>
     MachineTaskModel.fromJson(json.decode(str));

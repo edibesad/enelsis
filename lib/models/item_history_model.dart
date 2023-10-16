@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:enelsis/models/item_model.dart';
-import 'package:enelsis/models/user_model.dart';
+import 'package:enelsis/product/model/user_model.dart';
 
 ItemHistoryModel itemHistoryModelFromJson(String str) =>
     ItemHistoryModel.fromJson(json.decode(str));

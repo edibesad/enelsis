@@ -2,17 +2,10 @@
 //
 //     final userModel = userModelFromJson(jsonString);
 
-import 'dart:convert';
-
+import 'package:enelsis/core/base/model/base_model.dart';
 import 'package:enelsis/models/department_model.dart';
 
-List<UserModel> userModelFromJson(String str) =>
-    List<UserModel>.from(json.decode(str).map((x) => UserModel.fromJson(x)));
-
-String userModelToJson(List<UserModel> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
-
-class UserModel {
+class UserModel extends BaseModel {
   int? id;
   String? username;
   String? name;
@@ -48,4 +41,10 @@ class UserModel {
         "password": password,
         "department": department?.toJson(),
       };
+
+  @override
+  fromJson(Map<String, Object?> json) {
+    // TODO: implement fromJson
+    throw UnimplementedError();
+  }
 }
