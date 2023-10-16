@@ -13,6 +13,8 @@ dependencies:
     sdk: flutter
   omni_datetime_picker: ^1.0.9
   mobile_scanner: ^3.4.1
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:
