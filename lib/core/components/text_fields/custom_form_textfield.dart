@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomTextField extends StatelessWidget {
-  const CustomTextField(
+class CustomFormTextField extends StatelessWidget {
+  const CustomFormTextField(
       {super.key,
       this.controller,
       this.labelText,
@@ -23,7 +23,7 @@ class CustomTextField extends StatelessWidget {
         color: Color(Colors.black.withOpacity(.15).value),
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: 20,
         ),
         child: TextFormField(

@@ -1,7 +1,7 @@
 import 'package:enelsis/controller/department_controller.dart';
 import 'package:enelsis/models/department_model.dart';
 import 'package:enelsis/models/machine_model.dart';
-import 'package:enelsis/utils/widgets/custom_textfield.dart';
+import 'package:enelsis/core/components/text_fields/custom_form_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -44,7 +44,7 @@ class _EditMachineScreenState extends State<EditMachineScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CustomTextField(
+            CustomFormTextField(
                 controller: TextEditingController(),
                 labelText: "İsim",
                 validator: (value) => null),

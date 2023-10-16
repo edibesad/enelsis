@@ -1,5 +1,6 @@
 import 'package:enelsis/controller/machines_controller.dart';
 import 'package:enelsis/controller/user_controller.dart';
+import 'package:enelsis/core/components/text_fields/custom_form_textfield.dart';
 import 'package:enelsis/models/machine_model.dart';
 import 'package:enelsis/models/machine_task_model.dart';
 import 'package:enelsis/models/user_model.dart';
@@ -7,8 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:omni_datetime_picker/omni_datetime_picker.dart';
-
-import '../../../utils/widgets/custom_textfield.dart';
 
 class EditTaskScreen extends StatefulWidget {
   const EditTaskScreen({super.key});
@@ -54,7 +53,7 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CustomTextField(
+            CustomFormTextField(
                 controller: taksNameTextEditingController,
                 labelText: "Görev adı",
                 validator: (value) => null),

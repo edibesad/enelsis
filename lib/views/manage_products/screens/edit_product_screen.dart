@@ -1,5 +1,5 @@
 import 'package:enelsis/models/product_model.dart';
-import 'package:enelsis/utils/widgets/custom_textfield.dart';
+import 'package:enelsis/core/components/text_fields/custom_form_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -19,12 +19,9 @@ class EditProductScreen extends StatelessWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CustomTextField(
+          CustomFormTextField(
             controller: controller,
             labelText: "Ürün ismi",
-            validator: (value) {
-              return "";
-            },
           ),
           SizedBox(
             height: 20.h,

@@ -1,6 +1,7 @@
+import 'package:enelsis/core/init/navigation/get_navigation_route.dart';
 import 'package:enelsis/utils/app_router.dart';
 import 'package:enelsis/utils/themes.dart';
-import 'package:enelsis/views/login_page/login_page.dart';
+import 'package:enelsis/view/autenticate/login/view/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -18,9 +19,9 @@ class MainApp extends StatelessWidget {
       designSize: const Size(430, 932),
       builder: (context, child) => GetMaterialApp(
         unknownRoute: AppRouter.unknownPage,
-        getPages: AppRouter.getPages,
+        getPages: GetNavigationRoute.getPages,
         theme: Themes.customTheme,
-        home: const LoginPage(),
+        home: const LoginView(),
       ),
     );
   }

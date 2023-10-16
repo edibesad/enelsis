@@ -1,7 +1,7 @@
 import 'package:enelsis/controller/department_controller.dart';
 import 'package:enelsis/models/department_model.dart';
 import 'package:enelsis/models/user_model.dart';
-import 'package:enelsis/utils/widgets/custom_textfield.dart';
+import 'package:enelsis/core/components/text_fields/custom_form_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -50,21 +50,21 @@ class _EditUserScreenState extends State<EditUserScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomTextField(
+                CustomFormTextField(
                     controller: userNameTextEditingController,
                     labelText: "Kullanıcı adı",
                     validator: (value) => null),
                 SizedBox(
                   height: 10.h,
                 ),
-                CustomTextField(
+                CustomFormTextField(
                     controller: nameTextEditingController,
                     labelText: "İsim",
                     validator: (value) => null),
                 SizedBox(
                   height: 10.h,
                 ),
-                CustomTextField(
+                CustomFormTextField(
                     controller: surnameTextEditingController,
                     labelText: "Soyisim",
                     validator: (value) => null),
