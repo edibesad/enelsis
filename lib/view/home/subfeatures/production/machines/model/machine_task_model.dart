@@ -1,6 +1,6 @@
 import 'package:enelsis/product/model/user_model.dart';
-import 'package:enelsis/view/subfeatures/production/machines/model/task_type_model.dart';
-import '../../../../../core/base/model/base_model.dart';
+import 'package:enelsis/view/home/subfeatures/production/machines/model/task_type_model.dart';
+import '../../../../../../core/base/model/base_model.dart';
 
 class MachineTaskModel extends BaseModel {
   int? id;

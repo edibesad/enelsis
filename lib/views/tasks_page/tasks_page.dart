@@ -1,5 +1,5 @@
 import 'package:enelsis/controller/task_controller.dart';
-import 'package:enelsis/view/subfeatures/production/machines/model/machine_task_model.dart';
+import 'package:enelsis/view/home/subfeatures/production/machines/model/machine_task_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

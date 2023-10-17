@@ -1,6 +1,6 @@
 import 'package:enelsis/core/base/model/base_view_model.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/constants/navigation/navigation_constants.dart';
+import '../../../../../core/constants/navigation/navigation_constants.dart';
 
 class ProfileViewModel extends BaseViewModel {
   @override
