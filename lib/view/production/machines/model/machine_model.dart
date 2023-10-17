@@ -7,7 +7,7 @@ import 'dart:convert';
 import 'package:enelsis/models/department_model.dart';
 import 'package:enelsis/models/machin_type_model.dart';
 import 'package:enelsis/models/machine_info_model.dart';
-import 'package:enelsis/view/home/subfeatures/production/machines/model/machine_task_model.dart';
+import 'package:enelsis/view/production/machines/model/machine_task_model.dart';
 
 MachineModel machineModelFromJson(String str) =>
     MachineModel.fromJson(json.decode(str));

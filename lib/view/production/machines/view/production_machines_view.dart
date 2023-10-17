@@ -1,5 +1,5 @@
 import 'package:enelsis/core/base/view/base_view.dart';
-import 'package:enelsis/view/home/subfeatures/production/machines/view_model/machines_view_model.dart';
+import 'package:enelsis/view/production/machines/view_model/machines_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

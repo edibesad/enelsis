@@ -1,7 +1,7 @@
 import 'package:enelsis/core/base/view/base_view.dart';
 import 'package:enelsis/core/constants/navigation/navigation_constants.dart';
-import 'package:enelsis/view/home/subfeatures/profile/model/admin_widget_card_model.dart';
-import 'package:enelsis/view/home/subfeatures/profile/view_model/profile_view_model.dart';
+import 'package:enelsis/view/profile/model/admin_widget_card_model.dart';
+import 'package:enelsis/view/profile/view_model/profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
