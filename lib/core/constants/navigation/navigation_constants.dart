@@ -5,7 +5,7 @@ class NavigationConstants {
   static const LOGIN = "/login";
   static const MANAGE_USERS = "/manage_users";
   static const EDIT_USER = "/edit_user";
-  static const MANAGE_TASKS = "/manage_tasks";
+  static const TASK_HISTORY = "/task_history";
   static const EDIT_TASK = "/edit_tasks";
   static const MANAGE_MACHINES = "/manage_machines";
   static const EDIT_MACHINE = "/edit_machine";

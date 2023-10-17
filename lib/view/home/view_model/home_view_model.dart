@@ -2,11 +2,11 @@ import 'package:enelsis/core/base/model/base_view_model.dart';
 import 'package:enelsis/core/components/cards/welcome_card.dart';
 import 'package:enelsis/view/home/model/drawer_item_model.dart';
 import 'package:enelsis/view/production/machines/view/production_machines_view.dart';
+import 'package:enelsis/view/production/task_history/view/task_history_view.dart';
 import 'package:enelsis/views/machines_electonic_page/machines_electronic_page.dart';
 import 'package:enelsis/view/profile/view/profile_view.dart';
 import 'package:enelsis/views/stocks_page/stocks_history/stocks_history.dart';
 import 'package:enelsis/views/stocks_page/stocks_query/stocks_query.dart';
-import 'package:enelsis/views/tasks_page/tasks_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -58,7 +58,7 @@ class HomeViewModel extends BaseViewModel {
     DrawerItemModel(
         icon: const Icon(Icons.history),
         title: "Görev Geçmişi",
-        view: const TasksPage()),
+        view: const TaskHistoryView()),
     DrawerItemModel(
         icon: const Icon(Icons.precision_manufacturing),
         title: "Makinler",

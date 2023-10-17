@@ -1,5 +1,5 @@
 import 'package:enelsis/models/machine_model.dart';
-import 'package:enelsis/view/production/machines/model/machine_task_model.dart';
+import 'package:enelsis/view/production/_model/machine_task_model.dart';
 import 'package:enelsis/views/machine_detail_page/widgets/machine_task_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

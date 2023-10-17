@@ -2,19 +2,13 @@
 //
 //     final machineModel = machineModelFromJson(jsonString);
 
-import 'dart:convert';
-
+import 'package:enelsis/core/base/model/base_model.dart';
 import 'package:enelsis/models/department_model.dart';
 import 'package:enelsis/models/machin_type_model.dart';
 import 'package:enelsis/models/machine_info_model.dart';
-import 'package:enelsis/view/production/machines/model/machine_task_model.dart';
+import 'package:enelsis/view/production/_model/machine_task_model.dart';
 
-MachineModel machineModelFromJson(String str) =>
-    MachineModel.fromJson(json.decode(str));
-
-String machineModelToJson(MachineModel data) => json.encode(data.toJson());
-
-class MachineModel {
+class MachineModel extends BaseModel {
   int id;
   String name;
   MachineTypeModel type;
@@ -46,4 +40,7 @@ class MachineModel {
         "type": type,
         "department": department.toJson(),
       };
+
+  @override
+  fromJson(Map<String, dynamic> json) => MachineInfoModel.fromJson(json);
 }

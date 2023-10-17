@@ -52,7 +52,7 @@ class ProfileView extends StatelessWidget {
           ),
           buildAdminWidgetCard(
               AdminWidgetCardModel(
-                  path: NavigationConstants.MANAGE_TASKS,
+                  path: NavigationConstants.TASK_HISTORY,
                   icon: const Icon(Icons.task, size: 36),
                   title: "Görevleri Yönet"),
               viewModel),

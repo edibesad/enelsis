@@ -1,6 +1,6 @@
 import 'package:enelsis/core/constants/navigation/navigation_constants.dart';
 import 'package:enelsis/view/home/view/home_view.dart';
-import 'package:enelsis/views/manage_task_page/manage_task_page.dart';
+import 'package:enelsis/view/production/task_history/view/task_history_view.dart';
 import 'package:enelsis/views/manage_task_page/screen/edit_task_screen.dart';
 import 'package:enelsis/views/manage_users_page/screen/edit_user_screen.dart';
 import 'package:get/get.dart';
@@ -36,8 +36,8 @@ class GetNavigationRoute {
       page: () => const EditUserScreen(),
     ),
     GetPage(
-      name: NavigationConstants.MANAGE_TASKS,
-      page: () => ManageTasksPage(),
+      name: NavigationConstants.TASK_HISTORY,
+      page: () => const TaskHistoryView(),
     ),
     GetPage(
       name: NavigationConstants.EDIT_TASK,

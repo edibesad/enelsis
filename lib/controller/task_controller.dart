@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:enelsis/view/production/machines/model/machine_task_model.dart';
+import 'package:enelsis/view/production/_model/machine_task_model.dart';
 import 'package:enelsis/services/abstract_service.dart';
 import 'package:enelsis/services/sim_service.dart';
 import 'package:get/get.dart';

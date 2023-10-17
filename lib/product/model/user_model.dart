@@ -11,27 +11,28 @@ class UserModel extends BaseModel {
   String? name;
   String? surname;
   String? password;
+  bool? isAdmin;
   DepartmentModel? department;
 
-  UserModel({
-    this.id,
-    this.name,
-    this.username,
-    this.surname,
-    this.password,
-    this.department,
-  });
+  UserModel(
+      {this.id,
+      this.name,
+      this.username,
+      this.surname,
+      this.password,
+      this.department,
+      this.isAdmin});
 
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
-        id: json["id"],
-        name: json["name"],
-        username: json["username"],
-        surname: json["surname"],
-        password: json["password"],
-        department: json["department"] == null
-            ? null
-            : DepartmentModel.fromJson(json["department"]),
-      );
+      id: json["id"],
+      name: json["name"],
+      username: json["username"],
+      surname: json["surname"],
+      password: json["password"],
+      department: json["department"] == null
+          ? null
+          : DepartmentModel.fromJson(json["department"]),
+      isAdmin: json["isAdmin"]);
 
   Map<String, dynamic> toJson() => {
         "id": id,
@@ -43,8 +44,14 @@ class UserModel extends BaseModel {
       };
 
   @override
-  fromJson(Map<String, Object?> json) {
-    // TODO: implement fromJson
-    throw UnimplementedError();
-  }
+  fromJson(Map<String, dynamic> json) => UserModel(
+        id: json["id"],
+        name: json["name"],
+        username: json["username"],
+        surname: json["surname"],
+        password: json["password"],
+        department: json["department"] == null
+            ? null
+            : DepartmentModel.fromJson(json["department"]),
+      );
 }
