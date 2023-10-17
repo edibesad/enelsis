@@ -1,4 +1,6 @@
-class TaskTypeModel {
+import 'package:enelsis/core/base/model/base_model.dart';
+
+class TaskTypeModel extends BaseModel {
   int? id;
   String? name;
 
@@ -7,11 +9,13 @@ class TaskTypeModel {
     this.name,
   });
 
-  factory TaskTypeModel.fromJson(Map<String, dynamic> json) => TaskTypeModel(
+  @override
+  fromJson(Map<String, dynamic> json) => TaskTypeModel(
         id: json["id"],
         name: json["name"],
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,

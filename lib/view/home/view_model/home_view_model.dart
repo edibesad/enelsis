@@ -1,9 +1,9 @@
 import 'package:enelsis/core/base/model/base_view_model.dart';
 import 'package:enelsis/core/components/cards/welcome_card.dart';
 import 'package:enelsis/view/home/model/drawer_item_model.dart';
+import 'package:enelsis/view/subfeatures/production/machines/view/production_machines_view.dart';
 import 'package:enelsis/views/machines_electonic_page/machines_electronic_page.dart';
-import 'package:enelsis/views/machines_production_page/machines_production_page.dart';
-import 'package:enelsis/view/subview/profile_view/view/profile_view.dart';
+import 'package:enelsis/view/subfeatures/profile/view/profile_view.dart';
 import 'package:enelsis/views/stocks_page/stocks_history/stocks_history.dart';
 import 'package:enelsis/views/stocks_page/stocks_query/stocks_query.dart';
 import 'package:enelsis/views/tasks_page/tasks_page.dart';
@@ -53,8 +53,8 @@ class HomeViewModel extends BaseViewModel {
   List<DrawerItemModel> drawerItems = [
     DrawerItemModel(
         icon: const Icon(Icons.precision_manufacturing),
-        title: "Makinler",
-        view: const MachinesProductionPage()),
+        title: "Makineler",
+        view: const ProductionMachinesView()),
     DrawerItemModel(
         icon: const Icon(Icons.history),
         title: "Görev Geçmişi",

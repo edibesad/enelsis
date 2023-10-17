@@ -2,7 +2,7 @@ import 'package:enelsis/controller/machines_controller.dart';
 import 'package:enelsis/controller/user_controller.dart';
 import 'package:enelsis/core/components/text_fields/custom_form_textfield.dart';
 import 'package:enelsis/models/machine_model.dart';
-import 'package:enelsis/models/machine_task_model.dart';
+import 'package:enelsis/view/subfeatures/production/machines/model/machine_task_model.dart';
 import 'package:enelsis/product/model/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,7 +28,6 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
     super.initState();
     task = Get.arguments as MachineTaskModel;
     taksNameTextEditingController = TextEditingController(text: task.name);
-    machineId = task.machine!.id;
     userId = task.createdBy!.id!;
     getItemsFromService();
   }
