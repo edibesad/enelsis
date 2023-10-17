@@ -27,6 +27,11 @@ class HomeView extends StatelessWidget {
   buildDrawer(HomeViewModel viewModel) => Drawer(
         child: Column(
           children: [
+            UserAccountsDrawerHeader(
+              accountName: const Text("edibesad"),
+              accountEmail: const Text("edibesad@gmail.com"),
+              onDetailsPressed: () => viewModel.onDetailsPressed(),
+            ),
             const ListTile(
               subtitle: Text("Üretim"),
             ),

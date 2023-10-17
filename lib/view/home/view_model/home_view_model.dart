@@ -3,6 +3,7 @@ import 'package:enelsis/core/components/cards/welcome_card.dart';
 import 'package:enelsis/view/home/model/drawer_item_model.dart';
 import 'package:enelsis/views/machines_electonic_page/machines_electronic_page.dart';
 import 'package:enelsis/views/machines_production_page/machines_production_page.dart';
+import 'package:enelsis/view/subview/profile_view/view/profile_view.dart';
 import 'package:enelsis/views/stocks_page/stocks_history/stocks_history.dart';
 import 'package:enelsis/views/stocks_page/stocks_query/stocks_query.dart';
 import 'package:enelsis/views/tasks_page/tasks_page.dart';
@@ -26,6 +27,7 @@ class HomeViewModel extends BaseViewModel {
       Get.back();
       changeActiveView(e.view!);
       changeAppBarTitle(e.title!);
+      return;
     }
   }
 
@@ -35,6 +37,16 @@ class HomeViewModel extends BaseViewModel {
 
   changeActiveView(Widget activeView) {
     this.activeView.value = activeView;
+  }
+
+  onDetailsPressed() {
+    for (var element in drawerItems) {
+      if (element.isActive) element.isActive = false;
+      Get.back();
+      changeActiveView(const ProfileView());
+      changeAppBarTitle("Profil");
+      return;
+    }
   }
 
   //TODO pageler değiştirilecek
