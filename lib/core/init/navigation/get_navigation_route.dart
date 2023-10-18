@@ -11,7 +11,7 @@ import '../../../views/machines_electonic_page/screens/item_control_screen_with_
 import '../../../views/machines_electonic_page/screens/machine_electronic_detail.dart';
 import '../../../views/manage_machine_page/manage_machine_page.dart';
 import '../../../views/manage_machine_page/screen/edit_machine_screen.dart';
-import '../../../views/manage_products/manage_products.dart';
+import '../../../_trashcan/manage_products/manage_products.dart';
 import '../../../views/manage_users_page/manage_users_page.dart';
 import '../../../views/stocks_page/stocks_history/stocks_history.dart';
 
