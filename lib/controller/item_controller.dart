@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:enelsis/models/item_history_model.dart';
-import 'package:enelsis/models/item_model.dart';
+import 'package:enelsis/ui/stock/stock_query/model/item_model.dart';
 import 'package:enelsis/services/abstract_service.dart';
 import 'package:enelsis/services/sim_service.dart';
 import 'package:get/get.dart';

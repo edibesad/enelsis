@@ -6,7 +6,6 @@ import 'package:enelsis/ui/profile/_subivew/manage_machines/_subview/edit_machin
 import 'package:enelsis/ui/profile/_subivew/manage_machines/view/manage_machines_view.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_products/_subview/edit_product/view/edit_product_view.dart';
 import 'package:enelsis/views/manage_task_page/screen/edit_task_screen.dart';
-import 'package:enelsis/_trashcan/manage_users_page/screen/edit_user_screen.dart';
 import 'package:get/get.dart';
 import '../../../ui/authenticate/login/view/login_view.dart';
 import '../../../ui/profile/_subivew/manage_users/_subview/edit_user/view/edit_user_view.dart';

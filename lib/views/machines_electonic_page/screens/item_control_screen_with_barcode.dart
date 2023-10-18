@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 import 'package:enelsis/controller/item_controller.dart';
 import 'package:enelsis/models/item_input_model.dart';
-import 'package:enelsis/models/item_model.dart';
+import 'package:enelsis/ui/stock/stock_query/model/item_model.dart';
 import 'package:enelsis/utils/widgets/shimmer_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

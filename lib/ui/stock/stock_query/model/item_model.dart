@@ -1,4 +1,6 @@
-class ItemModel {
+import 'package:enelsis/core/base/model/base_model.dart';
+
+class ItemModel extends BaseModel {
   int? id;
   String? name;
   int? quantity;
@@ -13,4 +15,7 @@ class ItemModel {
 
   Map<String, dynamic> toJson() =>
       {"id": id, "name": name, "quantity": quantity, "unit": unit};
+
+  @override
+  fromJson(Map<String, dynamic> json) => ItemModel.fromJson(json);
 }
