@@ -1,10 +1,11 @@
 import 'package:enelsis/core/constants/navigation/navigation_constants.dart';
-import 'package:enelsis/view/home/view/home_view.dart';
-import 'package:enelsis/view/production/task_history/view/task_history_view.dart';
+import 'package:enelsis/ui/home/view/home_view.dart';
+import 'package:enelsis/ui/production/machine_details/view/machine_details_view.dart';
+import 'package:enelsis/ui/production/task_history/view/task_history_view.dart';
 import 'package:enelsis/views/manage_task_page/screen/edit_task_screen.dart';
 import 'package:enelsis/views/manage_users_page/screen/edit_user_screen.dart';
 import 'package:get/get.dart';
-import '../../../view/authenticate/login/view/login_view.dart';
+import '../../../ui/authenticate/login/view/login_view.dart';
 import '../../../views/machines_electonic_page/screens/item_control_screen_with_barcode.dart';
 import '../../../views/machines_electonic_page/screens/machine_electronic_detail.dart';
 import '../../../views/manage_machine_page/manage_machine_page.dart';
@@ -70,6 +71,10 @@ class GetNavigationRoute {
     GetPage(
       name: NavigationConstants.STOCK_HISTORY,
       page: () => const StocksHistory(),
+    ),
+    GetPage(
+      name: NavigationConstants.PRODUCTIN_MACHINE_DETAILS,
+      page: () => const MachineDetailsView(),
     )
   ];
 }

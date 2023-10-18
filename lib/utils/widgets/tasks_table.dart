@@ -1,4 +1,4 @@
-import 'package:enelsis/view/production/_model/machine_task_model.dart';
+import 'package:enelsis/ui/production/_model/machine_task_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

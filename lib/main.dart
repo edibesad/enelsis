@@ -1,7 +1,7 @@
 import 'package:enelsis/core/init/navigation/get_navigation_route.dart';
 import 'package:enelsis/utils/app_router.dart';
 import 'package:enelsis/utils/themes.dart';
-import 'package:enelsis/view/authenticate/login/view/login_view.dart';
+import 'package:enelsis/ui/authenticate/login/view/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

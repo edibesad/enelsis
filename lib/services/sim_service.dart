@@ -4,7 +4,7 @@ import 'package:enelsis/services/abstract_service.dart';
 import 'package:enelsis/utils/data_const.dart';
 
 class SimService extends AbstractService {
-  Duration duration = const Duration(seconds: 1);
+  Duration duration = const Duration(milliseconds: 100);
   // Duration duration = const Duration(seconds: 2);
 
   @override
