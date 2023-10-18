@@ -19,6 +19,7 @@ class _TaskHistoryDataTableState extends State<TaskHistoryDataTable> {
   late RenderBox? overlay;
   @override
   Widget build(BuildContext context) {
+    overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
     return GestureDetector(
       onTapDown: (details) {
         tapXY = details.globalPosition;

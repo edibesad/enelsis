@@ -1,4 +1,5 @@
 import 'package:enelsis/controller/task_controller.dart';
+import 'package:enelsis/product/widget/loading_widget.dart';
 import 'package:enelsis/ui/production/_model/machine_task_model.dart';
 import 'package:enelsis/utils/widgets/tasks_table.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class ManageTasksPage extends StatelessWidget {
         future: controller.getAllTasks(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
+            return const LoadingWidget();
           }
           return TasksTable(snapshot.data!, admin);
         },

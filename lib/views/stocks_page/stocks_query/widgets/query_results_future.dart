@@ -1,5 +1,6 @@
 import 'package:enelsis/controller/item_controller.dart';
 import 'package:enelsis/models/item_model.dart';
+import 'package:enelsis/product/widget/loading_widget.dart';
 import 'package:enelsis/views/stocks_page/stocks_query/widgets/item_detail_future.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +16,7 @@ class QueryResultsFuture extends StatelessWidget {
       future: itemController.getItemByName(query),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
+          return const LoadingWidget();
         } else if (snapshot.hasError) {
           return Text("Hata : ${snapshot.error}");
         } else if (snapshot.data!.isEmpty) {

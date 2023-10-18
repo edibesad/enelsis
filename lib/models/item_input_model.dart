@@ -1,5 +1,5 @@
 import 'package:enelsis/models/input_model.dart';
-import 'package:enelsis/models/product_model.dart';
+import 'package:enelsis/ui/profile/_subivew/manage_products/model/product_model.dart';
 
 class ProductInputModel {
   InputModel input;

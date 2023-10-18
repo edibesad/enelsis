@@ -1,4 +1,5 @@
 import 'package:enelsis/core/base/view/base_view.dart';
+import 'package:enelsis/product/widget/loading_widget.dart';
 import 'package:enelsis/product/widget/task_history_data_table.dart';
 import 'package:enelsis/ui/production/machine_details/view_model/machine_details_view_model.dart';
 import 'package:flutter/material.dart';
@@ -18,8 +19,9 @@ class MachineDetailsView extends StatelessWidget {
       viewModel: MachineDetailsViewModel(),
       onPageBuild: (context, viewModel) => Scaffold(
         appBar: buildAppBar(viewModel),
-        body:
-            viewModel.machine.value == null ? getLoading : buildBody(viewModel),
+        body: viewModel.machine.value == null
+            ? const LoadingWidget()
+            : buildBody(viewModel),
       ),
     );
   }
@@ -43,8 +45,6 @@ class MachineDetailsView extends StatelessWidget {
       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.r),
     );
   }
-
-  Center get getLoading => const Center(child: CircularProgressIndicator());
 
   AppBar buildAppBar(MachineDetailsViewModel viewModel) {
     return AppBar(title: Text("${viewModel.machine.value?.name}"), actions: [
@@ -166,7 +166,7 @@ class MachineDetailsView extends StatelessWidget {
 
   buildMachineTaskHistory(MachineDetailsViewModel viewModel) => Obx(
         () => viewModel.isLoading.value
-            ? getLoading
+            ? const LoadingWidget()
             : TaskHistoryDataTable(viewModel.tasks),
       );
 

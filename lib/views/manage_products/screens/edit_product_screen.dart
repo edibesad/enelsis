@@ -1,4 +1,4 @@
-import 'package:enelsis/models/product_model.dart';
+import 'package:enelsis/ui/profile/_subivew/manage_products/model/product_model.dart';
 import 'package:enelsis/core/components/text_fields/custom_form_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

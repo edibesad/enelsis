@@ -1,5 +1,6 @@
 import 'package:enelsis/controller/machine_electronic_controller.dart';
 import 'package:enelsis/controller/machines_controller.dart';
+import 'package:enelsis/product/widget/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +14,7 @@ class MachinesElectronicPage extends StatelessWidget {
       future: machinesController.getMachinesByType(3),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
+          return const LoadingWidget();
         }
         if (snapshot.hasError) {
           return Center(

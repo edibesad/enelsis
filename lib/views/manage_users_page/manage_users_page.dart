@@ -1,5 +1,6 @@
 import 'package:enelsis/controller/user_controller.dart';
 import 'package:enelsis/product/model/user_model.dart';
+import 'package:enelsis/product/widget/loading_widget.dart';
 import 'package:enelsis/views/manage_users_page/widgets/user_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,7 +19,7 @@ class ManageUsersPage extends StatelessWidget {
           future: controller.getUsers(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(child: CircularProgressIndicator());
+              return const LoadingWidget();
             }
             if (snapshot.hasError) {
               return const Center(

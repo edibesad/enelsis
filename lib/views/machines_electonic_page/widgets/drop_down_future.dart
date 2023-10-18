@@ -1,6 +1,6 @@
 import 'package:enelsis/controller/machine_electronic_controller.dart';
 import 'package:enelsis/controller/product_controller.dart';
-import 'package:enelsis/models/product_model.dart';
+import 'package:enelsis/ui/profile/_subivew/manage_products/model/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
