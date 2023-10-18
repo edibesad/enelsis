@@ -45,9 +45,7 @@ class EditMachineViewModel extends BaseViewModel {
   getDepartments() async {
     isDepartmentsLoading.value = true;
     var data = jsonDecode(await SimService().fetchDepartments()) as List;
-    print(data);
     departments.value = data.map((e) => DepartmentModel.fromJson(e)).toList();
     isDepartmentsLoading.value = false;
-    print(departments);
   }
 }
