@@ -1,4 +1,6 @@
-class DepartmentModel {
+import 'package:enelsis/core/base/model/base_model.dart';
+
+class DepartmentModel extends BaseModel {
   int? id;
   String? name;
 
@@ -17,4 +19,7 @@ class DepartmentModel {
         "id": id,
         "name": name,
       };
+
+  @override
+  fromJson(Map<String, dynamic> json) => DepartmentModel.fromJson(json);
 }

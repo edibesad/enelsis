@@ -1,4 +1,4 @@
-import 'package:enelsis/models/machine_model.dart';
+import '../../../ui/production/machines/model/machine_model.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_products/model/product_model.dart';
 import 'package:get/get.dart';
 

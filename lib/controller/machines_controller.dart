@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:enelsis/models/machine_model.dart';
+import '../../../ui/production/machines/model/machine_model.dart';
 import 'package:enelsis/services/abstract_service.dart';
 import 'package:enelsis/services/sim_service.dart';
 import 'package:get/get.dart';
