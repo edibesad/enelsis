@@ -1,6 +1,7 @@
 import 'package:enelsis/core/constants/navigation/navigation_constants.dart';
 import 'package:enelsis/ui/home/view/home_view.dart';
 import 'package:enelsis/ui/production/machine_details/view/machine_details_view.dart';
+import 'package:enelsis/ui/production/task_history/_subview/edit_task/view/edit_task_view.dart';
 import 'package:enelsis/ui/production/task_history/view/task_history_view.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_machines/_subview/edit_machine/view/edit_machine_view.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_machines/view/manage_machines_view.dart';
@@ -8,13 +9,11 @@ import 'package:enelsis/ui/profile/_subivew/manage_products/_subview/edit_produc
 import 'package:enelsis/ui/profile/_subivew/manage_products/view/manage_product_view.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_users/view/manage_users_view.dart';
 import 'package:enelsis/ui/stock/stock_history/view/stock_history_view.dart';
-import 'package:enelsis/views/manage_task_page/screen/edit_task_screen.dart';
 import 'package:get/get.dart';
 import '../../../ui/authenticate/login/view/login_view.dart';
 import '../../../ui/profile/_subivew/manage_users/_subview/edit_user/view/edit_user_view.dart';
 import '../../../views/machines_electonic_page/screens/item_control_screen_with_barcode.dart';
 import '../../../views/machines_electonic_page/screens/machine_electronic_detail.dart';
-import '../../../_trashcan/manage_products/manage_products.dart';
 
 class GetNavigationRoute {
   GetNavigationRoute._init();
@@ -43,7 +42,7 @@ class GetNavigationRoute {
     ),
     GetPage(
       name: NavigationConstants.EDIT_TASK,
-      page: () => const EditTaskScreen(),
+      page: () => const EditTaskView(),
     ),
     GetPage(
       name: NavigationConstants.MANAGE_MACHINES,
