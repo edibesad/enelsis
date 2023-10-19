@@ -71,7 +71,7 @@ class ItemControlView extends StatelessWidget {
                     Card(
                       child: ListTile(
                         title: const Text("Doğruluk durumu"),
-                        trailing: viewModel.qrValue.value == null
+                        trailing: Obx(() => viewModel.qrValue.value == null
                             ? const Icon(Icons.remove)
                             : (viewModel.qrValue.value == 1
                                 ? const Icon(
@@ -81,7 +81,7 @@ class ItemControlView extends StatelessWidget {
                                 : const Icon(
                                     Icons.close,
                                     color: Colors.red,
-                                  )),
+                                  ))),
                       ),
                     ),
                   ],
@@ -97,11 +97,10 @@ class ItemControlView extends StatelessWidget {
     );
   }
 
-  SizedBox buildImageOrScanner(ItemControlViewModel viewModel) {
-    return SizedBox.square(
-        dimension: 300.r,
-        child: Obx(
-          () => viewModel.image.value == null
+  buildImageOrScanner(ItemControlViewModel viewModel) {
+    return Obx(() => SizedBox.square(
+          dimension: 300.r,
+          child: viewModel.image.value == null
               ? buildScanner(viewModel)
               : buildImage(viewModel),
         ));
@@ -117,17 +116,7 @@ class ItemControlView extends StatelessWidget {
   MobileScanner buildScanner(ItemControlViewModel viewModel) {
     return MobileScanner(
       controller: viewModel.mobileScannerController,
-      onDetect: (barcodes) {
-        viewModel.mobileScannerController.stop;
-        viewModel.image.value = barcodes.image;
-        viewModel.mobileScannerController = MobileScannerController(
-          returnImage: true,
-        );
-        for (var element in barcodes.barcodes) {
-          viewModel.qrValue.value = int.tryParse(element.rawValue!);
-        }
-        viewModel.mobileScannerController.stop();
-      },
+      onDetect: viewModel.onDetect,
     );
   }
 

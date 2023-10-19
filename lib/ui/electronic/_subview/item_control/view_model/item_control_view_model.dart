@@ -17,7 +17,8 @@ class ItemControlViewModel extends BaseViewModel {
   Rxn<ItemModel> scannedItem = Rxn();
   var isShouldItemLoading = false.obs;
 
-  MobileScannerController mobileScannerController = MobileScannerController();
+  MobileScannerController mobileScannerController =
+      MobileScannerController(returnImage: true);
   @override
   void init() {
     if (Get.arguments is ProductInputModel) {
@@ -41,4 +42,18 @@ class ItemControlViewModel extends BaseViewModel {
 
   @override
   void setContext(BuildContext context) => viewModelContext = context;
+
+  void onDetect(BarcodeCapture barcodes) {
+    {
+      mobileScannerController.stop;
+      image.value = barcodes.image;
+      mobileScannerController = MobileScannerController(
+        returnImage: true,
+      );
+      for (var element in barcodes.barcodes) {
+        qrValue.value = int.tryParse(element.rawValue!);
+      }
+      mobileScannerController.stop();
+    }
+  }
 }
