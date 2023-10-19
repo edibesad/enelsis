@@ -1,4 +1,4 @@
-import 'package:enelsis/models/item_history_model.dart';
+import 'package:enelsis/ui/stock/stock_history/model/item_history_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

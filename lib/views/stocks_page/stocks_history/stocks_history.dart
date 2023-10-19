@@ -1,5 +1,5 @@
 import 'package:enelsis/controller/item_controller.dart';
-import 'package:enelsis/models/item_history_model.dart';
+import 'package:enelsis/ui/stock/stock_history/model/item_history_model.dart';
 import 'package:enelsis/views/stocks_page/stocks_history/widgets/stock_history_table.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

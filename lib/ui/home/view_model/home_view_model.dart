@@ -3,6 +3,7 @@ import 'package:enelsis/core/components/cards/welcome_card.dart';
 import 'package:enelsis/ui/home/model/drawer_item_model.dart';
 import 'package:enelsis/ui/production/machines/view/production_machines_view.dart';
 import 'package:enelsis/ui/production/task_history/view/task_history_view.dart';
+import 'package:enelsis/ui/stock/stock_history/view/stock_history_view.dart';
 import 'package:enelsis/ui/stock/stock_query/view/stock_query_view.dart';
 import 'package:enelsis/views/machines_electonic_page/machines_electronic_page.dart';
 import 'package:enelsis/ui/profile/view/profile_view.dart';
@@ -70,6 +71,6 @@ class HomeViewModel extends BaseViewModel {
     DrawerItemModel(
         icon: const Icon(Icons.history),
         title: "Stok Geçmişi",
-        view: const StocksHistory()),
+        view: const StockHistoryView()),
   ];
 }
