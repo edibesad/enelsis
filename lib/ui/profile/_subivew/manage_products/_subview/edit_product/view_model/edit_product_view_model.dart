@@ -8,7 +8,7 @@ class EditProdcutViewModel extends BaseViewModel {
   late ProductModel product;
   @override
   void init() {
-    if (Get.arguments == ProductModel) {
+    if (Get.arguments is ProductModel) {
       product = Get.arguments;
     }
   }

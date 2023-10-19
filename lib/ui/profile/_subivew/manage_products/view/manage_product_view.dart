@@ -11,6 +11,9 @@ class ManageProductsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView(
       viewModel: ManageProductsViewModel(),
+      onModelReady: (model) {
+        model.init();
+      },
       onPageBuild: (context, viewModel) => Scaffold(
         appBar: buildAppBar(viewModel),
         body: buildBody(viewModel),
@@ -30,6 +33,7 @@ class ManageProductsView extends StatelessWidget {
               : buildListView(viewModel));
 
   buildListView(ManageProductsViewModel viewModel) => ListView.builder(
+        itemCount: viewModel.products.length,
         itemBuilder: (context, index) => buildListCard(viewModel, index),
       );
 

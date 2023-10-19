@@ -5,6 +5,9 @@ import 'package:enelsis/ui/production/task_history/view/task_history_view.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_machines/_subview/edit_machine/view/edit_machine_view.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_machines/view/manage_machines_view.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_products/_subview/edit_product/view/edit_product_view.dart';
+import 'package:enelsis/ui/profile/_subivew/manage_products/view/manage_product_view.dart';
+import 'package:enelsis/ui/profile/_subivew/manage_users/view/manage_users_view.dart';
+import 'package:enelsis/ui/stock/stock_history/view/stock_history_view.dart';
 import 'package:enelsis/views/manage_task_page/screen/edit_task_screen.dart';
 import 'package:get/get.dart';
 import '../../../ui/authenticate/login/view/login_view.dart';
@@ -12,8 +15,6 @@ import '../../../ui/profile/_subivew/manage_users/_subview/edit_user/view/edit_u
 import '../../../views/machines_electonic_page/screens/item_control_screen_with_barcode.dart';
 import '../../../views/machines_electonic_page/screens/machine_electronic_detail.dart';
 import '../../../_trashcan/manage_products/manage_products.dart';
-import '../../../_trashcan/manage_users_page/manage_users_page.dart';
-import '../../../views/stocks_page/stocks_history/stocks_history.dart';
 
 class GetNavigationRoute {
   GetNavigationRoute._init();
@@ -30,7 +31,7 @@ class GetNavigationRoute {
     ),
     GetPage(
       name: NavigationConstants.MANAGE_USERS,
-      page: () => const ManageUsersPage(),
+      page: () => const ManageUsersView(),
     ),
     GetPage(
       name: NavigationConstants.EDIT_USER,
@@ -62,7 +63,7 @@ class GetNavigationRoute {
     ),
     GetPage(
       name: NavigationConstants.MANAGE_PRODUCTS,
-      page: () => const ManageProducts(),
+      page: () => const ManageProductsView(),
     ),
     GetPage(
       name: NavigationConstants.EDIT_PRODUCT,
@@ -70,7 +71,7 @@ class GetNavigationRoute {
     ),
     GetPage(
       name: NavigationConstants.STOCK_HISTORY,
-      page: () => const StocksHistory(),
+      page: () => const StockHistoryView(),
     ),
     GetPage(
       name: NavigationConstants.PRODUCTIN_MACHINE_DETAILS,

@@ -7,7 +7,7 @@ import 'package:enelsis/ui/stock/stock_history/view/stock_history_view.dart';
 import 'package:enelsis/ui/stock/stock_query/view/stock_query_view.dart';
 import 'package:enelsis/views/machines_electonic_page/machines_electronic_page.dart';
 import 'package:enelsis/ui/profile/view/profile_view.dart';
-import 'package:enelsis/views/stocks_page/stocks_history/stocks_history.dart';
+import 'package:enelsis/_trashcan/stocks_page/stocks_history/stocks_history.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
