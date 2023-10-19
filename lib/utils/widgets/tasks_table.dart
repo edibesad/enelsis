@@ -1,4 +1,4 @@
-import 'package:enelsis/models/machine_task_model.dart';
+import 'package:enelsis/ui/production/_model/machine_task_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -93,8 +93,6 @@ class _TasksTableState extends State<TasksTable> {
                                 ? "-"
                                 : "${e.createdBy!.name!} ${e.createdBy!.surname!}"),
                           ),
-                          DataCell(
-                              Text(e.machine == null ? "-" : e.machine!.name)),
                           DataCell(Text(
                               "${e.createdAt!.day}/${e.createdAt!.month}/${e.createdAt!.year} ${e.createdAt!.hour}:${e.createdAt!.minute}")),
                           DataCell(Text(e.taskTypeModel!.name!))
@@ -122,15 +120,12 @@ class _TasksTableState extends State<TasksTable> {
       widget.tasks.sort((task1, task2) => compareString(
           ascending, task1.createdBy!.name!, task2.createdBy!.name!));
     }
+
     if (columnIndex == 2) {
-      widget.tasks.sort((task1, task2) =>
-          compareString(ascending, task1.machine!.name, task2.machine!.name));
-    }
-    if (columnIndex == 3) {
       widget.tasks.sort((task1, task2) =>
           compareDates(ascending, task1.createdAt!, task2.createdAt!));
     }
-    if (columnIndex == 4) {
+    if (columnIndex == 3) {
       widget.tasks.sort((task1, task2) => compareString(
           ascending, task1.taskTypeModel!.name!, task2.taskTypeModel!.name!));
     }
