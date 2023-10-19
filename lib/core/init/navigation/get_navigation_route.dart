@@ -1,4 +1,6 @@
 import 'package:enelsis/core/constants/navigation/navigation_constants.dart';
+import 'package:enelsis/ui/electronic/_subview/electronic_machine_details/view/electronic_machine_details_view.dart';
+import 'package:enelsis/ui/electronic/_subview/item_control/view/item_control_view.dart';
 import 'package:enelsis/ui/home/view/home_view.dart';
 import 'package:enelsis/ui/production/machine_details/view/machine_details_view.dart';
 import 'package:enelsis/ui/production/task_history/_subview/edit_task/view/edit_task_view.dart';
@@ -12,8 +14,6 @@ import 'package:enelsis/ui/stock/stock_history/view/stock_history_view.dart';
 import 'package:get/get.dart';
 import '../../../ui/authenticate/login/view/login_view.dart';
 import '../../../ui/profile/_subivew/manage_users/_subview/edit_user/view/edit_user_view.dart';
-import '../../../views/machines_electonic_page/screens/item_control_screen_with_barcode.dart';
-import '../../../views/machines_electonic_page/screens/machine_electronic_detail.dart';
 
 class GetNavigationRoute {
   GetNavigationRoute._init();
@@ -54,11 +54,11 @@ class GetNavigationRoute {
     ),
     GetPage(
       name: NavigationConstants.MACHINE_ELECTRONIC_DETAIL,
-      page: () => const MachineElectronicDetailPage(),
+      page: () => const ElectronciMachineDetailsView(),
     ),
     GetPage(
       name: NavigationConstants.ITEM_CONTROL,
-      page: () => const ItemControlScreen(),
+      page: () => const ItemControlView(),
     ),
     GetPage(
       name: NavigationConstants.MANAGE_PRODUCTS,

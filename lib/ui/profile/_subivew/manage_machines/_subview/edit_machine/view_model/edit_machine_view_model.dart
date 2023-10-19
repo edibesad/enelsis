@@ -30,7 +30,6 @@ class EditMachineViewModel extends BaseViewModel {
 
   @override
   void init() {
-    print(Get.arguments);
     if (Get.arguments is MachineModel) {
       machine = Get.arguments;
       depId.value = machine.department.id!;

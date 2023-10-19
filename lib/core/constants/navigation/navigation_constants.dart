@@ -9,7 +9,7 @@ class NavigationConstants {
   static const EDIT_TASK = "/edit_task";
   static const MANAGE_MACHINES = "/manage_machines";
   static const EDIT_MACHINE = "/edit_machine";
-  static const MACHINE_ELECTRONIC_DETAIL = "/machine_elecronci_detaik";
+  static const MACHINE_ELECTRONIC_DETAIL = "/machine_elecroncic_details";
   static const ITEM_CONTROL = "/item_control";
   static const MANAGE_PRODUCTS = "/manage_products";
   static const EDIT_PRODUCT = "/edit_product";

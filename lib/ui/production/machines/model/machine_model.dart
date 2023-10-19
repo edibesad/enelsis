@@ -34,6 +34,7 @@ class MachineModel extends BaseModel {
             : MachineInfoModel.fromJson(json["info"]),
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,

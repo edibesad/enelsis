@@ -34,6 +34,7 @@ class UserModel extends BaseModel {
           : DepartmentModel.fromJson(json["department"]),
       isAdmin: json["isAdmin"]);
 
+  @override
   Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,

@@ -1,11 +1,11 @@
 import 'package:enelsis/core/base/model/base_view_model.dart';
 import 'package:enelsis/core/components/cards/welcome_card.dart';
+import 'package:enelsis/ui/electronic/view/electronic_view.dart';
 import 'package:enelsis/ui/home/model/drawer_item_model.dart';
 import 'package:enelsis/ui/production/machines/view/production_machines_view.dart';
 import 'package:enelsis/ui/production/task_history/view/task_history_view.dart';
 import 'package:enelsis/ui/stock/stock_history/view/stock_history_view.dart';
 import 'package:enelsis/ui/stock/stock_query/view/stock_query_view.dart';
-import 'package:enelsis/views/machines_electonic_page/machines_electronic_page.dart';
 import 'package:enelsis/ui/profile/view/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -49,7 +49,6 @@ class HomeViewModel extends BaseViewModel {
     }
   }
 
-  //TODO pageler değiştirilecek
   List<DrawerItemModel> drawerItems = [
     DrawerItemModel(
         icon: const Icon(Icons.precision_manufacturing),
@@ -62,7 +61,7 @@ class HomeViewModel extends BaseViewModel {
     DrawerItemModel(
         icon: const Icon(Icons.precision_manufacturing),
         title: "Makinler",
-        view: MachinesElectronicPage()),
+        view: const ElectronicView()),
     DrawerItemModel(
         icon: const Icon(Icons.search),
         title: "Stok Sorgula",

@@ -24,7 +24,6 @@ class StockQueryWithNameViewModel extends BaseViewModel {
       final json =
           jsonDecode(await SimService().fetchItemByName(query)) as List;
       items.value = json.map((e) => ItemModel.fromJson(e)).toList();
-      print(items);
     });
   }
 

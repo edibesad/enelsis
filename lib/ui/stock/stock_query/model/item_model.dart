@@ -13,6 +13,7 @@ class ItemModel extends BaseModel {
       quantity: json["quantity"],
       unit: json["unit"]);
 
+  @override
   Map<String, dynamic> toJson() =>
       {"id": id, "name": name, "quantity": quantity, "unit": unit};
 

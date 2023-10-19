@@ -23,7 +23,6 @@ class ManageMachinesViewModel extends BaseViewModel {
     isLoading.value = true;
     var json = jsonDecode(await SimService().fetchMachines()) as List;
     machines.value = json.map((e) => MachineModel.fromJson(e)).toList();
-    print(machines);
     isLoading.value = false;
   }
 
