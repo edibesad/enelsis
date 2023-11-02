@@ -73,11 +73,11 @@ class _TaskHistoryDataTableState extends State<TaskHistoryDataTable> {
               }
             : null,
         cells: [
-          buildDataCell(e.name ?? "-"),
-          buildDataCell(e.name == null
+          buildDataCell(e.description ?? "-"),
+          buildDataCell(e.description == null
               ? "-"
               : "${e.createdBy!.name!} ${e.createdBy!.surname!}"),
-          buildDataCell(e.machine!.name),
+          buildDataCell(e.machine!.name!),
           buildDataCell(
               "${e.createdAt!.day}/${e.createdAt!.month}/${e.createdAt!.year} ${e.createdAt!.hour}:${e.createdAt!.minute}"),
           buildDataCell(e.taskTypeModel!.name!)
@@ -117,8 +117,8 @@ class _TaskHistoryDataTableState extends State<TaskHistoryDataTable> {
 
   void onSort(int columnIndex, bool ascending) {
     if (columnIndex == 0) {
-      widget.tasks.sort(
-          (task1, task2) => compareString(ascending, task1.name!, task2.name!));
+      widget.tasks.sort((task1, task2) =>
+          compareString(ascending, task1.description!, task2.description!));
     }
     if (columnIndex == 1) {
       widget.tasks.sort((task1, task2) => compareString(

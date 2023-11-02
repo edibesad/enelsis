@@ -6,7 +6,7 @@ import 'package:enelsis/services/sim_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../production/machines/model/machine_model.dart';
+import '../../../product/model/machine_model.dart';
 
 class ElectronicViewModel extends BaseViewModel {
   RxList<MachineModel> machines = RxList.empty();

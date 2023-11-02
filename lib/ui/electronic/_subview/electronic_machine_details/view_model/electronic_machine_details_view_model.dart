@@ -9,7 +9,7 @@ import 'package:enelsis/ui/profile/_subivew/manage_products/model/product_model.
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../production/machines/model/machine_model.dart';
+import '../../../../../product/model/machine_model.dart';
 
 class ElectronciMachineDetailsViewModel extends BaseViewModel {
   MachineModel? machine;

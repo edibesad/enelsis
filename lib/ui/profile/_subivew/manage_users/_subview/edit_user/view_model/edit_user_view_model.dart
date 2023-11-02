@@ -34,7 +34,6 @@ class EditUserViewModel extends BaseViewModel {
       surnameTextEditingController = TextEditingController(text: user.surname);
       userNameTextEditingController =
           TextEditingController(text: user.username);
-      depId.value = user.department?.id;
     }
   }
 

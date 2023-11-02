@@ -4,7 +4,7 @@ import 'package:enelsis/core/base/model/base_view_model.dart';
 import 'package:enelsis/product/model/user_model.dart';
 import 'package:enelsis/services/sim_service.dart';
 import 'package:enelsis/ui/production/_model/machine_task_model.dart';
-import 'package:enelsis/ui/production/machines/model/machine_model.dart';
+import 'package:enelsis/product/model/machine_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,7 +26,7 @@ class EditTaskViewModel extends BaseViewModel {
     task = Get.arguments;
     machineId.value = task!.machine!.id;
     userId.value = task!.createdBy!.id;
-    taksNameTextEditingController.text = task!.name!;
+    taksNameTextEditingController.text = task!.description!;
     getMachines();
     getUsers();
   }

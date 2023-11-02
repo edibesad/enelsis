@@ -104,7 +104,7 @@ class EditTaskView extends StatelessWidget {
             value: viewModel.machineId.value,
             items: viewModel.machines
                 .map<DropdownMenuItem<int>>((element) => DropdownMenuItem(
-                    value: element.id, child: Text(element.name)))
+                    value: element.id, child: Text(element.name!)))
                 .toList(),
             onChanged: (value) {
               viewModel.machineId.value = value!;

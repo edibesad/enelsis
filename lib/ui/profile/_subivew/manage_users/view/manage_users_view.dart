@@ -49,7 +49,6 @@ class ManageUsersView extends StatelessWidget {
         child: ListTile(
           title: Text("${user.name!} ${user.surname!}"),
           leading: const Icon(Icons.person),
-          subtitle: Text(user.department!.name!),
           trailing: IconButton(
               onPressed: () => viewModel.navigateUserEdit(user),
               icon: const Icon(Icons.edit)),

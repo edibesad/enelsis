@@ -86,10 +86,10 @@ class _TasksTableState extends State<TasksTable> {
                             : null,
                         cells: [
                           DataCell(
-                            Text(e.name ?? "-"),
+                            Text(e.description ?? "-"),
                           ),
                           DataCell(
-                            Text(e.name == null
+                            Text(e.description == null
                                 ? "-"
                                 : "${e.createdBy!.name!} ${e.createdBy!.surname!}"),
                           ),
@@ -113,8 +113,8 @@ class _TasksTableState extends State<TasksTable> {
 
   void onSort(int columnIndex, bool ascending) {
     if (columnIndex == 0) {
-      widget.tasks.sort(
-          (task1, task2) => compareString(ascending, task1.name!, task2.name!));
+      widget.tasks.sort((task1, task2) =>
+          compareString(ascending, task1.description!, task2.description!));
     }
     if (columnIndex == 1) {
       widget.tasks.sort((task1, task2) => compareString(

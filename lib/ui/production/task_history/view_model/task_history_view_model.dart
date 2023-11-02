@@ -41,8 +41,8 @@ class TaskHistroyViewModel extends BaseViewModel {
 
   void onSort(int columnIndex, bool ascending) {
     if (columnIndex == 0) {
-      tasks.sort(
-          (task1, task2) => compareString(ascending, task1.name!, task2.name!));
+      tasks.sort((task1, task2) =>
+          compareString(ascending, task1.description!, task2.description!));
     }
     if (columnIndex == 1) {
       tasks.sort((task1, task2) => compareString(

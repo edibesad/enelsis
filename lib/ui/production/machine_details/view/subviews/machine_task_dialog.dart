@@ -25,27 +25,9 @@ class _MachineTaskDialogState extends State<MachineTaskDialog> {
         height: 180.h,
         child: Column(
           children: [
-            TextFormField(
-              controller: nameController,
-              decoration: const InputDecoration(labelText: "Görev ismi"),
-            ),
-            TextFormField(
-              controller: descController,
-              decoration: const InputDecoration(labelText: "Görev açıklaması"),
-            ),
-            SwitchListTile(
-              inactiveThumbColor: Colors.red,
-              inactiveTrackColor: Colors.red.shade100,
-              secondary: Text(
-                  status == true ? "Makine çalışıyor" : "Makine çalışmıyor"),
-              activeColor: Colors.green,
-              value: status,
-              onChanged: (value) {
-                setState(() {
-                  status = value;
-                });
-              },
-            )
+            buildTaskNameInput(),
+            buildTaskDescInput(),
+            buildSwitchListTile()
           ],
         ),
       )),
@@ -62,6 +44,36 @@ class _MachineTaskDialogState extends State<MachineTaskDialog> {
           child: const Text("İptal"),
         )
       ],
+    );
+  }
+
+  SwitchListTile buildSwitchListTile() {
+    return SwitchListTile(
+      inactiveThumbColor: Colors.red,
+      inactiveTrackColor: Colors.red.shade100,
+      secondary:
+          Text(status == true ? "Makine çalışıyor" : "Makine çalışmıyor"),
+      activeColor: Colors.green,
+      value: status,
+      onChanged: (value) {
+        setState(() {
+          status = value;
+        });
+      },
+    );
+  }
+
+  TextFormField buildTaskDescInput() {
+    return TextFormField(
+      controller: descController,
+      decoration: const InputDecoration(labelText: "Görev açıklaması"),
+    );
+  }
+
+  TextFormField buildTaskNameInput() {
+    return TextFormField(
+      controller: nameController,
+      decoration: const InputDecoration(labelText: "Görev ismi"),
     );
   }
 }

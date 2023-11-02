@@ -33,7 +33,7 @@ class ElectronciMachineDetailsView extends StatelessWidget {
               Card(
                 child: ListTile(
                   title: const Text("Makine adı"),
-                  subtitle: Text(viewModel.machine!.name),
+                  subtitle: Text(viewModel.machine!.name!),
                 ),
               ),
               Card(
@@ -56,7 +56,7 @@ class ElectronciMachineDetailsView extends StatelessWidget {
 
   buildBoardRadio(ElectronciMachineDetailsViewModel viewModel) =>
       Obx(() => Row(children: [
-            for (int i = 0; i < viewModel.machine!.info!.numberOfBoard; i++)
+            for (int i = 0; i < viewModel.machine!.info!.numberOfBoards!; i++)
               Expanded(
                 child: RadioListTile<int?>(
                   title: Text("Tabla ${i + 1}"),

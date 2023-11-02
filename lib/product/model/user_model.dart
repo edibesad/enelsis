@@ -3,7 +3,6 @@
 //     final userModel = userModelFromJson(jsonString);
 
 import 'package:enelsis/core/base/model/base_model.dart';
-import 'package:enelsis/models/department_model.dart';
 
 class UserModel extends BaseModel {
   int? id;
@@ -12,7 +11,6 @@ class UserModel extends BaseModel {
   String? surname;
   String? password;
   bool? isAdmin;
-  DepartmentModel? department;
 
   UserModel(
       {this.id,
@@ -20,7 +18,6 @@ class UserModel extends BaseModel {
       this.username,
       this.surname,
       this.password,
-      this.department,
       this.isAdmin});
 
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
@@ -29,9 +26,6 @@ class UserModel extends BaseModel {
       username: json["username"],
       surname: json["surname"],
       password: json["password"],
-      department: json["department"] == null
-          ? null
-          : DepartmentModel.fromJson(json["department"]),
       isAdmin: json["isAdmin"]);
 
   @override
@@ -41,18 +35,17 @@ class UserModel extends BaseModel {
         "username": username,
         "surname": surname,
         "password": password,
-        "department": department?.toJson(),
       };
 
   @override
-  fromJson(Map<String, dynamic> json) => UserModel(
-        id: json["id"],
-        name: json["name"],
-        username: json["username"],
-        surname: json["surname"],
-        password: json["password"],
-        department: json["department"] == null
-            ? null
-            : DepartmentModel.fromJson(json["department"]),
-      );
+  fromJson(Map<String, dynamic> json) {
+    print(json);
+    return UserModel(
+      id: json["id"],
+      name: json["name"],
+      username: json["username"],
+      surname: json["surname"],
+      password: json["password"],
+    );
+  }
 }

@@ -1,8 +1,7 @@
-import 'dart:convert';
+import 'package:enelsis/core/base/model/base_response_model.dart';
 import 'package:enelsis/core/base/model/base_view_model.dart';
-import 'package:enelsis/services/sim_service.dart';
 import 'package:enelsis/ui/production/_model/machine_task_model.dart';
-import 'package:enelsis/ui/production/machines/model/machine_model.dart';
+import 'package:enelsis/product/model/machine_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../view/subviews/machine_task_dialog.dart';
@@ -27,12 +26,16 @@ class MachineDetailsViewModel extends BaseViewModel {
         context: viewModelContext,
         builder: (context) => const MachineTaskDialog(),
       );
+
   getmachinesTasks() async {
     isLoading.value = true;
-    final json =
-        jsonDecode(await SimService().fetchTasksByMachineId(machine.value!.id))
-            as List;
-    tasks.value = json.map((e) => MachineTaskModel.fromJson(e)).toList();
+
+    BaseResponseModel<MachineTaskModel> respone = await networkManagerInstance
+        .dioGet<MachineTaskModel>("/machine_tasks", MachineTaskModel(),
+            queryParameters: {"machine_id": machine.value!.id});
+
+    tasks.value = respone.dataList!;
+
     isLoading.value = false;
   }
 }

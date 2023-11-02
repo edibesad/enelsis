@@ -31,21 +31,23 @@ class ProductionMachinesView extends StatelessWidget {
                   onTap: () =>
                       viewModel.navigateDetails(viewModel.machines[index]),
                   subtitle: buildSubtitle(viewModel, index),
-                  title: Text(viewModel.machines[index].name),
+                  title: Text(viewModel.machines[index].name!),
                   leading: buildStatusIcon(viewModel, index),
                   trailing: buildTaskWarn(viewModel, index),
                 ),
               ));
 
   Text? buildSubtitle(ProductionMachinesViewModel viewModel, int index) {
-    return (viewModel.machines[index].task!.status == null ||
+    return (viewModel.machines[index].task == null ||
+            viewModel.machines[index].task!.status == null ||
             !viewModel.machines[index].task!.status!)
         ? null
-        : Text("Görev İsmi : ${viewModel.machines[index].task!.name}");
+        : Text("Görev İsmi : ${viewModel.machines[index].task!.description}");
   }
 
   Icon? buildTaskWarn(ProductionMachinesViewModel viewModel, int index) {
-    return (viewModel.machines[index].task!.status == false)
+    return (viewModel.machines[index].task == null ||
+            viewModel.machines[index].task!.status == false)
         ? const Icon(
             Icons.warning,
             color: Colors.red,
@@ -54,10 +56,16 @@ class ProductionMachinesView extends StatelessWidget {
   }
 
   Icon buildStatusIcon(ProductionMachinesViewModel viewModel, int index) {
-    return Icon(
-      Icons.circle,
-      color: generateColorByStatus(viewModel.machines[index].task!.status),
-    );
+    return viewModel.machines[index].task == null
+        ? const Icon(
+            Icons.circle,
+            color: Colors.red,
+          )
+        : Icon(
+            Icons.circle,
+            color:
+                generateColorByStatus(viewModel.machines[index].task!.status),
+          );
   }
 
   MaterialColor generateColorByStatus(bool? status) {

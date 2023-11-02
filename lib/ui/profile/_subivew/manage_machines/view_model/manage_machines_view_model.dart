@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:enelsis/core/base/model/base_view_model.dart';
 import 'package:enelsis/core/constants/navigation/navigation_constants.dart';
 import 'package:enelsis/services/sim_service.dart';
-import 'package:enelsis/ui/production/machines/model/machine_model.dart';
+import 'package:enelsis/product/model/machine_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -29,12 +29,19 @@ class MachineDetailsView extends StatelessWidget {
   SingleChildScrollView buildBody(MachineDetailsViewModel viewModel) {
     return SingleChildScrollView(
       child: Column(children: [
+        SizedBox(height: 20.h),
         buildTitleText("Makine Bilgileri"),
+        SizedBox(height: 20.h),
         buildMachineInfo(viewModel),
+        SizedBox(height: 20.h),
         buildTitleText("Makine Son İşlem"),
+        SizedBox(height: 20.h),
         buildTaskInfo(viewModel),
+        SizedBox(height: 20.h),
         buildTitleText("Makine Geçmişi"),
-        buildMachineTaskHistory(viewModel)
+        SizedBox(height: 20.h),
+        buildMachineTaskHistory(viewModel),
+        SizedBox(height: 20.h),
       ]),
     );
   }
@@ -64,7 +71,7 @@ class MachineDetailsView extends StatelessWidget {
             child: ListTile(
               leading: const Icon(Icons.title),
               title: const Text("Makine ismi"),
-              subtitle: Text(viewModel.machine.value!.name),
+              subtitle: Text(viewModel.machine.value!.name!),
             ),
           ),
           Card(
@@ -75,16 +82,18 @@ class MachineDetailsView extends StatelessWidget {
                     viewModel.machine.value!.task!.status),
               ),
               title: const Text("Durum"),
-              subtitle: Text(viewModel.machine.value!.task!.status == null
-                  ? "Çalışmıyor"
-                  : (viewModel.machine.value!.task!.taskTypeModel!.name!)),
+              subtitle: Text(viewModel.machine.value!.task == null
+                  ? "Hiç görev eklenmemiş"
+                  : viewModel.machine.value!.task!.status == null
+                      ? "Çalışmıyor"
+                      : (viewModel.machine.value!.task!.taskTypeModel!.name!)),
             ),
           ),
           Card(
             child: ListTile(
               leading: const Icon(Icons.precision_manufacturing),
               title: const Text("Makine Tipi"),
-              subtitle: Text(viewModel.machine.value!.type.name!),
+              subtitle: Text(viewModel.machine.value!.type!.name!),
             ),
           ),
         ],
@@ -111,7 +120,7 @@ class MachineDetailsView extends StatelessWidget {
                 child: ListTile(
                   leading: const Icon(Icons.task),
                   title: const Text("Görev ismi"),
-                  subtitle: Text(viewModel.machine.value!.task!.name!),
+                  subtitle: Text(viewModel.machine.value!.task!.description!),
                 ),
               ),
               Card(

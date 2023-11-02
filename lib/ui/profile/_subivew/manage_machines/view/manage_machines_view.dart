@@ -40,8 +40,7 @@ class ManageMachinesView extends StatelessWidget {
         itemBuilder: (context, index) => Card(
           child: ListTile(
             leading: const Icon(Icons.precision_manufacturing),
-            title: Text(viewModel.machines[index].name),
-            subtitle: Text(viewModel.machines[index].department.name!),
+            title: Text(viewModel.machines[index].name!),
             trailing: IconButton(
               onPressed: () =>
                   viewModel.navigateToEdit(viewModel.machines[index]),
