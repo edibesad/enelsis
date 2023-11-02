@@ -6,6 +6,7 @@ import 'package:enelsis/ui/authenticate/login/view/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -50,6 +51,7 @@ class DevApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
+        builder: FToastBuilder(),
         supportedLocales: const [Locale('en'), Locale('tr')],
         locale: const Locale('tr'),
         unknownRoute: AppRouter.unknownPage,

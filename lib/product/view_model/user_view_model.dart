@@ -10,5 +10,6 @@ class UserViewModel extends BaseViewModel {
   @override
   void setContext(BuildContext context) => viewModelContext = context;
 
-  Rxn<UserModel> user = Rxn<UserModel>(UserModel(isAdmin: true));
+  Rxn<UserModel> user =
+      Rxn<UserModel>(UserModel(name: "asdasd", id: 3, isAdmin: true));
 }

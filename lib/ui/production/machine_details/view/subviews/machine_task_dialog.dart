@@ -1,39 +1,28 @@
+import 'package:enelsis/ui/production/machine_details/view_model/machine_details_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class MachineTaskDialog extends StatefulWidget {
-  const MachineTaskDialog({super.key});
-
+  const MachineTaskDialog({super.key, required this.viewModel});
+  final MachineDetailsViewModel viewModel;
   @override
   State<MachineTaskDialog> createState() => _MachineTaskDialogState();
 }
 
 class _MachineTaskDialogState extends State<MachineTaskDialog> {
-  final TextEditingController nameController = TextEditingController();
-
-  final TextEditingController descController = TextEditingController();
-
-  bool status = false;
-
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       title: const Text("Görev ekle"),
       content: Form(
-          child: SizedBox(
-        height: 180.h,
-        child: Column(
-          children: [
-            buildTaskNameInput(),
-            buildTaskDescInput(),
-            buildSwitchListTile()
-          ],
-        ),
-      )),
+          key: widget.viewModel.formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [buildTaskDescInput(), buildSwitchListTile()],
+          )),
       actions: [
         ElevatedButton(
-          onPressed: () {},
+          onPressed: widget.viewModel.addTask,
           child: const Text("Tamam"),
         ),
         ElevatedButton(
@@ -47,33 +36,28 @@ class _MachineTaskDialogState extends State<MachineTaskDialog> {
     );
   }
 
-  SwitchListTile buildSwitchListTile() {
-    return SwitchListTile(
-      inactiveThumbColor: Colors.red,
-      inactiveTrackColor: Colors.red.shade100,
-      secondary:
-          Text(status == true ? "Makine çalışıyor" : "Makine çalışmıyor"),
-      activeColor: Colors.green,
-      value: status,
-      onChanged: (value) {
-        setState(() {
-          status = value;
-        });
-      },
-    );
+  buildSwitchListTile() {
+    return Obx(() => SwitchListTile(
+          inactiveThumbColor: Colors.red,
+          inactiveTrackColor: Colors.red.shade100,
+          secondary: Text(widget.viewModel.status.value
+              ? "Makine çalışıyor"
+              : "Makine çalışmıyor"),
+          activeColor: Colors.green,
+          value: widget.viewModel.status.value,
+          onChanged: (value) {
+            setState(() {
+              widget.viewModel.status.value = value;
+            });
+          },
+        ));
   }
 
   TextFormField buildTaskDescInput() {
     return TextFormField(
-      controller: descController,
+      validator: widget.viewModel.validate,
+      controller: widget.viewModel.descController,
       decoration: const InputDecoration(labelText: "Görev açıklaması"),
-    );
-  }
-
-  TextFormField buildTaskNameInput() {
-    return TextFormField(
-      controller: nameController,
-      decoration: const InputDecoration(labelText: "Görev ismi"),
     );
   }
 }

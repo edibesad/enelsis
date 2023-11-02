@@ -10,13 +10,15 @@ class BaseResponseModel<T extends BaseModel> {
 
   BaseResponseModel({this.message, this.dataList, this.totalLen, this.result});
 
-  BaseResponseModel.fromJson(Map<String, dynamic> json, BaseModel model) {
+  BaseResponseModel.fromJson(Map<String, dynamic> json, {BaseModel? model}) {
     message = json['message'];
     if (json['dataList'] != null) {
       dataList = [];
-      json['dataList'].forEach((v) {
-        dataList!.add(model.fromJson(v));
-      });
+      if (model != null) {
+        json['dataList'].forEach((v) {
+          dataList!.add(model.fromJson(v));
+        });
+      }
     }
     totalLen = json['totalLen'];
     result = json['result'];

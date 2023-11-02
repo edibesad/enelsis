@@ -23,7 +23,7 @@ class NetworkManager {
       {Map<String, dynamic>? queryParameters}) async {
     try {
       final response = await _dio.get(path, queryParameters: queryParameters);
-      return BaseResponseModel<T>.fromJson(response.data, model);
+      return BaseResponseModel<T>.fromJson(response.data, model: model);
     } catch (e) {
       return BaseResponseModel(
           message: "Hata : $e", dataList: [], totalLen: 0, result: false);
@@ -39,5 +39,16 @@ class NetworkManager {
     //   return responseBody;
     // }
     // }
+  }
+
+  Future<BaseResponseModel> dioPost(
+      String path, Map<String, dynamic> queryParameters) async {
+    try {
+      final response = await _dio.post(path, queryParameters: queryParameters);
+      return BaseResponseModel.fromJson(response.data);
+    } catch (e) {
+      return BaseResponseModel(
+          message: "Hata : $e", dataList: [], totalLen: 0, result: false);
+    }
   }
 }
