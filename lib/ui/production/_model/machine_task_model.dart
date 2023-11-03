@@ -80,10 +80,9 @@ class MachineTaskModel extends BaseModel {
 
   MachineTaskModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    createdAt = DateTime.parse(json['created_at']);
+    createdAt = DateTime.parse(json['created_at']).toLocal();
     description = json['description'];
     status = json['status'];
-    print(json['created_by']);
     createdBy = json['created_by'] != null
         ? UserModel.fromJson(json['created_by'])
         : null;

@@ -74,19 +74,22 @@ class MachineDetailsView extends StatelessWidget {
               subtitle: Text(viewModel.machine.value!.name!),
             ),
           ),
-          Card(
-            child: ListTile(
-              leading: Icon(
-                Icons.circle,
-                color: generateColorByStatus(
-                    viewModel.machine.value!.task!.status),
+          Obx(
+            () => Card(
+              child: ListTile(
+                leading: Icon(
+                  Icons.circle,
+                  color: generateColorByStatus(
+                      viewModel.machine.value!.task!.status),
+                ),
+                title: const Text("Durum"),
+                subtitle: Text(viewModel.machine.value!.task == null
+                    ? "Hiç görev eklenmemiş"
+                    : viewModel.machine.value!.task!.status == null
+                        ? "Çalışmıyor"
+                        : (viewModel
+                            .machine.value!.task!.taskTypeModel!.name!)),
               ),
-              title: const Text("Durum"),
-              subtitle: Text(viewModel.machine.value!.task == null
-                  ? "Hiç görev eklenmemiş"
-                  : viewModel.machine.value!.task!.status == null
-                      ? "Çalışmıyor"
-                      : (viewModel.machine.value!.task!.taskTypeModel!.name!)),
             ),
           ),
           Card(
@@ -112,7 +115,7 @@ class MachineDetailsView extends StatelessWidget {
 
   //Makinenin son taskinin bilgileri
 
-  buildTaskInfo(MachineDetailsViewModel viewModel) => Column(
+  buildTaskInfo(MachineDetailsViewModel viewModel) => Obx(() => Column(
         children: [
           Column(
             children: [
@@ -171,7 +174,7 @@ class MachineDetailsView extends StatelessWidget {
             ],
           ),
         ],
-      );
+      ));
 
   buildMachineTaskHistory(MachineDetailsViewModel viewModel) => Obx(
         () => viewModel.isLoading.value
