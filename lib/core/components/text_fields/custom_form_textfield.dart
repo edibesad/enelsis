@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomFormTextField extends StatelessWidget {
@@ -8,12 +9,16 @@ class CustomFormTextField extends StatelessWidget {
       this.labelText,
       this.validator,
       this.prefixIcon,
-      this.onChanged});
+      this.onChanged,
+      this.keyboardType,
+      this.inputFormatters});
   final TextEditingController? controller;
   final String? labelText;
   final FormFieldValidator? validator;
   final Widget? prefixIcon;
   final ValueChanged<String>? onChanged;
+  final TextInputType? keyboardType;
+  final List<TextInputFormatter>? inputFormatters;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,8 +33,10 @@ class CustomFormTextField extends StatelessWidget {
         ),
         child: TextFormField(
           onChanged: onChanged,
+          inputFormatters: inputFormatters,
           validator: validator,
           controller: controller,
+          keyboardType: keyboardType,
           decoration: InputDecoration(
               prefixIcon: prefixIcon,
               enabledBorder: const UnderlineInputBorder(
