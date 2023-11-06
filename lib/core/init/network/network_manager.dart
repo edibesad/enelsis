@@ -35,13 +35,15 @@ class NetworkManager {
       }
       return responseModel;
     } on DioException catch (e) {
-      return e.response == null
+      final BaseResponseModel<T> response = e.response == null
           ? BaseResponseModel(
               message: "Hata : ${e.message}",
               dataList: [],
               totalLen: 0,
               result: false)
           : BaseResponseModel.fromJson(e.response!.data);
+      developer.log('\x1B[31m🛜 ${response.message}\x1B[0m');
+      return response;
     } catch (e) {
       return BaseResponseModel(
           message: "Hata : $e", dataList: [], totalLen: 0, result: false);
@@ -59,11 +61,11 @@ class NetworkManager {
     // }
   }
 
-  Future<BaseResponseModel> dioPost(
+  Future<BaseResponseModel<T>> dioPost<T extends BaseModel>(
       String path, Map<String, dynamic> queryParameters) async {
     try {
       final response = await _dio.post(path, queryParameters: queryParameters);
-      final responseModel = BaseResponseModel.fromJson(response.data);
+      final responseModel = BaseResponseModel<T>.fromJson(response.data);
       developer.log('\x1B[32m🛜 ${response.realUri}\x1B[0m');
 
       if (responseModel.result!) {
@@ -73,25 +75,27 @@ class NetworkManager {
       }
       return responseModel;
     } on DioException catch (e) {
-      return e.response == null
+      final BaseResponseModel<T> response = e.response == null
           ? BaseResponseModel(
               message: "Hata : ${e.message}",
               dataList: [],
               totalLen: 0,
               result: false)
           : BaseResponseModel.fromJson(e.response!.data);
+      developer.log('\x1B[31m🛜 ${response.message}\x1B[0m');
+      return response;
     } catch (e) {
       return BaseResponseModel(
           message: "Hata : $e", dataList: [], totalLen: 0, result: false);
     }
   }
 
-  Future<BaseResponseModel> dioDelete(String path,
+  Future<BaseResponseModel<T>> dioDelete<T extends BaseModel>(String path,
       {Map<String, dynamic>? queryParameters}) async {
     try {
       final response =
           await _dio.delete(path, queryParameters: queryParameters);
-      final responseModel = BaseResponseModel.fromJson(response.data);
+      final responseModel = BaseResponseModel<T>.fromJson(response.data);
       developer.log('\x1B[32m🛜 ${response.realUri}\x1B[0m');
 
       if (responseModel.result!) {
@@ -101,13 +105,15 @@ class NetworkManager {
       }
       return responseModel;
     } on DioException catch (e) {
-      return e.response == null
+      final BaseResponseModel<T> response = e.response == null
           ? BaseResponseModel(
               message: "Hata : ${e.message}",
               dataList: [],
               totalLen: 0,
               result: false)
           : BaseResponseModel.fromJson(e.response!.data);
+      developer.log('\x1B[31m🛜 ${response.message}\x1B[0m');
+      return response;
     } catch (e) {
       return BaseResponseModel(
           message: "Hata : $e", dataList: [], totalLen: 0, result: false);

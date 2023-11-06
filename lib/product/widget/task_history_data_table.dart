@@ -1,3 +1,4 @@
+import 'package:enelsis/core/init/network/network_manager.dart';
 import 'package:enelsis/product/view_model/user_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -68,7 +69,7 @@ class _TaskHistoryDataTableState extends State<TaskHistoryDataTable> {
             ? () {
                 showMenu(context: context, position: relRectSize, items: [
                   popupMenuEditItem(e),
-                  popupMenuDeleteItem(context)
+                  popupMenuDeleteItem(context, e)
                 ]);
               }
             : null,
@@ -84,7 +85,8 @@ class _TaskHistoryDataTableState extends State<TaskHistoryDataTable> {
         ]);
   }
 
-  PopupMenuItem<dynamic> popupMenuDeleteItem(BuildContext context) {
+  PopupMenuItem<dynamic> popupMenuDeleteItem(
+      BuildContext context, MachineTaskModel machineTaskModel) {
     return PopupMenuItem(
       child: const Text("Sil"),
       onTap: () {
@@ -96,7 +98,15 @@ class _TaskHistoryDataTableState extends State<TaskHistoryDataTable> {
                 content:
                     const Text("Görevi silmek istediğinizden emin misiniz?"),
                 actions: [
-                  ElevatedButton(onPressed: () {}, child: const Text("Evet")),
+                  ElevatedButton(
+                      onPressed: () {
+                        NetworkManager.instance!.dioDelete(
+                          "/machine_tasks/delete/${machineTaskModel.id}",
+                        );
+
+                        Get.back();
+                      },
+                      child: const Text("Evet")),
                   ElevatedButton(
                       onPressed: () {
                         Get.back();

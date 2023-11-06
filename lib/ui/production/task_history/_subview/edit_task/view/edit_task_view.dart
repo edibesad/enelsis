@@ -4,8 +4,6 @@ import 'package:enelsis/ui/production/task_history/_subview/edit_task/view_model
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:omni_datetime_picker/omni_datetime_picker.dart';
-
 import '../../../../../../core/components/text_fields/custom_form_textfield.dart';
 import '../../../../../../product/model/user_model.dart';
 
@@ -22,7 +20,10 @@ class EditTaskView extends StatelessWidget {
       },
       onPageBuild: (context, viewModel) => Scaffold(
         appBar: buildAppBar(),
-        body: buildBody(viewModel, context),
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 25.w),
+          child: buildBody(viewModel, context),
+        ),
       ),
     );
   }
@@ -40,28 +41,39 @@ class EditTaskView extends StatelessWidget {
           SizedBox(
             height: 10.h,
           ),
-          buildDateTimeButton(context),
+          buildSwitchTile(viewModel),
+          SizedBox(
+            height: 10.h,
+          ),
+          buildDateTimeButton(context, viewModel),
           SizedBox(
             height: 20.h,
           ),
-          buildSaveButton()
+          buildSaveButton(viewModel)
         ],
       ),
     );
   }
 
-  ElevatedButton buildSaveButton() =>
-      ElevatedButton(onPressed: () {}, child: const Text("Kaydet"));
+  buildSwitchTile(EditTaskViewModel viewModel) => Obx(() {
+        return SwitchListTile(
+            inactiveThumbColor: Colors.red,
+            inactiveTrackColor: Colors.red.shade100,
+            activeColor: Colors.green,
+            secondary: Text(viewModel.switchValue.value ?? false
+                ? "Makine çalışıyor"
+                : "Makine çalışmıyor"),
+            value: viewModel.switchValue.value ?? false,
+            onChanged: viewModel.switchOnChanged);
+      });
 
-  OutlinedButton buildDateTimeButton(BuildContext context) {
+  ElevatedButton buildSaveButton(EditTaskViewModel viewModel) => ElevatedButton(
+      onPressed: viewModel.saveButtonOnPressed, child: const Text("Kaydet"));
+
+  OutlinedButton buildDateTimeButton(
+      BuildContext context, EditTaskViewModel viewModel) {
     return OutlinedButton(
-        onPressed: () {
-          showOmniDateTimePicker(
-            context: context,
-            is24HourMode: true,
-            isForce2Digits: true,
-          );
-        },
+        onPressed: viewModel.onDateTimeButtonPressed,
         child: const Text("Tarih seç"));
   }
 
@@ -90,9 +102,7 @@ class EditTaskView extends StatelessWidget {
                   child: Text("${element.name!} ${element.surname!}"),
                 )
             ],
-            onChanged: (value) {
-              viewModel.userId.value = value!;
-            },
+            onChanged: viewModel.userOnChanged,
           ));
   }
 
@@ -106,22 +116,25 @@ class EditTaskView extends StatelessWidget {
                 .map<DropdownMenuItem<int>>((element) => DropdownMenuItem(
                     value: element.id, child: Text(element.name!)))
                 .toList(),
-            onChanged: (value) {
-              viewModel.machineId.value = value!;
-            },
+            onChanged: viewModel.onMachineChanged,
           ));
   }
 
-  CustomFormTextField buildTaskNameTextField(EditTaskViewModel viewModel) {
-    return CustomFormTextField(
+  buildTaskNameTextField(EditTaskViewModel viewModel) {
+    return Form(
+      key: viewModel.textFieldKey,
+      child: CustomFormTextField(
         controller: viewModel.taksNameTextEditingController,
-        labelText: "Görev adı",
-        validator: (value) => null);
+        labelText: "Görev açıklamsı",
+        validator: viewModel.validator,
+        onChanged: viewModel.onDescChanged,
+      ),
+    );
   }
 
   AppBar buildAppBar() {
     return AppBar(
-      title: const Text("Görev düzele"),
+      title: const Text("Görev düzenle"),
     );
   }
 }

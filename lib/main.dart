@@ -1,5 +1,5 @@
 import 'package:enelsis/core/init/navigation/get_navigation_route.dart';
-import 'package:enelsis/ui/production/machines/view/production_machines_view.dart';
+import 'package:enelsis/ui/production/task_history/view/task_history_view.dart';
 import 'package:enelsis/utils/app_router.dart';
 import 'package:enelsis/utils/themes.dart';
 import 'package:enelsis/ui/authenticate/login/view/login_view.dart';
@@ -10,7 +10,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 void main() {
-  runApp(const DevApp());
+  runApp(const MainApp());
 }
 
 class MainApp extends StatelessWidget {
@@ -57,7 +57,9 @@ class DevApp extends StatelessWidget {
         unknownRoute: AppRouter.unknownPage,
         getPages: GetNavigationRoute.getPages,
         theme: Themes.customTheme,
-        home: const Scaffold(body: ProductionMachinesView()),
+        home: Scaffold(body: Builder(builder: (context) {
+          return TaskHistoryView();
+        })),
       ),
     );
   }

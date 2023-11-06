@@ -1,8 +1,5 @@
-import 'dart:convert';
-
 import 'package:enelsis/core/base/model/base_view_model.dart';
 import 'package:enelsis/product/view_model/user_view_model.dart';
-import 'package:enelsis/services/sim_service.dart';
 import 'package:enelsis/ui/production/_model/machine_task_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -26,9 +23,9 @@ class TaskHistroyViewModel extends BaseViewModel {
 
   getTasks() async {
     isLoading.value = true;
-    tasks.value = (jsonDecode(await SimService().fetchTasks()) as List)
-        .map((e) => MachineTaskModel.fromJson(e))
-        .toList();
+    final response = await networkManagerInstance.dioGet(
+        "/machine_tasks", MachineTaskModel());
+    tasks.value = response.dataList!;
     isLoading.value = false;
   }
 

@@ -39,13 +39,6 @@ class UserModel extends BaseModel {
 
   @override
   fromJson(Map<String, dynamic> json) {
-    print(json);
-    return UserModel(
-      id: json["id"],
-      name: json["name"],
-      username: json["username"],
-      surname: json["surname"],
-      password: json["password"],
-    );
+    return UserModel.fromJson(json);
   }
 }

@@ -99,18 +99,12 @@ class MachineTaskModel extends BaseModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
-    data['created_at'] = createdAt;
+    data['created_at'] = createdAt!.toIso8601String();
     data['description'] = description;
     data['status'] = status;
-    if (createdBy != null) {
-      data['user'] = createdBy!.toJson();
-    }
-    if (machine != null) {
-      data['machine'] = machine!.toJson();
-    }
-    if (taskTypeModel != null) {
-      data['type'] = taskTypeModel!.toJson();
-    }
+    data['created_by'] = createdBy!.id;
+    data['machine_id'] = machine!.id;
+    data['task_type'] = status! ? 1 : 2;
     return data;
   }
 
