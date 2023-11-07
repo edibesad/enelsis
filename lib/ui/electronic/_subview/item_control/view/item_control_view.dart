@@ -126,7 +126,7 @@ class ItemControlView extends StatelessWidget {
           : Card(
               child: ListTile(
                 title: const Text("Takılması gereken ürün"),
-                subtitle: Text(viewModel.item.value!.name ?? "Boş"),
+                subtitle: Text(viewModel.input!.item!.name ?? "Boş"),
               ),
             ));
 }
