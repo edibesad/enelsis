@@ -95,7 +95,7 @@ class ElectronciMachineDetailsView extends StatelessWidget {
       BuildContext context,
       int index) {
     return GestureDetector(
-      onTap: () => viewModel.onGestureTap(index),
+      onTap: () => viewModel.onGestureTap(index + 1),
       child: Container(
         color: context.theme.primaryColor.withAlpha(100),
         child: Center(
