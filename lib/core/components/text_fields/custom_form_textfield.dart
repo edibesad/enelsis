@@ -14,7 +14,7 @@ class CustomFormTextField extends StatelessWidget {
       this.inputFormatters});
   final TextEditingController? controller;
   final String? labelText;
-  final FormFieldValidator? validator;
+  final FormFieldValidator<String>? validator;
   final Widget? prefixIcon;
   final ValueChanged<String>? onChanged;
   final TextInputType? keyboardType;

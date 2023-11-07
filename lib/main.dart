@@ -1,5 +1,5 @@
 import 'package:enelsis/core/init/navigation/get_navigation_route.dart';
-import 'package:enelsis/ui/production/task_history/view/task_history_view.dart';
+import 'package:enelsis/ui/electronic/_subview/add_input/view/add_input_view.dart';
 import 'package:enelsis/utils/app_router.dart';
 import 'package:enelsis/utils/themes.dart';
 import 'package:enelsis/ui/authenticate/login/view/login_view.dart';
@@ -58,7 +58,7 @@ class DevApp extends StatelessWidget {
         getPages: GetNavigationRoute.getPages,
         theme: Themes.customTheme,
         home: Scaffold(body: Builder(builder: (context) {
-          return TaskHistoryView();
+          return const AddInputView();
         })),
       ),
     );

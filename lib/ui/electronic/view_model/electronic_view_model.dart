@@ -1,11 +1,7 @@
-import 'dart:convert';
-
 import 'package:enelsis/core/base/model/base_view_model.dart';
 import 'package:enelsis/core/constants/navigation/navigation_constants.dart';
-import 'package:enelsis/services/sim_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../product/model/machine_model.dart';
 
 class ElectronicViewModel extends BaseViewModel {
@@ -27,12 +23,11 @@ class ElectronicViewModel extends BaseViewModel {
         path: NavigationConstants.MACHINE_ELECTRONIC_DETAIL, data: machine);
   }
 
-  Future<void> getMachines() async {
+  getMachines() async {
     isLoading.value = true;
-    String json = await SimService().fetchMachinesByType(3);
-    machines.value = (jsonDecode(json) as List)
-        .map((e) => MachineModel.fromJson(e))
-        .toList();
+    final response = await networkManagerInstance
+        .dioGet("/machines", MachineModel(), queryParameters: {"type_id": 2});
+    machines.value = response.dataList!;
     isLoading.value = false;
   }
 }

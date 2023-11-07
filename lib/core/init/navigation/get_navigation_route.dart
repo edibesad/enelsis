@@ -1,4 +1,5 @@
 import 'package:enelsis/core/constants/navigation/navigation_constants.dart';
+import 'package:enelsis/ui/electronic/_subview/add_input/view/add_input_view.dart';
 import 'package:enelsis/ui/electronic/_subview/electronic_machine_details/view/electronic_machine_details_view.dart';
 import 'package:enelsis/ui/electronic/_subview/item_control/view/item_control_view.dart';
 import 'package:enelsis/ui/home/view/home_view.dart';
@@ -75,6 +76,10 @@ class GetNavigationRoute {
     GetPage(
       name: NavigationConstants.PRODUCTIN_MACHINE_DETAILS,
       page: () => const MachineDetailsView(),
+    ),
+    GetPage(
+      name: NavigationConstants.ADD_INPUT,
+      page: () => const AddInputView(),
     )
   ];
 }

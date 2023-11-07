@@ -64,7 +64,7 @@ class ItemControlView extends StatelessWidget {
                       child: ListTile(
                         title: const Text("Giriş numarası"),
                         subtitle:
-                            Text((viewModel.input.input.order).toString()),
+                            Text((viewModel.input!.inputOrder).toString()),
                       ),
                     ),
                     buildShouldUseItem(viewModel),

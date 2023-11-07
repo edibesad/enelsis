@@ -1,19 +1,41 @@
 import 'package:enelsis/core/base/model/base_model.dart';
+import 'package:enelsis/ui/stock/stock_query/model/item_model.dart';
+
+import '../../../../profile/_subivew/manage_products/model/product_model.dart';
 
 class InputModel extends BaseModel {
-  int order;
-  int board;
-  InputModel({required this.order, required this.board});
-  factory InputModel.fromJson(Map<String, dynamic> json) =>
-      InputModel(order: json["order"], board: json["board"]);
+  int? id;
+  int? board;
+  int? inputOrder;
+  ProductModel? product;
+  ItemModel? item;
 
-  @override
-  fromJson(Map<String, dynamic> json) {
-    throw UnimplementedError();
+  InputModel({this.id, this.board, this.inputOrder, this.product, this.item});
+
+  InputModel.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    board = json['board'];
+    inputOrder = json['input_order'];
+    product =
+        json['product'] != null ? ProductModel.fromJson(json['product']) : null;
+    item = json['item'] != null ? ItemModel.fromJson(json['item']) : null;
   }
 
   @override
-  Map<String, Object?> toJson() {
-    throw UnimplementedError();
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['board'] = board;
+    data['input_order'] = inputOrder;
+    if (product != null) {
+      data['product_id'] = product!.id;
+    }
+    if (item != null) {
+      data['item_id'] = item!.id;
+    }
+    return data;
   }
+
+  @override
+  fromJson(Map<String, dynamic> json) => InputModel.fromJson(json);
 }
