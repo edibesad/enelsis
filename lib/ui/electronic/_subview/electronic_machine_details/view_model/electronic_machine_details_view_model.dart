@@ -1,8 +1,6 @@
-import 'dart:convert';
 import 'package:enelsis/core/base/model/base_response_model.dart';
 import 'package:enelsis/core/base/model/base_view_model.dart';
 import 'package:enelsis/core/constants/navigation/navigation_constants.dart';
-import 'package:enelsis/services/sim_service.dart';
 import 'package:enelsis/ui/electronic/_subview/electronic_machine_details/model/input_model.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_products/model/product_model.dart';
 import 'package:flutter/material.dart';
@@ -31,8 +29,9 @@ class ElectronciMachineDetailsViewModel extends BaseViewModel {
 
   getProducts() async {
     isProductsLoading.value = true;
-    final json = jsonDecode(await SimService().fetchProducts()) as List;
-    products.value = json.map((e) => ProductModel.fromJson(e)).toList();
+    BaseResponseModel<ProductModel> response = await networkManagerInstance
+        .dioGet<ProductModel>("/products", ProductModel());
+    products.value = response.dataList!;
     isProductsLoading.value = false;
   }
 
@@ -56,15 +55,17 @@ class ElectronciMachineDetailsViewModel extends BaseViewModel {
       );
       return;
     }
-    BaseResponseModel response = await networkManagerInstance
-        .dioGet("/inputs", InputModel(), queryParameters: {
-      "board": chosenBoard.value,
-      "input_order": index,
-      "product_id": chosenProduct.value!.id
-    });
+    InputModel input = InputModel(
+        board: chosenBoard.value,
+        inputOrder: index,
+        product: products
+            .firstWhere((element) => element.id == chosenProduct.value!.id));
+
+    BaseResponseModel<InputModel> response = await networkManagerInstance
+        .dioGet("/inputs", InputModel(), queryParameters: input.toJson());
 
     if (response.totalLen == 0) {
-      showAddInputDialog(index);
+      showAddInputDialog(index, input);
     } else if (response.totalLen != 1) {
       showWarnDialog();
     } else {
@@ -73,7 +74,7 @@ class ElectronciMachineDetailsViewModel extends BaseViewModel {
     }
   }
 
-  void showAddInputDialog(index) {
+  void showAddInputDialog(index, InputModel input) {
     showDialog(
       context: viewModelContext,
       builder: (context) => AlertDialog(
@@ -82,12 +83,8 @@ class ElectronciMachineDetailsViewModel extends BaseViewModel {
             const Text("Bu giriş için herhangi bir bilgi bulunmamaktadır."),
         actions: [
           ElevatedButton(
-              onPressed: () => Get.toNamed(NavigationConstants.ADD_INPUT,
-                  arguments: InputModel(
-                      board: chosenBoard.value,
-                      inputOrder: index,
-                      product: products.firstWhere(
-                          (element) => element.id == chosenProduct.value!.id))),
+              onPressed: () =>
+                  Get.toNamed(NavigationConstants.ADD_INPUT, arguments: input),
               child: const Text("Ekle")),
           ElevatedButton(
               onPressed: () => Get.back(), child: const Text("İptal"))
