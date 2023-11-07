@@ -20,13 +20,19 @@ class AddInputViewModel extends BaseViewModel {
   RxnInt productId = RxnInt();
   RxnInt itemId = RxnInt();
 
-  GlobalKey<FormState> key = GlobalKey<For  mState>();
+  GlobalKey<FormState> key = GlobalKey<FormState>();
+
+  TextEditingController boardTextEditingController = TextEditingController();
+  TextEditingController inputTextEditingController = TextEditingController();
 
   @override
   void init() {
     getProducts();
     getItems();
     input = Get.arguments ?? InputModel();
+    boardTextEditingController.text = input!.board.toString();
+    inputTextEditingController.text = input!.inputOrder.toString();
+
     if (input!.product != null) {
       productId.value = input!.product!.id;
     }
