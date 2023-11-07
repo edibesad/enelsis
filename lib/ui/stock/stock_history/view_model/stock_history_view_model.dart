@@ -1,9 +1,7 @@
-import 'dart:convert';
-
 import 'package:enelsis/core/base/model/base_view_model.dart';
-import 'package:enelsis/services/sim_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../core/base/model/base_response_model.dart';
 import '../model/item_history_model.dart';
 
 class StockHistoryViewModel extends BaseViewModel {
@@ -22,8 +20,9 @@ class StockHistoryViewModel extends BaseViewModel {
 
   getItems() async {
     isLoading.value = true;
-    final json = jsonDecode(await SimService().fetchItemHistory()) as List;
-    history.value = json.map((e) => ItemHistoryModel.fromJson(e)).toList();
+    BaseResponseModel<ItemHistoryModel> response = await networkManagerInstance
+        .dioGet<ItemHistoryModel>("/items", ItemHistoryModel());
+    history.value = response.dataList!;
     isLoading.value = false;
   }
 

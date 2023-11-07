@@ -1,13 +1,11 @@
-import 'dart:convert';
 import 'dart:typed_data';
-
+import 'package:enelsis/core/base/model/base_response_model.dart';
 import 'package:enelsis/core/base/model/base_view_model.dart';
-import 'package:enelsis/services/sim_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
-import '../../../model/item_model.dart';
+import '../../../model/item_stock_model.dart';
 
 class StockQueryWithQrViewModel extends BaseViewModel {
   MobileScannerController mobileScannerController = MobileScannerController(
@@ -18,7 +16,7 @@ class StockQueryWithQrViewModel extends BaseViewModel {
   RxnInt value = RxnInt();
   var isLoading = false.obs;
 
-  Rx<ItemModel> item = Rx(ItemModel());
+  Rxn<ItemStockModel> stock = Rxn(ItemStockModel());
   @override
   void init() {}
 
@@ -32,9 +30,13 @@ class StockQueryWithQrViewModel extends BaseViewModel {
       value.value = int.tryParse(element.rawValue!);
     }
     mobileScannerController.stop;
-    final json = jsonDecode(await SimService().fetchItemByID(value.value!));
-    final newItem = ItemModel.fromJson(json);
-    item.value = newItem;
+    BaseResponseModel<ItemStockModel> response = await networkManagerInstance
+        .dioGet("/stock/${value.value}", ItemStockModel());
+    if (response.totalLen != 0) {
+      stock.value = response.dataList!.first;
+    } else {
+      stock.value = ItemStockModel();
+    }
   }
 
   void resetOnPressed() {

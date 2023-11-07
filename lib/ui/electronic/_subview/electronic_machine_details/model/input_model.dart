@@ -1,6 +1,5 @@
 import 'package:enelsis/core/base/model/base_model.dart';
-import 'package:enelsis/ui/stock/stock_query/model/item_model.dart';
-
+import 'package:enelsis/ui/stock/stock_history/model/item_model.dart';
 import '../../../../profile/_subivew/manage_products/model/product_model.dart';
 
 class InputModel extends BaseModel {

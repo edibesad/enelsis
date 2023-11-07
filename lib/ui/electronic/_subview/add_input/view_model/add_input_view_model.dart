@@ -1,13 +1,11 @@
 import 'dart:developer';
-
 import 'package:enelsis/core/base/model/base_response_model.dart';
 import 'package:enelsis/core/base/model/base_view_model.dart';
 import 'package:enelsis/ui/electronic/_subview/electronic_machine_details/model/input_model.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_products/model/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../../stock/stock_query/model/item_model.dart';
+import '../../../../stock/stock_history/model/item_model.dart';
 
 class AddInputViewModel extends BaseViewModel {
   InputModel? input;

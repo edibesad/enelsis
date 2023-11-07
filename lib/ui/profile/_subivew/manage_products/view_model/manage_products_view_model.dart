@@ -1,8 +1,6 @@
-import 'dart:convert';
-
+import 'package:enelsis/core/base/model/base_response_model.dart';
 import 'package:enelsis/core/base/model/base_view_model.dart';
 import 'package:enelsis/core/constants/navigation/navigation_constants.dart';
-import 'package:enelsis/services/sim_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -28,8 +26,9 @@ class ManageProductsViewModel extends BaseViewModel {
 
   getProducts() async {
     isLoading.value = true;
-    final json = jsonDecode(await SimService().fetchProducts()) as List;
-    products.value = json.map((e) => ProductModel.fromJson(e)).toList();
+    BaseResponseModel<ProductModel> response = await networkManagerInstance
+        .dioGet<ProductModel>("/products", ProductModel());
+    products.value = response.dataList!;
     isLoading.value = false;
   }
 }
