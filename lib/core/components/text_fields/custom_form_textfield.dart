@@ -11,7 +11,8 @@ class CustomFormTextField extends StatelessWidget {
       this.prefixIcon,
       this.onChanged,
       this.keyboardType,
-      this.inputFormatters});
+      this.inputFormatters,
+      this.enabled = true});
   final TextEditingController? controller;
   final String? labelText;
   final FormFieldValidator<String>? validator;
@@ -19,6 +20,7 @@ class CustomFormTextField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
+  final bool enabled;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,6 +34,7 @@ class CustomFormTextField extends StatelessWidget {
           horizontal: 20,
         ),
         child: TextFormField(
+          enabled: enabled,
           onChanged: onChanged,
           inputFormatters: inputFormatters,
           validator: validator,
