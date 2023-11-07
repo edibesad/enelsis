@@ -62,6 +62,8 @@ class AddInputView extends StatelessWidget {
 
   CustomFormTextField buildBoardTextField(AddInputViewModel viewModel) {
     return CustomFormTextField(
+      enabled: false,
+      controller: viewModel.boardTextEditingController,
       labelText: "Tepsi Numarası",
       keyboardType: TextInputType.number,
       inputFormatters: <TextInputFormatter>[
@@ -79,6 +81,8 @@ class AddInputView extends StatelessWidget {
 
   CustomFormTextField buildInputTextField(AddInputViewModel viewModel) {
     return CustomFormTextField(
+      enabled: false,
+      controller: viewModel.inputTextEditingController,
       labelText: "Giriş Numarası",
       keyboardType: TextInputType.number,
       inputFormatters: <TextInputFormatter>[
