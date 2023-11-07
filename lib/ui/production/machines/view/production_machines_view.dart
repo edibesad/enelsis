@@ -9,10 +9,7 @@ class ProductionMachinesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseView<ProductionMachinesViewModel>(
-      onModelReady: (model) {
-        model.init();
-        model.setContext(context);
-      },
+      onModelReady: (model) {},
       viewModel: ProductionMachinesViewModel(),
       onPageBuild: (context, viewModel) => Obx(() => viewModel.isLoading.value
           ? loadingIndicator

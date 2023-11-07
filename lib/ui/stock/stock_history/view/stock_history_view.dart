@@ -12,10 +12,7 @@ class StockHistoryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseView<StockHistoryViewModel>(
-      onModelReady: (model) {
-        model.init();
-        model.setContext(context);
-      },
+      onModelReady: (model) {},
       viewModel: StockHistoryViewModel(),
       onPageBuild: (context, viewModel) => Obx(() => viewModel.isLoading.value
           ? const LoadingWidget()

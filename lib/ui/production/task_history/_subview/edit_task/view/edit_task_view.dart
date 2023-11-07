@@ -14,10 +14,7 @@ class EditTaskView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView<EditTaskViewModel>(
       viewModel: EditTaskViewModel(),
-      onModelReady: (model) {
-        model.init();
-        model.setContext(context);
-      },
+      onModelReady: (model) {},
       onPageBuild: (context, viewModel) => Scaffold(
         appBar: buildAppBar(),
         body: Padding(

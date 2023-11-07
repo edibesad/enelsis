@@ -12,10 +12,7 @@ class EditProductView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView(
       viewModel: EditProdcutViewModel(),
-      onModelReady: (model) {
-        model.init();
-        model.setContext(context);
-      },
+      onModelReady: (model) {},
       onPageBuild: (context, viewModel) => Scaffold(
         appBar: buildAppBar(viewModel),
         body: buildBody(viewModel),

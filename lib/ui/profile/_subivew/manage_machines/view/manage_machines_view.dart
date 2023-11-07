@@ -11,10 +11,7 @@ class ManageMachinesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView(
       viewModel: ManageMachinesViewModel(),
-      onModelReady: (model) {
-        model.setContext(context);
-        model.init();
-      },
+      onModelReady: (model) {},
       onPageBuild: (context, viewModel) => Scaffold(
         appBar: buildAppBar(),
         body: buildBody(viewModel),

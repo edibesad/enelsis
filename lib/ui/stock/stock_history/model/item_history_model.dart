@@ -1,15 +1,8 @@
-import 'dart:convert';
-
-import 'package:enelsis/ui/stock/stock_query/model/item_model.dart';
+import 'package:enelsis/core/base/model/base_model.dart';
+import 'package:enelsis/ui/stock/stock_history/model/item_model.dart';
 import 'package:enelsis/product/model/user_model.dart';
 
-ItemHistoryModel itemHistoryModelFromJson(String str) =>
-    ItemHistoryModel.fromJson(json.decode(str));
-
-String itemHistoryModelToJson(ItemHistoryModel data) =>
-    json.encode(data.toJson());
-
-class ItemHistoryModel {
+class ItemHistoryModel extends BaseModel {
   int? id;
   UserModel? createdBy;
   ItemModel? item;
@@ -43,6 +36,7 @@ class ItemHistoryModel {
         isSpent: json["is_spent"],
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         "id": id,
         "created_by": createdBy?.toJson(),
@@ -52,4 +46,7 @@ class ItemHistoryModel {
         "description": description,
         "is_spent": isSpent,
       };
+
+  @override
+  fromJson(Map<String, dynamic> json) => ItemHistoryModel.fromJson(json);
 }

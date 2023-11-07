@@ -13,9 +13,7 @@ class StockQueryWithQrView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView<StockQueryWithQrViewModel>(
       viewModel: StockQueryWithQrViewModel(),
-      onModelReady: (model) {
-        model.init();
-      },
+      onModelReady: (model) {},
       onPageBuild: (context, viewModel) => SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -93,22 +91,28 @@ class StockQueryWithQrView extends StatelessWidget {
         Expanded(
           child: ListTile(
             title: const Text("Malzeme Adı"),
-            subtitle: Text(viewModel.item.value.name ?? "Bulunamadı"),
+            subtitle: Text(viewModel.stock.value!.item == null ||
+                    viewModel.stock.value!.item!.name == null
+                ? "Bulunamadı"
+                : viewModel.stock.value!.item!.name!),
           ),
         ),
         const Divider(),
         Expanded(
           child: ListTile(
             title: const Text("Stok adedi"),
-            subtitle: Text(viewModel.item.value.quantity == null
+            subtitle: Text(viewModel.stock.value!.quantity == null
                 ? "Bulunamadı"
-                : viewModel.item.value.quantity.toString()),
+                : viewModel.stock.value!.quantity.toString()),
           ),
         ),
         const Divider(),
         ListTile(
           title: const Text("Birimi"),
-          subtitle: Text(viewModel.item.value.unit ?? "Bulunamadı"),
+          subtitle: Text(viewModel.stock.value!.item == null ||
+                  viewModel.stock.value!.item!.unit == null
+              ? "Bulunamadı"
+              : viewModel.stock.value!.item!.unit!),
         )
       ],
     );

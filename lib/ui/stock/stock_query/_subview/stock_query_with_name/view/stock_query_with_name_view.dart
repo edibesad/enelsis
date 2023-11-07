@@ -1,6 +1,6 @@
 import 'package:enelsis/core/base/view/base_view.dart';
 import 'package:enelsis/ui/stock/stock_query/_subview/stock_query_with_name/view_model/stock_query_with_name_view_model.dart';
-import 'package:enelsis/ui/stock/stock_query/model/item_model.dart';
+import 'package:enelsis/ui/stock/stock_query/model/item_stock_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -12,6 +12,7 @@ class StockQueryWithNameView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView<StockQueryWithNameViewModel>(
       viewModel: StockQueryWithNameViewModel(),
+      onModelReady: (model) {},
       onPageBuild: (context, viewModel) => Column(
         children: [
           SizedBox(
@@ -61,7 +62,7 @@ class StockQueryWithNameView extends StatelessWidget {
         itemCount: viewModel.items.length,
         itemBuilder: (context, index) => Card(
             child: ListTile(
-          title: Text(viewModel.items[index].name!),
+          title: Text(viewModel.items[index].item!.name!),
           onTap: () {
             showDialog(
                 context: context,
@@ -82,27 +83,27 @@ class StockQueryWithNameView extends StatelessWidget {
         )),
       );
 
-  buildItemDetail(ItemModel item) => Column(
+  buildItemDetail(ItemStockModel stock) => Column(
         children: [
           Expanded(
             child: ListTile(
               title: const Text("Malzeme Adı"),
-              subtitle: Text(item.name ?? "Bulunamadı"),
+              subtitle: Text(stock.item!.name ?? "Bulunamadı"),
             ),
           ),
           const Divider(),
           Expanded(
             child: ListTile(
               title: const Text("Stok adedi"),
-              subtitle: Text(item.quantity == null
+              subtitle: Text(stock.quantity == null
                   ? "Bulunamadı"
-                  : item.quantity.toString()),
+                  : stock.quantity.toString()),
             ),
           ),
           const Divider(),
           ListTile(
             title: const Text("Birimi"),
-            subtitle: Text(item.unit ?? "Bulunamadı"),
+            subtitle: Text(stock.item!.unit ?? "Bulunamadı"),
           )
         ],
       );

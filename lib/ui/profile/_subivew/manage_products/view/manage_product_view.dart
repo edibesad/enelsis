@@ -11,9 +11,7 @@ class ManageProductsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView(
       viewModel: ManageProductsViewModel(),
-      onModelReady: (model) {
-        model.init();
-      },
+      onModelReady: (model) {},
       onPageBuild: (context, viewModel) => Scaffold(
         appBar: buildAppBar(viewModel),
         body: buildBody(viewModel),

@@ -11,10 +11,7 @@ class ElectronciMachineDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView<ElectronciMachineDetailsViewModel>(
       viewModel: ElectronciMachineDetailsViewModel(),
-      onModelReady: (model) {
-        model.setContext(context);
-        model.init();
-      },
+      onModelReady: (model) {},
       onPageBuild: (context, viewModel) => Scaffold(
         appBar: buildAppBar(),
         body: buildBody(viewModel),

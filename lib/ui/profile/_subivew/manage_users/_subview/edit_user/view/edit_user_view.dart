@@ -1,5 +1,4 @@
 import 'package:enelsis/core/base/view/base_view.dart';
-import 'package:enelsis/models/department_model.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_users/_subview/edit_user/view_model/edit_user_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,10 +12,7 @@ class EditUserView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView<EditUserViewModel>(
       viewModel: EditUserViewModel(),
-      onModelReady: (model) {
-        model.init();
-        model.setContext(context);
-      },
+      onModelReady: (model) {},
       onPageBuild: (context, viewModel) => Scaffold(
         appBar: buildAppBar(),
         body: buildBody(viewModel),
@@ -55,10 +51,6 @@ class EditUserView extends StatelessWidget {
                     validator: (value) => null),
                 SizedBox(
                   height: 20.h,
-                ),
-                buildDepartmentsDropdown(viewModel),
-                SizedBox(
-                  height: 10.h,
                 ),
                 buildCanEditUserChechbox(viewModel),
                 SizedBox(
@@ -110,23 +102,5 @@ class EditUserView extends StatelessWidget {
             viewModel.canEditUsers.value = value!;
           },
         ));
-  }
-
-  buildDepartmentsDropdown(EditUserViewModel viewModel) {
-    return Obx(() => viewModel.isDepartmentsLoading.value
-        ? const CircularProgressIndicator()
-        : DropdownButton<int>(
-            value: viewModel.depId.value,
-            items: [
-              for (DepartmentModel element in viewModel.departments)
-                DropdownMenuItem(
-                  value: element.id,
-                  child: Text(element.name!),
-                )
-            ],
-            onChanged: (value) {
-              viewModel.depId.value = value;
-            },
-          ));
   }
 }

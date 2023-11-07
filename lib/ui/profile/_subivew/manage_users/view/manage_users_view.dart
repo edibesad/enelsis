@@ -12,9 +12,7 @@ class ManageUsersView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView(
       viewModel: ManageUsersViewModel(),
-      onModelReady: (model) {
-        model.init();
-      },
+      onModelReady: (model) {},
       onPageBuild: (context, viewModel) => Scaffold(
         appBar: buildAppBar(),
         body: buildBody(viewModel),

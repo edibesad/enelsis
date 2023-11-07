@@ -12,10 +12,7 @@ class EditMachineView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseView(
-      onModelReady: (model) {
-        model.setContext(context);
-        model.init();
-      },
+      onModelReady: (model) {},
       viewModel: EditMachineViewModel(),
       onPageBuild: (context, viewModel) => Scaffold(
         appBar: buildAppBar(),
