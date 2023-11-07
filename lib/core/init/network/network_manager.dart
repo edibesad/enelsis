@@ -3,6 +3,7 @@ import 'package:enelsis/core/base/model/base_model.dart';
 import 'package:enelsis/core/base/model/base_response_model.dart';
 import 'package:enelsis/core/constants/app/api_constants.dart';
 import 'dart:developer' as developer;
+import 'dart:io' show Platform;
 
 class NetworkManager {
   static NetworkManager? _instance;
@@ -10,7 +11,9 @@ class NetworkManager {
 
   NetworkManager._init() {
     final baseOptions = BaseOptions(
-      baseUrl: ApiConstants.BASEURL,
+      baseUrl: Platform.isAndroid
+          ? ApiConstants.ANDROID_LOCAL_HOST
+          : ApiConstants.LOCAL_HOST,
     );
     _dio = Dio(baseOptions);
   }
