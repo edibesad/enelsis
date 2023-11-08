@@ -16,4 +16,5 @@ class NavigationConstants {
   static const STOCK_HISTORY = "/stock_history";
   static const PRODUCTIN_MACHINE_DETAILS = "/production_machine_details";
   static const ADD_INPUT = "/add_input";
+  static const ADD_PRODUCT = "/add_product";
 }

@@ -1,17 +1,16 @@
 import 'package:enelsis/core/base/view/base_view.dart';
-import 'package:enelsis/ui/profile/_subivew/manage_products/_subview/edit_product/view_model/edit_product_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../../../../core/components/text_fields/custom_form_textfield.dart';
+import '../view_model/add_product_view_model.dart';
 
-class EditProductView extends StatelessWidget {
-  const EditProductView({super.key});
+class AddProductView extends StatelessWidget {
+  const AddProductView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BaseView(
-      viewModel: EditProdcutViewModel(),
+      viewModel: AddProductViewModel(),
       onModelReady: (model) {},
       onPageBuild: (context, viewModel) => Scaffold(
         appBar: buildAppBar(viewModel),
@@ -20,11 +19,11 @@ class EditProductView extends StatelessWidget {
     );
   }
 
-  buildAppBar(EditProdcutViewModel viewModel) => AppBar(
-        title: Text(viewModel.product.name!),
+  buildAppBar(AddProductViewModel viewModel) => AppBar(
+        title: const Text("Ürün ekle"),
       );
 
-  buildBody(EditProdcutViewModel viewModel) => Center(
+  buildBody(AddProductViewModel viewModel) => Center(
           child: Form(
         key: viewModel.formKey,
         child: Column(
@@ -43,7 +42,7 @@ class EditProductView extends StatelessWidget {
         ),
       ));
 
-  Row buildButtons(EditProdcutViewModel viewModel) {
+  Row buildButtons(AddProductViewModel viewModel) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -51,20 +50,11 @@ class EditProductView extends StatelessWidget {
         SizedBox(
           width: 20.w,
         ),
-        buildDeleteButton(viewModel)
       ],
     );
   }
 
-  ElevatedButton buildDeleteButton(EditProdcutViewModel viewModel) {
-    return ElevatedButton(
-      onPressed: viewModel.onDeletePressed,
-      style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-      child: const Text("Sil"),
-    );
-  }
-
-  ElevatedButton buildSaveButton(EditProdcutViewModel viewModel) {
+  ElevatedButton buildSaveButton(AddProductViewModel viewModel) {
     return ElevatedButton(
       onPressed: viewModel.onSavePressed,
       child: const Text("Kaydet"),

@@ -5,6 +5,7 @@ import 'package:enelsis/core/base/model/base_view_model.dart';
 import 'package:enelsis/models/machin_type_model.dart';
 import 'package:enelsis/models/machine_info_model.dart';
 import 'package:enelsis/product/model/machine_model.dart';
+import 'package:enelsis/ui/profile/_subivew/manage_machines/view_model/manage_machines_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -55,6 +56,7 @@ class AddMachineViewModel extends BaseViewModel {
           "/machines/add",
           machine.toJson()
             ..addAll(machine.info != null ? machine.info!.toJson() : {}));
+      Get.put(ManageMachinesViewModel()).getMachinesRequest();
       // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(viewModelContext)
           .showSnackBar(SnackBar(content: Text(response.message!)));

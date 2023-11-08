@@ -19,7 +19,12 @@ class ManageProductsView extends StatelessWidget {
     );
   }
 
-  buildAppBar(ManageProductsViewModel viewModel) => AppBar();
+  buildAppBar(ManageProductsViewModel viewModel) => AppBar(
+        actions: [
+          IconButton(
+              onPressed: viewModel.navigateToAdd, icon: const Icon(Icons.add))
+        ],
+      );
 
   buildBody(ManageProductsViewModel viewModel) =>
       Obx(() => viewModel.isLoading.value

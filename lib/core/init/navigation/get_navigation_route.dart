@@ -8,6 +8,7 @@ import 'package:enelsis/ui/production/task_history/_subview/edit_task/view/edit_
 import 'package:enelsis/ui/production/task_history/view/task_history_view.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_machines/_subview/edit_machine/view/edit_machine_view.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_machines/view/manage_machines_view.dart';
+import 'package:enelsis/ui/profile/_subivew/manage_products/_subview/add_product/view/add_product_view.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_products/_subview/edit_product/view/edit_product_view.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_products/view/manage_product_view.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_users/view/manage_users_view.dart';
@@ -80,6 +81,10 @@ class GetNavigationRoute {
     GetPage(
       name: NavigationConstants.ADD_INPUT,
       page: () => const AddInputView(),
+    ),
+    GetPage(
+      name: NavigationConstants.ADD_PRODUCT,
+      page: () => const AddProductView(),
     )
   ];
 }
