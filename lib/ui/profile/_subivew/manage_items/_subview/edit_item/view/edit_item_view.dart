@@ -10,6 +10,9 @@ class EditItemView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseView(
+      onModelReady: (model) {
+        model.init();
+      },
       viewModel: EditItemViewModel(),
       onPageBuild: (context, viewModel) => Scaffold(
         body: buildBody(viewModel),
