@@ -5,7 +5,6 @@ import 'package:enelsis/ui/production/_model/machine_task_model.dart';
 import 'package:enelsis/product/model/machine_model.dart';
 import 'package:enelsis/ui/production/machines/view_model/production_machines_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import '../view/subviews/machine_task_dialog.dart';
 
@@ -59,10 +58,12 @@ class MachineDetailsViewModel extends BaseViewModel {
         "task_type": status.value ? 1 : 2,
         "machine_id": machine.value!.id
       });
-      showToast(respone.message);
       Get.back();
+      updateMachineInfo();
       getmachinesTasks();
       getLastTask();
+      ScaffoldMessenger.of(viewModelContext)
+          .showSnackBar(SnackBar(content: Text(respone.message!)));
       Get.put(ProductionMachinesViewModel()).getMachinesRequest();
     }
   }
@@ -74,21 +75,19 @@ class MachineDetailsViewModel extends BaseViewModel {
     return null;
   }
 
-  void showToast(String? message) {
-    FToast fToast = FToast();
-    fToast.init(viewModelContext);
-    fToast.showToast(child: Text(message ?? ""));
-  }
-
   Future<void> getLastTask() async {
     final response = await networkManagerInstance.dioGet(
         "machine_tasks/last", MachineTaskModel(),
         queryParameters: {"machine_id": machine.value!.id});
-    print(response.totalLen);
     if (response.totalLen == 1) {
       machine.value!.task = response.dataList![0];
       machine.refresh();
-      print("değişti");
     }
+  }
+
+  Future<void> updateMachineInfo() async {
+    BaseResponseModel<MachineModel> response = await networkManagerInstance
+        .dioGet("/machines/${machine.value!.id}", MachineModel());
+    machine.value = response.dataList![0];
   }
 }

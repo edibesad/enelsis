@@ -65,7 +65,7 @@ class MachineDetailsView extends StatelessWidget {
 
   //Makine hakkındaki bilgileri görünütleyen widget
 
-  buildMachineInfo(MachineDetailsViewModel viewModel) => Column(
+  buildMachineInfo(MachineDetailsViewModel viewModel) => Obx(() => Column(
         children: [
           Card(
             child: ListTile(
@@ -80,7 +80,9 @@ class MachineDetailsView extends StatelessWidget {
                 leading: Icon(
                   Icons.circle,
                   color: generateColorByStatus(
-                      viewModel.machine.value!.task!.status),
+                      viewModel.machine.value!.task != null
+                          ? viewModel.machine.value!.task!.status
+                          : null),
                 ),
                 title: const Text("Durum"),
                 subtitle: Text(viewModel.machine.value!.task == null
@@ -100,7 +102,7 @@ class MachineDetailsView extends StatelessWidget {
             ),
           ),
         ],
-      );
+      ));
   //Makinenin statusuna göre renk generate ediliyor
   MaterialColor generateColorByStatus(bool? status) {
     switch (status) {
@@ -123,39 +125,62 @@ class MachineDetailsView extends StatelessWidget {
                 child: ListTile(
                   leading: const Icon(Icons.task),
                   title: const Text("Görev ismi"),
-                  subtitle: Text(viewModel.machine.value!.task!.description!),
+                  subtitle: Text(viewModel.machine.value!.task != null
+                      ? viewModel.machine.value!.task!.description!
+                      : ""),
                 ),
               ),
               Card(
                 child: ListTile(
                   leading: const Icon(Icons.description),
                   title: const Text("Açıklama"),
-                  subtitle:
-                      Text(viewModel.machine.value!.task!.description ?? "-"),
+                  subtitle: Text(viewModel.machine.value!.task != null
+                      ? viewModel.machine.value!.task!.description!
+                      : "-"),
                 ),
               ),
               Card(
                 child: ListTile(
                   leading: const Icon(Icons.engineering),
                   title: const Text("Operatör"),
-                  subtitle: Text(
-                      "${viewModel.machine.value!.task!.createdBy!.name} ${viewModel.machine.value!.task!.createdBy!.surname}"),
+                  subtitle: Text(viewModel.machine.value!.task != null
+                      ? "${viewModel.machine.value!.task!.createdBy!.name} ${viewModel.machine.value!.task!.createdBy!.surname}"
+                      : ""),
                 ),
               ),
               Card(
                 child: ListTile(
                   leading: const Icon(Icons.date_range),
                   title: const Text("Başlama tarihi"),
-                  subtitle: Text(generateDateString(
-                      viewModel.machine.value!.task!.createdAt!)),
+                  subtitle: Text(viewModel.machine.value!.task != null
+                      ? generateDateString(
+                          viewModel.machine.value!.task!.createdAt!)
+                      : ""),
                 ),
               ),
-              (viewModel.machine.value!.task!.createdAt!
-                              .difference(DateTime.now()))
-                          .inHours
-                          .abs() >
-                      2
-                  ? Card(
+              viewModel.machine.value!.task != null
+                  ? (viewModel.machine.value!.task!.createdAt!
+                                  .difference(DateTime.now()))
+                              .inHours
+                              .abs() >
+                          2
+                      ? Card(
+                          child: ListTile(
+                            onTap: () {
+                              viewModel.showAddTaskDialog();
+                            },
+                            leading: const Icon(
+                              Icons.warning,
+                              color: Colors.red,
+                            ),
+                            title: Text(
+                                "Makineye atanılan son işlemin ardından ${viewModel.machine.value!.task!.createdAt!.difference(DateTime.now()).inHours.abs()} saat geçti"),
+                            subtitle:
+                                const Text("Yeni işlem eklemek için tıklayın"),
+                          ),
+                        )
+                      : const SizedBox()
+                  : Card(
                       child: ListTile(
                         onTap: () {
                           viewModel.showAddTaskDialog();
@@ -164,13 +189,11 @@ class MachineDetailsView extends StatelessWidget {
                           Icons.warning,
                           color: Colors.red,
                         ),
-                        title: Text(
-                            "Makineye atanılan son işlemin ardından ${viewModel.machine.value!.task!.createdAt!.difference(DateTime.now()).inHours.abs()} saat geçti"),
+                        title: const Text("Makineye hiç işlem atanmamış"),
                         subtitle:
                             const Text("Yeni işlem eklemek için tıklayın"),
                       ),
                     )
-                  : const SizedBox()
             ],
           ),
         ],
