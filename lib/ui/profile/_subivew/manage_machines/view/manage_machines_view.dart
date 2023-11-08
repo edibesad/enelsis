@@ -21,6 +21,7 @@ class ManageMachinesView extends StatelessWidget {
 
   buildAppBar() => AppBar(
         title: const Text("Makineleri Yönet"),
+        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.add))],
       );
 
   buildBody(ManageMachinesViewModel viewModel) =>

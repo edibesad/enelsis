@@ -76,10 +76,10 @@ class MachineModel extends BaseModel {
     data['id'] = id;
     data['name'] = name;
     if (type != null) {
-      data['type'] = type!.toJson();
+      data['type_id'] = type!.id;
     }
     if (task != null) {
-      data['task'] = task!.toJson();
+      data['task'] = task!.id;
     }
     if (info != null) {
       data['info'] = info!.toJson();

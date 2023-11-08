@@ -21,7 +21,7 @@ class StockHistoryViewModel extends BaseViewModel {
   getItems() async {
     isLoading.value = true;
     BaseResponseModel<ItemHistoryModel> response = await networkManagerInstance
-        .dioGet<ItemHistoryModel>("/items", ItemHistoryModel());
+        .dioGet<ItemHistoryModel>("/items/history", ItemHistoryModel());
     history.value = response.dataList!;
     isLoading.value = false;
   }
