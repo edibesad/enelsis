@@ -73,7 +73,7 @@ class EditItemViewModel extends BaseViewModel {
                 child: const Text("İptal"))
           ],
           title: const Text("Uyarı!"),
-          content: const Text("Makineyi silmek istediğinizden emin misiniz?")),
+          content: const Text("Malzemeyi silmek istediğinizden emin misiniz?")),
     );
   }
 }
