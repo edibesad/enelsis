@@ -20,4 +20,6 @@ class NavigationConstants {
   static const MANAGE_ITEMS = "/manage_items";
   static const EDIT_ITEM = "/edit_item";
   static const ADD_ITEM = "/add_item";
+  static const MANAGE_STOCK = "/manage_stock";
+  static const EDIT_STOCK = "/edit_stock";
 }

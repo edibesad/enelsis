@@ -12,7 +12,10 @@ class MachineDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseView<MachineDetailsViewModel>(
-      onModelReady: (model) {},
+      onModelReady: (model) {
+        model.setContext(context);
+        model.init();
+      },
       viewModel: MachineDetailsViewModel(),
       onPageBuild: (context, viewModel) => Scaffold(
         appBar: buildAppBar(viewModel),

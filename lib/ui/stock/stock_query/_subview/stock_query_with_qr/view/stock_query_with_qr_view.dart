@@ -13,7 +13,10 @@ class StockQueryWithQrView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView<StockQueryWithQrViewModel>(
       viewModel: StockQueryWithQrViewModel(),
-      onModelReady: (model) {},
+      onModelReady: (model) {
+        model.setContext(context);
+        model.init();
+      },
       onPageBuild: (context, viewModel) => SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -12,7 +12,10 @@ class TaskHistoryView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView<TaskHistroyViewModel>(
       viewModel: TaskHistroyViewModel(),
-      onModelReady: (model) {},
+      onModelReady: (model) {
+        model.setContext(context);
+        model.init();
+      },
       onPageBuild: (context, viewModel) => Obx(() {
         viewModel.overlay =
             Overlay.of(context).context.findRenderObject() as RenderBox;

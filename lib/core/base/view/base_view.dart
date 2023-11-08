@@ -25,7 +25,6 @@ class _BaseViewState<T extends BaseViewModel> extends State<BaseView<T>> {
     super.initState();
     this.viewModel = Get.put(widget.viewModel);
     if (widget.onModelReady != null) widget.onModelReady!(widget.viewModel);
-    viewModel.init();
     viewModel.setContext(context);
   }
 

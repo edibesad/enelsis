@@ -13,7 +13,10 @@ class AddInputView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView(
       viewModel: AddInputViewModel(),
-      onModelReady: (model) {},
+      onModelReady: (model) {
+        model.setContext(context);
+        model.init();
+      },
       onPageBuild: (context, viewModel) => Scaffold(
         body: buildBody(viewModel),
       ),

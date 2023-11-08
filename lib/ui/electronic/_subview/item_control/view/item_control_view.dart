@@ -13,7 +13,10 @@ class ItemControlView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView(
       viewModel: ItemControlViewModel(),
-      onModelReady: (model) {},
+      onModelReady: (model) {
+        model.setContext(context);
+        model.init();
+      },
       onPageBuild: (context, viewModel) => Scaffold(
         appBar: AppBar(title: const Text("Ürün Kontrol Ekranı")),
         body: Builder(builder: (context) {

@@ -12,7 +12,10 @@ class EditUserView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView<EditUserViewModel>(
       viewModel: EditUserViewModel(),
-      onModelReady: (model) {},
+      onModelReady: (model) {
+        model.setContext(context);
+        model.init();
+      },
       onPageBuild: (context, viewModel) => Scaffold(
         appBar: buildAppBar(),
         body: buildBody(viewModel),

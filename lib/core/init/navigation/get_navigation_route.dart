@@ -13,6 +13,8 @@ import 'package:enelsis/ui/profile/_subivew/manage_machines/view/manage_machines
 import 'package:enelsis/ui/profile/_subivew/manage_products/_subview/add_product/view/add_product_view.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_products/_subview/edit_product/view/edit_product_view.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_products/view/manage_product_view.dart';
+import 'package:enelsis/ui/profile/_subivew/manage_stock/_subiview/edit_stock/view/edit_stock_view.dart';
+import 'package:enelsis/ui/profile/_subivew/manage_stock/view/manage_stock_view.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_users/view/manage_users_view.dart';
 import 'package:enelsis/ui/stock/stock_history/view/stock_history_view.dart';
 import 'package:get/get.dart';
@@ -100,6 +102,14 @@ class GetNavigationRoute {
     GetPage(
       name: NavigationConstants.ADD_ITEM,
       page: () => const AddItemView(),
+    ),
+    GetPage(
+      name: NavigationConstants.MANAGE_STOCK,
+      page: () => const ManageStockView(),
+    ),
+    GetPage(
+      name: NavigationConstants.EDIT_STOCK,
+      page: () => const EditStockView(),
     )
   ];
 }

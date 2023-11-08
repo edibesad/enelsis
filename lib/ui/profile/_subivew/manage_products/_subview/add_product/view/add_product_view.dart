@@ -11,7 +11,10 @@ class AddProductView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView(
       viewModel: AddProductViewModel(),
-      onModelReady: (model) {},
+      onModelReady: (model) {
+        model.setContext(context);
+        model.init();
+      },
       onPageBuild: (context, viewModel) => Scaffold(
         appBar: buildAppBar(viewModel),
         body: buildBody(viewModel),

@@ -11,7 +11,10 @@ class ElectronicView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView<ElectronicViewModel>(
         viewModel: ElectronicViewModel(),
-        onModelReady: (model) {},
+        onModelReady: (model) {
+          model.setContext(context);
+          model.init();
+        },
         onPageBuild: (context, viewModel) => Obx(
               () => viewModel.isLoading.value
                   ? const LoadingWidget()

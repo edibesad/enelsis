@@ -12,7 +12,10 @@ class StockQueryWithNameView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView<StockQueryWithNameViewModel>(
       viewModel: StockQueryWithNameViewModel(),
-      onModelReady: (model) {},
+      onModelReady: (model) {
+        model.setContext(context);
+        model.init();
+      },
       onPageBuild: (context, viewModel) => Column(
         children: [
           SizedBox(
