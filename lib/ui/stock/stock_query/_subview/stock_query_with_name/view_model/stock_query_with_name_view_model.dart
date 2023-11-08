@@ -9,20 +9,15 @@ class StockQueryWithNameViewModel extends BaseViewModel {
   TextEditingController textEditingController = TextEditingController();
   Timer? _debounce;
   var isLoading = false.obs;
-  String query = "";
 
   RxList<ItemStockModel> items = RxList.empty();
-  onSearchChanged(String query) {
+  onSubmitted(String query) async {
     isLoading.value = true;
-    if (_debounce?.isActive ?? false) _debounce!.cancel();
-    _debounce = Timer(const Duration(milliseconds: 500), () async {
-      isLoading.value = false;
-      this.query = query;
-      BaseResponseModel<ItemStockModel> response = await networkManagerInstance
-          .dioGet<ItemStockModel>("/items/history", ItemStockModel(),
-              queryParameters: {"key": query});
-      items.value = response.dataList!;
-    });
+    BaseResponseModel<ItemStockModel> response = await networkManagerInstance
+        .dioGet<ItemStockModel>("/stock/", ItemStockModel(),
+            queryParameters: {"key": query});
+    items.value = response.dataList!;
+    isLoading.value = false;
   }
 
   @override

@@ -47,7 +47,7 @@ class StockQueryWithNameView extends StatelessWidget {
 
   TextField buildTextField(StockQueryWithNameViewModel viewModel) {
     return TextField(
-      onChanged: viewModel.onSearchChanged,
+      onSubmitted: viewModel.onSubmitted,
       decoration: const InputDecoration(
           prefixIcon: Icon(Icons.search),
           enabledBorder: UnderlineInputBorder(
