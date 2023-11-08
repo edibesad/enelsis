@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:enelsis/core/base/model/base_response_model.dart';
 import 'package:enelsis/core/base/model/base_view_model.dart';
 import 'package:enelsis/core/constants/navigation/navigation_constants.dart';

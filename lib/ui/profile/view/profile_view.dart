@@ -61,6 +61,12 @@ class ProfileView extends StatelessWidget {
                   icon: const Icon(Icons.developer_board),
                   title: "Ürünleri Yönet",
                   path: NavigationConstants.MANAGE_PRODUCTS),
+              viewModel),
+          buildAdminWidgetCard(
+              AdminWidgetCardModel(
+                  icon: const Icon(Icons.developer_board),
+                  title: "Malzemeleri Yönet",
+                  path: NavigationConstants.MANAGE_ITEMS),
               viewModel)
         ],
       );

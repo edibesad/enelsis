@@ -17,4 +17,7 @@ class NavigationConstants {
   static const PRODUCTIN_MACHINE_DETAILS = "/production_machine_details";
   static const ADD_INPUT = "/add_input";
   static const ADD_PRODUCT = "/add_product";
+  static const MANAGE_ITEMS = "/manage_items";
+  static const EDIT_ITEM = "/edit_item";
+  static const ADD_ITEM = "/add_item";
 }
