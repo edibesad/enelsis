@@ -5,15 +5,19 @@ import 'package:enelsis/core/constants/app/api_constants.dart';
 import 'dart:developer' as developer;
 import 'dart:io' show Platform;
 
+import 'package:flutter/foundation.dart';
+
 class NetworkManager {
   static NetworkManager? _instance;
   late Dio _dio;
 
   NetworkManager._init() {
     final baseOptions = BaseOptions(
-      baseUrl: Platform.isAndroid
-          ? ApiConstants.ANDROID_LOCAL_HOST
-          : ApiConstants.LOCAL_HOST,
+      baseUrl: kIsWeb
+          ? ApiConstants.LOCAL_HOST
+          : Platform.isAndroid
+              ? ApiConstants.ANDROID_LOCAL_HOST
+              : ApiConstants.LOCAL_HOST,
     );
     _dio = Dio(baseOptions);
   }
