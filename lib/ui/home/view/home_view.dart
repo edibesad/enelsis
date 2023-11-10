@@ -12,6 +12,9 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView<HomeViewModel>(
       viewModel: HomeViewModel(),
+      onModelReady: (model) {
+        model.init();
+      },
       onPageBuild: (context, viewModel) => Scaffold(
         drawer: buildDrawer(viewModel),
         appBar: buildAppBar(viewModel),

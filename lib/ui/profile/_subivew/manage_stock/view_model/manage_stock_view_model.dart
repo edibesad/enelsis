@@ -18,7 +18,8 @@ class ManageStockViewModel extends BaseViewModel {
   void setContext(BuildContext context) {}
 
   navigateToEdit(ItemStockModel stock) {
-    Get.toNamed(NavigationConstants.EDIT_STOCK, arguments: stock);
+    navigation.navigateToPage(
+        path: NavigationConstants.EDIT_STOCK, data: stock);
   }
 
   getStocks() async {

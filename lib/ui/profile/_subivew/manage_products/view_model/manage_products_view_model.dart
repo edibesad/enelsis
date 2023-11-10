@@ -33,6 +33,6 @@ class ManageProductsViewModel extends BaseViewModel {
   }
 
   navigateToAdd() {
-    Get.toNamed(NavigationConstants.ADD_PRODUCT);
+    navigation.navigateToPage(path: NavigationConstants.ADD_PRODUCT);
   }
 }

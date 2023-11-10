@@ -69,8 +69,9 @@ class ElectronciMachineDetailsViewModel extends BaseViewModel {
     } else if (response.totalLen != 1) {
       showWarnDialog();
     } else {
-      Get.toNamed(NavigationConstants.ITEM_CONTROL,
-          arguments: response.dataList!.first);
+      navigation.navigateToPage(
+          path: NavigationConstants.ITEM_CONTROL,
+          data: response.dataList!.first);
     }
   }
 
@@ -83,8 +84,8 @@ class ElectronciMachineDetailsViewModel extends BaseViewModel {
             const Text("Bu giriş için herhangi bir bilgi bulunmamaktadır."),
         actions: [
           ElevatedButton(
-              onPressed: () =>
-                  Get.toNamed(NavigationConstants.ADD_INPUT, arguments: input),
+              onPressed: () => navigation.navigateToPage(
+                  path: NavigationConstants.ADD_INPUT, data: input),
               child: const Text("Ekle")),
           ElevatedButton(
               onPressed: () => Get.back(), child: const Text("İptal"))
