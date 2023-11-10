@@ -13,6 +13,9 @@ class AddMachineView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseView(
       viewModel: AddMachineViewModel(),
+      onModelReady: (model) {
+        model.init();
+      },
       onPageBuild: (context, viewModel) => Scaffold(
         appBar: buildAppBar(),
         body: buildBody(viewModel),

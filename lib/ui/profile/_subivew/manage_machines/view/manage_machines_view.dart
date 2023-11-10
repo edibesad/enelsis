@@ -16,15 +16,18 @@ class ManageMachinesView extends StatelessWidget {
         model.init();
       },
       onPageBuild: (context, viewModel) => Scaffold(
-        appBar: buildAppBar(),
+        appBar: buildAppBar(viewModel),
         body: buildBody(viewModel),
       ),
     );
   }
 
-  buildAppBar() => AppBar(
+  buildAppBar(ManageMachinesViewModel viewModel) => AppBar(
         title: const Text("Makineleri Yönet"),
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.add))],
+        actions: [
+          IconButton(
+              onPressed: viewModel.onAddMachineTap, icon: const Icon(Icons.add))
+        ],
       );
 
   buildBody(ManageMachinesViewModel viewModel) =>

@@ -30,4 +30,8 @@ class ManageMachinesViewModel extends BaseViewModel {
     machines.value = response.dataList!;
     isLoading.value = false;
   }
+
+  onAddMachineTap() {
+    navigation.navigateToPage(path: NavigationConstants.ADD_MACHINE);
+  }
 }
