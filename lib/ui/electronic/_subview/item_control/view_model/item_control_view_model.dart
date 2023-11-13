@@ -1,8 +1,5 @@
-import 'dart:convert';
 import 'dart:typed_data';
-
 import 'package:enelsis/core/base/model/base_view_model.dart';
-import 'package:enelsis/services/sim_service.dart';
 import 'package:enelsis/ui/electronic/_subview/electronic_machine_details/model/input_model.dart';
 import 'package:enelsis/ui/stock/stock_history/model/item_model.dart';
 import 'package:flutter/material.dart';
@@ -27,8 +24,7 @@ class ItemControlViewModel extends BaseViewModel {
   }
 
   getScannedItem() async {
-    final json = jsonDecode(await SimService().fetchItemByID(qrValue.value!));
-    scannedItem.value = ItemModel.fromJson(json);
+    //TODO: DOLDUR
   }
 
   @override

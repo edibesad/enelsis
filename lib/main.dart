@@ -1,7 +1,6 @@
 import 'package:enelsis/core/init/navigation/get_navigation_route.dart';
 import 'package:enelsis/ui/profile/_subivew/manage_stock/view/manage_stock_view.dart';
-import 'package:enelsis/utils/app_router.dart';
-import 'package:enelsis/utils/themes.dart';
+import 'package:enelsis/core/theme/themes.dart';
 import 'package:enelsis/ui/authenticate/login/view/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -30,7 +29,13 @@ class MainApp extends StatelessWidget {
           Locale('en'),
         ],
         locale: const Locale('en'),
-        unknownRoute: AppRouter.unknownPage,
+        unknownRoute: GetPage(
+          name: "/unknown",
+          page: () => Scaffold(
+            appBar: AppBar(),
+            body: const Center(child: Text("Hata!")),
+          ),
+        ),
         getPages: GetNavigationRoute.getPages,
         theme: Themes.customTheme,
         home: const LoginView(),
@@ -54,7 +59,6 @@ class DevApp extends StatelessWidget {
         builder: FToastBuilder(),
         supportedLocales: const [Locale('en'), Locale('tr')],
         locale: const Locale('tr'),
-        unknownRoute: AppRouter.unknownPage,
         getPages: GetNavigationRoute.getPages,
         theme: Themes.customTheme,
         home: Scaffold(body: Builder(builder: (context) {
